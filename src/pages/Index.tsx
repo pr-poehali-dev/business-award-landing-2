@@ -1,17 +1,733 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import Icon from "@/components/ui/icon";
 
-const Index = () => {
+const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/4c9ab3ea-8189-4b36-9522-2d3209ecf81f.jpg";
+const HANDSHAKE_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/1b44f2bb-9032-4bfc-a083-de75e1183e72.jpg";
+const TROPHIES_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/45ca7696-ba65-4a0e-89a8-e56b104b7e3d.jpg";
+
+const nominations = [
+  { num: "01", title: "Бизнес с душой", desc: "Компании, где за каждым продуктом стоит история и миссия" },
+  { num: "02", title: "Прорывной старт 2025", desc: "Лучший новый бизнес, запущенный в 2025 году" },
+  { num: "03", title: "Квантовый скачок 2025", desc: "Компания с наиболее значительным ростом за год" },
+  { num: "04", title: "Креативный код", desc: "Самый инновационный и нестандартный подход к бизнесу" },
+  { num: "05", title: "Женщины, создающие будущее", desc: "Признание выдающихся женщин-предпринимателей региона" },
+  { num: "06", title: "Сила стратегии", desc: "Мужской подход: стратегическое мышление и результат" },
+  { num: "07", title: "Лидер туристического направления", desc: "Лучший проект в сфере туризма и гостеприимства" },
+  { num: "08", title: "Семейный бизнес", desc: "Компании, объединяющие несколько поколений одной семьи" },
+  { num: "09", title: "Эксперт года 2025", desc: "Признанный специалист, формирующий стандарты отрасли" },
+  { num: "10", title: "Вклад в будущее Находки", desc: "Бизнес, меняющий жизнь города к лучшему" },
+];
+
+const criteria = [
+  { icon: "Star", label: "Сила бренда" },
+  { icon: "Shield", label: "Репутация" },
+  { icon: "MapPin", label: "Вклад в Находку" },
+  { icon: "Heart", label: "Социальная активность" },
+  { icon: "Eye", label: "Визуальный стиль" },
+  { icon: "Megaphone", label: "Продвижение" },
+  { icon: "Handshake", label: "Коллаборации" },
+  { icon: "FileText", label: "Убедительность заявки" },
+];
+
+const audience = [
+  "Малый и средний бизнес",
+  "Самозанятые",
+  "Эксперты",
+  "Семейные бизнесы",
+  "Социальные проекты",
+  "Креативные индустрии",
+  "Молодые предприниматели",
+  "Женщины-предприниматели",
+  "Производители",
+  "Туристический бизнес",
+];
+
+const juryPlaceholders = [
+  { name: "Иванова Анна Сергеевна", role: "Председатель ТПП г. Находка, эксперт регионального развития" },
+  { name: "Петров Михаил Владимирович", role: "Серийный предприниматель, основатель 5 компаний" },
+  { name: "Соколова Елена Игоревна", role: "Директор Агентства развития Приморского края" },
+  { name: "Кузнецов Андрей Борисович", role: "Вице-президент ТПП Приморья" },
+  { name: "Морозова Татьяна Алексеевна", role: "Руководитель центра поддержки предпринимательства" },
+];
+
+const nominantsPlaceholders = [
+  { name: "Александра Белова", role: "Основатель «Белый свет»" },
+  { name: "Дмитрий Захаров", role: "CEO «ПортЛогистик»" },
+  { name: "Марина Сотникова", role: "Владелец сети «Вкус Востока»" },
+  { name: "Игорь Трофимов", role: "Основатель IT-студии «Код Приморья»" },
+  { name: "Юлия Орлова", role: "Организатор ивентов «Праздник ДВ»" },
+  { name: "Виктор Лебедев", role: "Директор турагентства «Находка Тур»" },
+  { name: "Светлана Фролова", role: "Создатель бренда «Сила»" },
+  { name: "Роман Баринов", role: "Основатель «ЭкоФерма Приморье»" },
+];
+
+const programItems = [
+  { time: "17:30", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка" },
+  { time: "18:00", title: "Торжественное открытие", desc: "Приветственное слово организаторов и партнеров" },
+  { time: "19:00", title: "Церемония награждения", desc: "Вручение наград во всех номинациях" },
+  { time: "21:00", title: "Шоу-программа", desc: "Выступления артистов, розыгрыши призов" },
+  { time: "22:00", title: "Нетворкинг-сессия", desc: "Деловые знакомства, банкет, фотозона" },
+  { time: "24:00", title: "Завершение вечера", desc: "Финальные аккорды незабываемого праздника" },
+];
+
+const navLinks = [
+  { label: "О премии", href: "#about" },
+  { label: "Программа", href: "#program" },
+  { label: "Номинации", href: "#nominations" },
+  { label: "Стать номинантом", href: "#apply" },
+  { label: "Стать партнером", href: "#partners" },
+  { label: "Билеты", href: "#apply" },
+  { label: "Контакты", href: "#contacts" },
+];
+
+const tickerText = "✦ Первая ежегодная бизнес-премия Я Бренд ДВ · Находка · 11 июля 2026 · ГЕОКУПОЛ «ЛУ'НА» ";
+
+export default function Index() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  const scrollTo = (href: string) => {
+    setMenuOpen(false);
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
+    <div className="min-h-screen bg-white font-body text-charcoal overflow-x-hidden">
+
+      {/* ── HEADER ── */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
+          <button
+            onClick={() => scrollTo("#hero")}
+            className="font-display text-lg font-semibold tracking-widest text-charcoal"
+          >
+            Я&nbsp;<span className="text-gold">Бренд</span>&nbsp;ДВ
+          </button>
+
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <button
+                key={link.label + link.href}
+                onClick={() => scrollTo(link.href)}
+                className={
+                  link.label === "Стать номинантом"
+                    ? "btn-gold px-4 py-2"
+                    : "font-body text-xs font-medium tracking-widest uppercase transition-colors duration-200 hover:text-gold text-charcoal"
+                }
+              >
+                {link.label}
+              </button>
+            ))}
+          </nav>
+
+          <button className="lg:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
+            <Icon name={menuOpen ? "X" : "Menu"} size={22} />
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="lg:hidden bg-white border-t border-gold/20 px-6 py-4 flex flex-col gap-4 animate-fade-in">
+            {navLinks.map((link) => (
+              <button
+                key={link.label + link.href}
+                onClick={() => scrollTo(link.href)}
+                className="text-left font-body text-xs font-medium tracking-widest uppercase text-charcoal hover:text-gold transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* ── HERO ── */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${HERO_IMG})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/85" />
+
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
+          <div className="inline-flex items-center gap-3 border border-gold/50 px-6 py-2 mb-10">
+            <div className="w-5 h-px bg-gold" />
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Первая ежегодная</span>
+            <div className="w-5 h-px bg-gold" />
+          </div>
+
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 animate-fade-in">
+            Я&nbsp;<span className="gold-gradient-text italic">Бренд</span>&nbsp;ДВ
+          </h1>
+
+          <p className="font-display text-xl md:text-2xl text-white/80 font-light italic mt-4 mb-10">
+            Бизнес-премия · Находка
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
+            <div className="flex items-center gap-3 text-white/90">
+              <Icon name="Calendar" size={16} className="text-gold" />
+              <span className="font-body text-sm tracking-widest uppercase">11 июля 2026 · 18:00–24:00</span>
+            </div>
+            <div className="w-px h-4 bg-gold/40 hidden md:block" />
+            <div className="flex items-center gap-3 text-white/90">
+              <Icon name="MapPin" size={16} className="text-gold" />
+              <span className="font-body text-sm tracking-widest uppercase">г. Находка · ГЕОКУПОЛ «ЛУ'НА»</span>
+            </div>
+          </div>
+
+          <p className="font-body text-xs text-white/50 tracking-widest uppercase mb-10">
+            Организатор: продюсерский центр «Савкина Центр» при поддержке «Порт Восточный»
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onClick={() => scrollTo("#apply")} className="btn-gold">
+              Стать номинантом
+            </button>
+            <button
+              onClick={() => scrollTo("#partners")}
+              style={{ border: "1px solid rgba(255,255,255,0.5)", color: "#fff", background: "transparent" }}
+              className="btn-outline-gold"
+            >
+              Стать партнером
+            </button>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
+          <div className="w-px h-10 bg-gold/40" />
+          <Icon name="ChevronDown" size={16} className="text-gold/60" />
+        </div>
+      </section>
+
+      {/* ── TICKER 1 ── */}
+      <div className="bg-charcoal py-4 overflow-hidden border-y border-gold/20">
+        <div className="ticker-wrap">
+          <div className="ticker-content">
+            {Array(8).fill(tickerText).map((t, i) => (
+              <span key={i} className="font-body text-xs tracking-widest text-gold uppercase px-4">{t}</span>
+            ))}
+          </div>
+        </div>
       </div>
-      <span className="absolute bottom-8 left-1/2 -translate-x-1/2 inline-block bg-[#FF6637] text-white text-sm px-4 py-2 rounded-full whitespace-nowrap">
-        Подождите 5 минут, Юра создает первую версию проекта с нуля
-      </span>
+
+      {/* ── О ПРЕМИИ ── */}
+      <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center">
+        <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
+        <div className="section-divider mt-4 mb-10" />
+        <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
+          Признание лучших<br />
+          <em className="text-gold">предпринимателей</em> региона
+        </h2>
+        <p className="font-body text-base text-charcoal/70 leading-relaxed max-w-3xl mx-auto mb-6">
+          Бизнес-премия «Я Бренд ДВ» — это ежегодное торжество, созданное для признания самых ярких и значимых представителей предпринимательского сообщества Находки и Дальнего Востока. Мы верим, что каждый успешный бизнес — это вклад в развитие региона, его людей и будущего.
+        </p>
+        <p className="font-body text-base text-charcoal/70 leading-relaxed max-w-3xl mx-auto mb-12">
+          Премия объединяет предпринимателей, экспертов и лидеров мнений, формируя живое деловое сообщество, где рождаются партнёрства, вдохновение и новые возможности для роста.
+        </p>
+        <button className="btn-outline-gold">Положение премии</button>
+      </section>
+
+      {/* ── ЦЕЛИ И АТМОСФЕРА ── */}
+      <section className="bg-gold-subtle py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Атмосфера</span>
+              <div className="w-10 h-px bg-gold mt-4 mb-8" />
+              <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
+                Красная дорожка,<br />
+                <em className="text-gold">банкет и нетворкинг</em>
+              </h2>
+              <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
+                Вечер начнётся с торжественной красной дорожки и живой музыки. Гостей ждёт изысканный фуршет, атмосфера настоящего кино и профессиональная фотосъёмка. Каждый момент будет достоин обложки делового журнала.
+              </p>
+              <p className="font-body text-base text-charcoal/70 leading-relaxed mb-10">
+                После церемонии — открытая нетворкинг-сессия, где рождаются партнёрства, сделки и дружба между людьми, которые строят будущее Находки.
+              </p>
+              <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="aspect-[3/4] overflow-hidden">
+                <img src={HERO_IMG} alt="Церемония награждения" className="w-full h-full object-cover" />
+              </div>
+              <div className="aspect-[3/4] overflow-hidden mt-8">
+                <img src={HANDSHAKE_IMG} alt="Рукопожатие партнеров" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── НОМИНАНТЫ 2025 ── */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <img src={TROPHIES_IMG} alt="Золотые статуэтки" className="w-full aspect-square object-cover" />
+            </div>
+            <div className="order-1 lg:order-2">
+              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Аудитория</span>
+              <div className="w-10 h-px bg-gold mt-4 mb-8" />
+              <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
+                Номинанты&nbsp;<em className="text-gold">2025</em>
+              </h2>
+              <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
+                На одной сцене собираются представители власти, ведущие предприниматели города и региона, признанные эксперты и лидеры мнений. Это не просто церемония — это встреча людей, которые формируют деловой облик Дальнего Востока.
+              </p>
+              <p className="font-body text-base text-charcoal/70 leading-relaxed mb-10">
+                Каждая золотая статуэтка — символ признания, результатов и вклада в развитие Находки.
+              </p>
+              <div className="flex gap-4 flex-wrap">
+                <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+                <button onClick={() => scrollTo("#partners")} className="btn-outline-gold">Стать партнером</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ДЛЯ КОГО ── */}
+      <section className="bg-charcoal py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Для кого</span>
+          <div className="section-divider mt-4 mb-12" />
+          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-12 leading-tight">
+            Кто участвует в&nbsp;<em className="text-gold">премии</em>
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
+            {audience.map((tag) => (
+              <span
+                key={tag}
+                className="font-body text-xs tracking-wider uppercase px-5 py-3 border border-gold/30 text-white/80 hover:border-gold hover:text-gold transition-all duration-300 cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TICKER 2 (партнёры-заглушки) ── */}
+      <div className="bg-white py-5 overflow-hidden border-y border-gold/20">
+        <div className="ticker-wrap">
+          <div className="ticker-content" style={{ animationDuration: "50s" }}>
+            {Array(6).fill(null).map((_, i) => (
+              <div key={i} className="flex items-center gap-16 px-10">
+                {["Порт Восточный", "Савкина Центр", "Источник Силы", "Партнер ДВ", "Медиа Восток", "Бизнес Клуб"].map((name) => (
+                  <span key={name} className="font-display text-lg font-semibold text-charcoal/25 tracking-widest whitespace-nowrap">
+                    {name}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── 10 НОМИНАЦИЙ ── */}
+      <section id="nominations" className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">10 номинаций</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              В каких категориях<br />
+              <em className="text-gold">побеждают лучшие</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {nominations.map((nom) => (
+              <div key={nom.num} className="card-premium p-8 flex gap-6">
+                <span className="font-display text-4xl font-light text-gold/30 shrink-0 leading-none mt-1">{nom.num}</span>
+                <div>
+                  <h3 className="font-display text-2xl font-semibold text-charcoal mb-2">{nom.title}</h3>
+                  <p className="font-body text-sm text-charcoal/60 leading-relaxed">{nom.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
+      <section className="bg-gold-subtle py-20 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
+          <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
+            Как выбираются<br />
+            <em className="text-gold">победители</em>
+          </h2>
+          <p className="font-body text-base text-charcoal/70 leading-relaxed">
+            Победителей определяет авторитетное экспертное жюри — признанные профессионалы, предприниматели и общественные деятели региона. Каждая заявка оценивается по восьми ключевым критериям, гарантируя объективность и прозрачность выбора.
+          </p>
+        </div>
+      </section>
+
+      {/* ── ЖЮРИ ── */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Жюри</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Они определяют<br />
+              <em className="text-gold">победителей</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {juryPlaceholders.map((member, i) => (
+              <div key={i} className="card-premium p-6 text-center">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 mx-auto mb-4 flex items-center justify-center">
+                  <Icon name="User" size={28} className="text-gold/50" />
+                </div>
+                <h3 className="font-display text-base font-semibold text-charcoal mb-2 leading-tight">{member.name}</h3>
+                <p className="font-body text-xs text-charcoal/50 leading-relaxed">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
+      <section className="bg-charcoal py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
+              По каким критериям<br />
+              <em className="text-gold">оценивают заявки</em>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {criteria.map((item) => (
+              <div key={item.label} className="text-center group">
+                <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-4 group-hover:border-gold group-hover:bg-gold/5 transition-all duration-300">
+                  <Icon name={item.icon} size={24} className="text-gold" />
+                </div>
+                <p className="font-body text-xs tracking-wider text-white/70 uppercase">{item.label}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ОБЩИЕ НОМИНАЦИИ ── */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Специальные</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Особые<em className="text-gold"> награды</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
+              <div className="absolute top-4 right-4">
+                <Icon name="Crown" size={20} className="text-gold/30" />
+              </div>
+              <Icon name="Trophy" size={40} className="text-gold mx-auto mb-4" />
+              <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Гран-при премии</h3>
+              <p className="font-body text-sm text-charcoal/60 leading-relaxed">
+                Высшая награда вечера. Присуждается абсолютному лидеру среди всех номинантов по решению жюри.
+              </p>
+            </div>
+            <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
+              <div className="absolute top-4 right-4">
+                <Icon name="Users" size={20} className="text-gold/30" />
+              </div>
+              <Icon name="Heart" size={40} className="text-gold mx-auto mb-4" />
+              <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Народное голосование</h3>
+              <p className="font-body text-sm text-charcoal/60 leading-relaxed">
+                Победителя выбирает широкая аудитория — клиенты, партнёры и жители Находки отдают голоса за любимые бренды.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ГАЛЕРЕЯ НОМИНАНТОВ ── */}
+      <section className="bg-gold-subtle py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Галерея</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Наши&nbsp;<em className="text-gold">номинанты</em>
+            </h2>
+          </div>
+          <div className="overflow-x-auto pb-4 -mx-6 px-6">
+            <div className="flex gap-6 w-max">
+              {nominantsPlaceholders.map((n, i) => (
+                <div key={i} className="w-48 shrink-0 bg-white card-premium p-6 text-center">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20 mx-auto mb-4 flex items-center justify-center">
+                    <Icon name="User" size={28} className="text-gold/40" />
+                  </div>
+                  <h3 className="font-display text-base font-semibold text-charcoal mb-1">{n.name}</h3>
+                  <p className="font-body text-xs text-charcoal/50">{n.role}</p>
+                </div>
+              ))}
+              <div className="w-48 shrink-0 border border-dashed border-gold/40 p-6 text-center flex flex-col items-center justify-center gap-3 bg-white/50">
+                <div className="w-20 h-20 rounded-full border-2 border-dashed border-gold/30 flex items-center justify-center">
+                  <Icon name="Plus" size={28} className="text-gold/40" />
+                </div>
+                <p className="font-body text-xs text-charcoal/40 leading-relaxed">Здесь<br />может быть<br />ваш бренд</p>
+              </div>
+            </div>
+          </div>
+          <div className="text-center mt-10">
+            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ПРОГРАММА ── */}
+      <section id="program" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">11 июля 2026</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Программа<br />
+              <em className="text-gold">вечера</em>
+            </h2>
+          </div>
+          <div className="relative">
+            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-gold/20 hidden md:block" />
+            <div className="flex flex-col">
+              {programItems.map((item, i) => (
+                <div key={i} className="flex gap-6 md:gap-10 items-start py-8 border-b border-charcoal/5 last:border-0 group">
+                  <div className="shrink-0 w-16 text-right">
+                    <span className="font-display text-2xl font-light text-gold">{item.time}</span>
+                  </div>
+                  <div className="relative md:pl-8">
+                    <div className="absolute left-0 top-2 w-3 h-3 rounded-full border-2 border-gold bg-white hidden md:block group-hover:bg-gold transition-all duration-300" />
+                    <h3 className="font-display text-2xl font-semibold text-charcoal mb-1">{item.title}</h3>
+                    <p className="font-body text-sm text-charcoal/60">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-center mt-10">
+            <button className="btn-outline-gold">Подробнее о программе</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TICKER 3 ── */}
+      <div className="bg-charcoal py-4 overflow-hidden border-y border-gold/20">
+        <div className="ticker-wrap">
+          <div className="ticker-content">
+            {Array(8).fill(tickerText).map((t, i) => (
+              <span key={i} className="font-body text-xs tracking-widest text-gold uppercase px-4">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── ОРГАНИЗАТОРЫ ── */}
+      <section className="py-20 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Организаторы</span>
+          <div className="section-divider mt-4 mb-12" />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+            {[
+              { name: "Савкина Центр", sub: "Продюсерский центр", featured: false },
+              { name: "Я Бренд ДВ", sub: "Организатор премии", featured: true },
+              { name: "Источник силы", sub: "Бизнес-клуб", featured: false },
+            ].map((org) => (
+              <div key={org.name} className={`flex flex-col items-center gap-3 ${org.featured ? "scale-110" : ""}`}>
+                <div className={`w-28 h-28 border flex items-center justify-center ${org.featured ? "border-gold bg-gold/5" : "border-charcoal/15"}`}>
+                  <span className="font-display text-sm font-semibold text-charcoal/40 tracking-wider text-center px-2">{org.name}</span>
+                </div>
+                <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">{org.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── ПАРТНЕРЫ ── */}
+      <section id="partners" className="bg-gold-subtle py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Генеральные партнеры</span>
+            <div className="section-divider mt-4 mb-10" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {["Генеральный партнер I", "Генеральный партнер II", "Генеральный партнер III"].map((name, i) => (
+              <div key={i} className="bg-white border border-gold/20 p-10 text-center card-premium">
+                <div className="w-24 h-16 bg-charcoal/5 mx-auto mb-6 flex items-center justify-center">
+                  <span className="font-body text-xs text-charcoal/30 tracking-wider">Логотип</span>
+                </div>
+                <h3 className="font-display text-xl font-semibold text-charcoal mb-2">{name}</h3>
+                <p className="font-body text-xs text-charcoal/50 leading-relaxed">
+                  Описание партнёра и вклада в развитие премии и делового сообщества Находки
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mb-10">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Инфопартнеры</span>
+            <div className="section-divider mt-4 mb-10" />
+          </div>
+          <div className="flex flex-wrap justify-center gap-10 mb-20">
+            {["Инфопартнер I", "Инфопартнер II"].map((name, i) => (
+              <div key={i} className="w-36 h-20 bg-white border border-gold/20 flex items-center justify-center">
+                <span className="font-body text-xs text-charcoal/30 tracking-wider text-center px-2">{name}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mb-10">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Золотые партнеры</span>
+            <div className="section-divider mt-4 mb-10" />
+          </div>
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {Array(8).fill(null).map((_, i) => (
+              <div key={i} className="w-28 h-16 bg-white border border-gold/20 flex items-center justify-center">
+                <span className="font-body text-xs text-charcoal/20 tracking-wider">Логотип</span>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <button className="btn-gold">Стать партнером</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TICKER 4 ── */}
+      <div className="bg-charcoal py-4 overflow-hidden border-y border-gold/20">
+        <div className="ticker-wrap">
+          <div className="ticker-content">
+            {Array(8).fill(tickerText).map((t, i) => (
+              <span key={i} className="font-body text-xs tracking-widest text-gold uppercase px-4">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── ФОРМА ЗАЯВКИ ── */}
+      <section id="apply" className="py-24 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Подать заявку</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Стать<em className="text-gold"> номинантом</em>
+            </h2>
+            <p className="font-body text-sm text-charcoal/60 mt-4 max-w-xl mx-auto leading-relaxed">
+              Заполните форму прямо здесь — наша команда свяжется с вами в течение 24 часов
+            </p>
+          </div>
+          <div className="border border-gold/20 overflow-hidden">
+            <iframe
+              src="https://forms.yandex.ru/u/68a27f5890fa7b16db318143/"
+              frameBorder={0}
+              width="100%"
+              height="700"
+              className="block"
+              title="Форма заявки на номинацию"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER / КОНТАКТЫ ── */}
+      <footer id="contacts" className="bg-charcoal text-white py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            <div>
+              <div className="font-display text-2xl font-semibold tracking-widest mb-4">
+                Я&nbsp;<span className="text-gold">Бренд</span>&nbsp;ДВ
+              </div>
+              <p className="font-body text-xs text-white/40 leading-relaxed mb-6">
+                Первая ежегодная бизнес-премия<br />
+                г. Находка, Дальний Восток
+              </p>
+              <div className="flex gap-4">
+                {["TG", "VK", "IG"].map((sn) => (
+                  <button key={sn} className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-gold transition-all duration-300">
+                    <span className="font-body text-xs text-white/50 hover:text-gold">{sn}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-body text-xs tracking-[0.2em] uppercase text-white/40 mb-6">Навигация</h4>
+              <div className="flex flex-col gap-3">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.label + link.href}
+                    onClick={() => scrollTo(link.href)}
+                    className="text-left font-body text-xs tracking-wider text-white/60 hover:text-gold transition-colors uppercase"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="font-body text-xs tracking-[0.2em] uppercase text-white/40 mb-6">Контакты</h4>
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-3">
+                  <Icon name="MapPin" size={14} className="text-gold shrink-0" />
+                  <span className="font-body text-xs text-white/60">г. Находка, ГЕОКУПОЛ «ЛУ'НА»</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Calendar" size={14} className="text-gold shrink-0" />
+                  <span className="font-body text-xs text-white/60">11 июля 2026, 18:00–24:00</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Phone" size={14} className="text-gold shrink-0" />
+                  <a href="tel:+7" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
+                    +7 (___) ___-__-__ · Савкина Центр
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Mail" size={14} className="text-gold shrink-0" />
+                  <a href="mailto:info@ybrand-dv.ru" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
+                    info@ybrand-dv.ru
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="font-body text-xs text-white/30 tracking-wider">
+              © 2026 Я Бренд ДВ · Первая ежегодная бизнес-премия · Находка
+            </p>
+            <p className="font-body text-xs text-white/20 tracking-wider">
+              Организатор: продюсерский центр «Савкина Центр»
+            </p>
+          </div>
+        </div>
+      </footer>
+
     </div>
   );
-};
-
-export default Index;
+}
