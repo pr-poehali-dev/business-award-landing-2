@@ -157,8 +157,8 @@ export default function Index() {
       {/* ── HERO ── */}
       <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${HERO_IMG})` }}
+          className="absolute inset-0 bg-cover bg-no-repeat"
+          style={{ backgroundImage: `url(${HERO_IMG})`, backgroundPosition: 'center 20%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/85" />
 
