@@ -166,15 +166,11 @@ export default function Index() {
             <div className="w-5 h-px bg-gold" />
           </div>
 
-          <div className="flex justify-center mb-10 animate-fade-in">
-            <img
-              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/ec131266-4573-4b5b-93b8-966913931c47.jpg"
-              alt="Я Бренд ДВ"
-              className="w-72 md:w-96 lg:w-[480px] object-contain drop-shadow-2xl"
-            />
-          </div>
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 animate-fade-in">
+            Я&nbsp;<span className="gold-gradient-text italic">Бренд</span>&nbsp;ДВ
+          </h1>
 
-          <p className="font-display text-xl md:text-2xl text-white/80 font-light italic mb-10">
+          <p className="font-display text-xl md:text-2xl text-white/80 font-light italic mt-4 mb-10">
             Бизнес-премия · Находка
           </p>
 
