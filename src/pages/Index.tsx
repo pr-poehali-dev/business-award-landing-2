@@ -62,12 +62,12 @@ const nominantsPlaceholders = [
 ];
 
 const programItems = [
-  { time: "17:30", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка" },
-  { time: "18:00", title: "Торжественное открытие", desc: "Приветственное слово организаторов и партнеров" },
-  { time: "19:00", title: "Церемония награждения", desc: "Вручение наград во всех номинациях" },
-  { time: "21:00", title: "Шоу-программа", desc: "Выступления артистов, розыгрыши призов" },
-  { time: "22:00", title: "Нетворкинг-сессия", desc: "Деловые знакомства, банкет, фотозона" },
-  { time: "24:00", title: "Завершение вечера", desc: "Финальные аккорды незабываемого праздника" },
+  { time: "17:30", emoji: "🫧", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка" },
+  { time: "18:00", emoji: "🎙️", title: "Торжественное открытие", desc: "Приветственное слово организаторов и партнеров" },
+  { time: "19:00", emoji: "🏆", title: "Церемония награждения", desc: "Вручение наград во всех номинациях" },
+  { time: "21:00", emoji: "🎭", title: "Шоу-программа", desc: "Выступления артистов, розыгрыши призов" },
+  { time: "22:00", emoji: "🥂", title: "Нетворкинг-сессия", desc: "Деловые знакомства, банкет, фотозона" },
+  { time: "24:00", emoji: "✨", title: "Завершение вечера", desc: "Финальные аккорды незабываемого праздника" },
 ];
 
 const navLinks = [
@@ -225,9 +225,17 @@ export default function Index() {
       </div>
 
       {/* ── О ПРЕМИИ ── */}
-      <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center">
+      <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center relative overflow-hidden">
+        {/* Декоративные пузыри */}
+        <div className="absolute top-8 left-10 text-5xl opacity-10 select-none pointer-events-none">🫧</div>
+        <div className="absolute top-16 right-14 text-3xl opacity-10 select-none pointer-events-none">🫧</div>
+        <div className="absolute bottom-12 left-1/4 text-2xl opacity-10 select-none pointer-events-none">🫧</div>
         <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
         <div className="section-divider mt-4 mb-10" />
+        {/* Пьедестал */}
+        <div className="flex justify-center mb-6">
+          <span className="text-4xl opacity-60 select-none">🏆</span>
+        </div>
         <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
           Признание лучших<br />
           <em className="text-gold">предпринимателей</em> региона
@@ -243,8 +251,11 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
-              <div className="w-10 h-px bg-gold mt-4 mb-8" />
+              <div className="flex items-center gap-3 mb-2">
+                <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
+                <span className="text-lg opacity-50 select-none">🥂</span>
+              </div>
+              <div className="w-10 h-px bg-gold mt-2 mb-8" />
               <div className="mb-8">
                 <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight inline">
                   Цель&nbsp;
@@ -261,10 +272,10 @@ export default function Index() {
                 Цель премии — публично отметить успехи предпринимателей, экспертов, владельцев компаний (семейных, социальных, креативных), усилить деловые связи и запустить в Находке ежегодную традицию делового признания.
               </p>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
-                Фотокамеры, красная дорожка, изысканный банкет, живая музыка и лучшее окружение — это вечер, который запомнится навсегда! Вы много работали, ставили амбициозные цели и достигали их. А сейчас пришло время насладиться качественным отдыхом!
+                Фотокамеры, красная дорожка, изысканный банкет, живая музыка и лучшее окружение — это вечер, который запомнится навсегда! <span className="text-base select-none">🎉</span> Вы много работали, ставили амбициозные цели и достигали их. А сейчас пришло время насладиться качественным отдыхом!
               </p>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-10">
-                Мы готовимся вас удивлять, вдохновлять и заряжать! Этот вечер — шанс не только провести время в красивом окружении, но и сделать важный шаг в развитии своего бизнеса.
+                Мы готовимся вас удивлять, вдохновлять и заряжать! <span className="text-base select-none">✨</span> Этот вечер — шанс не только провести время в красивом окружении, но и сделать важный шаг в развитии своего бизнеса.
               </p>
               <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
             </div>
@@ -350,9 +361,12 @@ export default function Index() {
         <div className="max-w-5xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Для кого</span>
           <div className="section-divider mt-4 mb-12" />
-          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-12 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-4 leading-tight">
             Кто участвует в&nbsp;<em className="text-gold">премии</em>
           </h2>
+          <div className="flex justify-center gap-3 mb-10 text-2xl select-none opacity-40">
+            <span>🏅</span><span>🌟</span><span>🥂</span><span>🎖️</span><span>✨</span>
+          </div>
           <div className="flex flex-wrap justify-center gap-3">
             {audience.map((tag) => (
               <span
@@ -415,9 +429,17 @@ export default function Index() {
       </section>
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
-      <section className="bg-gold-subtle py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
+      <section className="bg-gold-subtle py-20 px-6 text-center relative overflow-hidden">
+        {/* Фоновые пузыри */}
+        <div className="absolute top-6 left-8 text-6xl opacity-8 select-none pointer-events-none">🫧</div>
+        <div className="absolute bottom-8 right-10 text-4xl opacity-8 select-none pointer-events-none">🫧</div>
+        <div className="absolute top-1/2 right-1/4 text-3xl opacity-5 select-none pointer-events-none">🫧</div>
+        <div className="max-w-3xl mx-auto relative">
+          <div className="flex justify-center items-center gap-4 mb-6">
+            <span className="text-3xl select-none opacity-60">🥇</span>
+            <Icon name="Award" size={40} className="text-gold" />
+            <span className="text-3xl select-none opacity-60">🥈</span>
+          </div>
           <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
             Как выбираются<br />
             <em className="text-gold">победители</em>
@@ -492,9 +514,11 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 flex gap-1">
+                <span className="text-base select-none opacity-40">🎊</span>
                 <Icon name="Crown" size={20} className="text-gold/30" />
               </div>
+              <div className="absolute bottom-4 left-4 text-2xl select-none opacity-15">🎉</div>
               <Icon name="Trophy" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Гран-при премии</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
@@ -502,9 +526,11 @@ export default function Index() {
               </p>
             </div>
             <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 flex gap-1">
+                <span className="text-base select-none opacity-40">🗳️</span>
                 <Icon name="Users" size={20} className="text-gold/30" />
               </div>
+              <div className="absolute bottom-4 left-4 text-2xl select-none opacity-15">⭐</div>
               <Icon name="Heart" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Народное голосование</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
@@ -571,7 +597,10 @@ export default function Index() {
                   </div>
                   <div className="relative md:pl-8">
                     <div className="absolute left-0 top-2 w-3 h-3 rounded-full border-2 border-gold bg-white hidden md:block group-hover:bg-gold transition-all duration-300" />
-                    <h3 className="font-display text-2xl font-semibold text-charcoal mb-1">{item.title}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl select-none leading-none">{item.emoji}</span>
+                      <h3 className="font-display text-2xl font-semibold text-charcoal">{item.title}</h3>
+                    </div>
                     <p className="font-body text-sm text-charcoal/60">{item.desc}</p>
                   </div>
                 </div>
