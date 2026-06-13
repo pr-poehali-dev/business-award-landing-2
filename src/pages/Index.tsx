@@ -5,10 +5,16 @@ const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6
 const HANDSHAKE_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/1b44f2bb-9032-4bfc-a083-de75e1183e72.jpg";
 const TROPHIES_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/45ca7696-ba65-4a0e-89a8-e56b104b7e3d.jpg";
 
-const DECO_CHAMPAGNE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/a1ccf725-4b9c-4f62-8dcb-2f9ef9b96912.jpg";
-const DECO_BUBBLES = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/9abef12a-9136-49d9-91a6-784906dad09a.jpg";
-const DECO_PODIUM = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/3e35cd19-89c3-43e3-ba21-cce63ff2e39b.jpg";
-const DECO_STATUETTE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/499fde5d-5071-460f-b44d-7b580856b4c7.jpg";
+// Декоры на белом фоне — для светлых секций (mix-blend-multiply)
+const DECO_CHAMPAGNE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/18b2e6d3-8c04-4d25-8812-ba91f5769351.jpg";
+const DECO_BUBBLES = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/5c3e6eee-d5bf-44bc-9c6f-b33cbef5b3a9.jpg";
+const DECO_PODIUM = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/2645661e-76ac-4dce-9ef3-cc818c15c642.jpg";
+const DECO_STATUETTE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/4cc00452-e37a-4426-8775-835e848df339.jpg";
+// Декоры на чёрном фоне — для тёмных секций (mix-blend-screen)
+const DECO_CHAMPAGNE_DARK = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/65931bf7-4111-4e73-a17b-194b84980e36.jpg";
+const DECO_BUBBLES_DARK = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/e6f69767-ac96-42ad-9148-ca9af631339b.jpg";
+const DECO_PODIUM_DARK = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/f0625dd0-d336-474b-b6bf-75507884d88a.jpg";
+const DECO_STATUETTE_DARK = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/716c0fbe-0b00-4bfb-bdca-5d614c7c9750.jpg";
 
 const nominations = [
   { num: "01", icon: "Heart", title: "Бизнес с душой: социальное влияние", desc: "Для социальных предпринимателей, ИП, самозанятых — предпринимателей, которые занимаются социально значимым бизнесом, ведут дело с пользой для людей, города и общества." },
@@ -232,13 +238,13 @@ export default function Index() {
       {/* ── О ПРЕМИИ ── */}
       <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center relative overflow-hidden">
         {/* Декор: пузыри по углам */}
-        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-6 -left-10 w-52 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-6 -left-10 w-52 opacity-25 pointer-events-none select-none mix-blend-multiply" />
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
         <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
         <div className="section-divider mt-4 mb-10" />
         {/* Статуэтка над заголовком */}
         <div className="flex justify-center mb-6">
-          <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="w-24 opacity-70 pointer-events-none select-none mix-blend-multiply" />
+          <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="w-24 opacity-60 pointer-events-none select-none mix-blend-multiply" />
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
           Признание лучших<br />
@@ -253,7 +259,7 @@ export default function Index() {
       {/* ── ЦЕЛИ И АТМОСФЕРА ── */}
       <section className="bg-gold-subtle py-24 px-6 relative overflow-hidden">
         {/* Декор: бокалы шампанского */}
-        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-8 -right-8 w-64 opacity-25 pointer-events-none select-none mix-blend-multiply rotate-12" />
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-8 -right-8 w-64 opacity-30 pointer-events-none select-none mix-blend-multiply rotate-12" />
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -431,8 +437,8 @@ export default function Index() {
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
       <section className="bg-gold-subtle py-20 px-6 text-center relative overflow-hidden">
         {/* Декор: пьедестал слева, пузыри справа */}
-        <img src={DECO_PODIUM} alt="" aria-hidden="true" className="absolute -bottom-4 -left-10 w-56 opacity-20 pointer-events-none select-none mix-blend-multiply" />
-        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-48 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_PODIUM} alt="" aria-hidden="true" className="absolute -bottom-4 -left-10 w-56 opacity-25 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-48 opacity-25 pointer-events-none select-none mix-blend-multiply" />
         <div className="max-w-3xl mx-auto relative">
           <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
@@ -473,8 +479,8 @@ export default function Index() {
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
       <section className="bg-charcoal py-24 px-6 relative overflow-hidden">
         {/* Декор: пьедестал слева снизу, статуэтка справа */}
-        <img src={DECO_PODIUM} alt="" aria-hidden="true" className="absolute -bottom-6 -left-8 w-52 opacity-10 pointer-events-none select-none" style={{ filter: 'brightness(2)' }} />
-        <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-44 opacity-10 pointer-events-none select-none" style={{ filter: 'brightness(2)' }} />
+        <img src={DECO_PODIUM_DARK} alt="" aria-hidden="true" className="absolute -bottom-6 -left-8 w-52 opacity-30 pointer-events-none select-none mix-blend-screen" />
+        <img src={DECO_STATUETTE_DARK} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-44 opacity-30 pointer-events-none select-none mix-blend-screen" />
         <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-16">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
@@ -513,7 +519,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
               {/* Декор: статуэтка в углу */}
-              <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+              <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-30 pointer-events-none select-none mix-blend-multiply" />
               <div className="absolute top-4 right-4">
                 <Icon name="Crown" size={20} className="text-gold/30" />
               </div>
@@ -525,7 +531,7 @@ export default function Index() {
             </div>
             <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
               {/* Декор: пузыри в углу */}
-              <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+              <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-30 pointer-events-none select-none mix-blend-multiply" />
               <div className="absolute top-4 right-4">
                 <Icon name="Users" size={20} className="text-gold/30" />
               </div>
@@ -577,8 +583,8 @@ export default function Index() {
       {/* ── ПРОГРАММА ── */}
       <section id="program" className="py-24 px-6 relative overflow-hidden">
         {/* Декор: шампанское справа сверху, пузыри снизу слева */}
-        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -top-10 -right-12 w-72 opacity-15 pointer-events-none select-none mix-blend-multiply -rotate-12" />
-        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-8 -left-12 w-56 opacity-15 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -top-10 -right-12 w-72 opacity-25 pointer-events-none select-none mix-blend-multiply -rotate-12" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-8 -left-12 w-56 opacity-20 pointer-events-none select-none mix-blend-multiply" />
         <div className="max-w-4xl mx-auto relative">
           <div className="text-center mb-16">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">11 июля 2026</span>
@@ -650,7 +656,7 @@ export default function Index() {
       {/* ── ПАРТНЕРЫ ── */}
       <section id="partners" className="bg-gold-subtle py-24 px-6 relative overflow-hidden">
         {/* Декор: шампанское в правом нижнем */}
-        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-10 -right-10 w-60 opacity-20 pointer-events-none select-none mix-blend-multiply rotate-6" />
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-10 -right-10 w-60 opacity-25 pointer-events-none select-none mix-blend-multiply rotate-6" />
         <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-12">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Генеральные партнеры</span>
