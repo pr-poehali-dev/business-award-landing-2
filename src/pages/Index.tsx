@@ -234,10 +234,6 @@ export default function Index() {
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
         <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
         <div className="section-divider mt-4 mb-10" />
-        {/* Статуэтка над заголовком */}
-        <div className="flex justify-center mb-6">
-          <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="w-24 opacity-60 pointer-events-none select-none mix-blend-multiply" />
-        </div>
         <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
           Признание лучших<br />
           <em className="text-gold">предпринимателей</em> региона
