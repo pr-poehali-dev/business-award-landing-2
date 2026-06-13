@@ -243,17 +243,28 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Атмосфера</span>
+              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
               <div className="w-10 h-px bg-gold mt-4 mb-8" />
-              <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
-                Красная дорожка,<br />
-                <em className="text-gold">банкет и нетворкинг</em>
-              </h2>
+              <div className="mb-8">
+                <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight inline">
+                  Цель&nbsp;
+                </h2>
+                <h2 className="font-display text-4xl md:text-5xl font-light leading-tight inline">
+                  <em className="text-gold">премии</em>
+                </h2>
+                <div className="flex items-center gap-3 mt-3">
+                  <div className="h-px bg-gradient-to-r from-gold to-gold/10 flex-1 max-w-[120px]" />
+                  <Icon name="Award" size={16} className="text-gold/60" />
+                </div>
+              </div>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
-                Вечер начнётся с торжественной красной дорожки и живой музыки. Гостей ждёт изысканный фуршет, атмосфера настоящего кино и профессиональная фотосъёмка. Каждый момент будет достоин обложки делового журнала.
+                Цель премии — публично отметить успехи предпринимателей, экспертов, владельцев компаний (семейных, социальных, креативных), усилить деловые связи и запустить в Находке ежегодную традицию делового признания.
+              </p>
+              <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
+                Фотокамеры, красная дорожка, изысканный банкет, живая музыка и лучшее окружение — это вечер, который запомнится навсегда! Вы много работали, ставили амбициозные цели и достигали их. А сейчас пришло время насладиться качественным отдыхом!
               </p>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-10">
-                После церемонии — открытая нетворкинг-сессия, где рождаются партнёрства, сделки и дружба между людьми, которые строят будущее Находки.
+                Мы готовимся вас удивлять, вдохновлять и заряжать! Этот вечер — шанс не только провести время в красивом окружении, но и сделать важный шаг в развитии своего бизнеса.
               </p>
               <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
             </div>
