@@ -5,6 +5,11 @@ const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6
 const HANDSHAKE_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/1b44f2bb-9032-4bfc-a083-de75e1183e72.jpg";
 const TROPHIES_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/45ca7696-ba65-4a0e-89a8-e56b104b7e3d.jpg";
 
+const DECO_CHAMPAGNE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/a1ccf725-4b9c-4f62-8dcb-2f9ef9b96912.jpg";
+const DECO_BUBBLES = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/9abef12a-9136-49d9-91a6-784906dad09a.jpg";
+const DECO_PODIUM = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/3e35cd19-89c3-43e3-ba21-cce63ff2e39b.jpg";
+const DECO_STATUETTE = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/499fde5d-5071-460f-b44d-7b580856b4c7.jpg";
+
 const nominations = [
   { num: "01", icon: "Heart", title: "Бизнес с душой: социальное влияние", desc: "Для социальных предпринимателей, ИП, самозанятых — предпринимателей, которые занимаются социально значимым бизнесом, ведут дело с пользой для людей, города и общества." },
   { num: "02", icon: "Rocket", title: "Прорывной старт: открытие года 2025", desc: "Для новых бизнесов, которые быстро привлекли внимание и уже хорошо заявили о себе в 2025 году." },
@@ -226,15 +231,14 @@ export default function Index() {
 
       {/* ── О ПРЕМИИ ── */}
       <section id="about" className="py-24 px-6 max-w-5xl mx-auto text-center relative overflow-hidden">
-        {/* Декоративные пузыри */}
-        <div className="absolute top-8 left-10 text-5xl opacity-10 select-none pointer-events-none">🫧</div>
-        <div className="absolute top-16 right-14 text-3xl opacity-10 select-none pointer-events-none">🫧</div>
-        <div className="absolute bottom-12 left-1/4 text-2xl opacity-10 select-none pointer-events-none">🫧</div>
+        {/* Декор: пузыри по углам */}
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-6 -left-10 w-52 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
         <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
         <div className="section-divider mt-4 mb-10" />
-        {/* Пьедестал */}
+        {/* Статуэтка над заголовком */}
         <div className="flex justify-center mb-6">
-          <span className="text-4xl opacity-60 select-none">🏆</span>
+          <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="w-24 opacity-70 pointer-events-none select-none mix-blend-multiply" />
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
           Признание лучших<br />
@@ -247,15 +251,14 @@ export default function Index() {
       </section>
 
       {/* ── ЦЕЛИ И АТМОСФЕРА ── */}
-      <section className="bg-gold-subtle py-24 px-6">
+      <section className="bg-gold-subtle py-24 px-6 relative overflow-hidden">
+        {/* Декор: бокалы шампанского */}
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-8 -right-8 w-64 opacity-25 pointer-events-none select-none mix-blend-multiply rotate-12" />
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
-                <span className="text-lg opacity-50 select-none">🥂</span>
-              </div>
-              <div className="w-10 h-px bg-gold mt-2 mb-8" />
+              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
+              <div className="w-10 h-px bg-gold mt-4 mb-8" />
               <div className="mb-8">
                 <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight inline">
                   Цель&nbsp;
@@ -272,10 +275,10 @@ export default function Index() {
                 Цель премии — публично отметить успехи предпринимателей, экспертов, владельцев компаний (семейных, социальных, креативных), усилить деловые связи и запустить в Находке ежегодную традицию делового признания.
               </p>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-6">
-                Фотокамеры, красная дорожка, изысканный банкет, живая музыка и лучшее окружение — это вечер, который запомнится навсегда! <span className="text-base select-none">🎉</span> Вы много работали, ставили амбициозные цели и достигали их. А сейчас пришло время насладиться качественным отдыхом!
+                Фотокамеры, красная дорожка, изысканный банкет, живая музыка и лучшее окружение — это вечер, который запомнится навсегда! Вы много работали, ставили амбициозные цели и достигали их. А сейчас пришло время насладиться качественным отдыхом!
               </p>
               <p className="font-body text-base text-charcoal/70 leading-relaxed mb-10">
-                Мы готовимся вас удивлять, вдохновлять и заряжать! <span className="text-base select-none">✨</span> Этот вечер — шанс не только провести время в красивом окружении, но и сделать важный шаг в развитии своего бизнеса.
+                Мы готовимся вас удивлять, вдохновлять и заряжать! Этот вечер — шанс не только провести время в красивом окружении, но и сделать важный шаг в развитии своего бизнеса.
               </p>
               <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
             </div>
@@ -361,12 +364,9 @@ export default function Index() {
         <div className="max-w-5xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Для кого</span>
           <div className="section-divider mt-4 mb-12" />
-          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-4 leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-12 leading-tight">
             Кто участвует в&nbsp;<em className="text-gold">премии</em>
           </h2>
-          <div className="flex justify-center gap-3 mb-10 text-2xl select-none opacity-40">
-            <span>🏅</span><span>🌟</span><span>🥂</span><span>🎖️</span><span>✨</span>
-          </div>
           <div className="flex flex-wrap justify-center gap-3">
             {audience.map((tag) => (
               <span
@@ -430,16 +430,11 @@ export default function Index() {
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
       <section className="bg-gold-subtle py-20 px-6 text-center relative overflow-hidden">
-        {/* Фоновые пузыри */}
-        <div className="absolute top-6 left-8 text-6xl opacity-8 select-none pointer-events-none">🫧</div>
-        <div className="absolute bottom-8 right-10 text-4xl opacity-8 select-none pointer-events-none">🫧</div>
-        <div className="absolute top-1/2 right-1/4 text-3xl opacity-5 select-none pointer-events-none">🫧</div>
+        {/* Декор: пьедестал слева, пузыри справа */}
+        <img src={DECO_PODIUM} alt="" aria-hidden="true" className="absolute -bottom-4 -left-10 w-56 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-48 opacity-20 pointer-events-none select-none mix-blend-multiply" />
         <div className="max-w-3xl mx-auto relative">
-          <div className="flex justify-center items-center gap-4 mb-6">
-            <span className="text-3xl select-none opacity-60">🥇</span>
-            <Icon name="Award" size={40} className="text-gold" />
-            <span className="text-3xl select-none opacity-60">🥈</span>
-          </div>
+          <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
             Как выбираются<br />
             <em className="text-gold">победители</em>
@@ -476,8 +471,11 @@ export default function Index() {
       </section>
 
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
-      <section className="bg-charcoal py-24 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-charcoal py-24 px-6 relative overflow-hidden">
+        {/* Декор: пьедестал слева снизу, статуэтка справа */}
+        <img src={DECO_PODIUM} alt="" aria-hidden="true" className="absolute -bottom-6 -left-8 w-52 opacity-10 pointer-events-none select-none" style={{ filter: 'brightness(2)' }} />
+        <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="absolute -top-4 -right-8 w-44 opacity-10 pointer-events-none select-none" style={{ filter: 'brightness(2)' }} />
+        <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-16">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
             <div className="section-divider mt-4 mb-8" />
@@ -514,11 +512,11 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
-              <div className="absolute top-4 right-4 flex gap-1">
-                <span className="text-base select-none opacity-40">🎊</span>
+              {/* Декор: статуэтка в углу */}
+              <img src={DECO_STATUETTE} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+              <div className="absolute top-4 right-4">
                 <Icon name="Crown" size={20} className="text-gold/30" />
               </div>
-              <div className="absolute bottom-4 left-4 text-2xl select-none opacity-15">🎉</div>
               <Icon name="Trophy" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Гран-при премии</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
@@ -526,11 +524,11 @@ export default function Index() {
               </p>
             </div>
             <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
-              <div className="absolute top-4 right-4 flex gap-1">
-                <span className="text-base select-none opacity-40">🗳️</span>
+              {/* Декор: пузыри в углу */}
+              <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-4 -right-4 w-28 opacity-20 pointer-events-none select-none mix-blend-multiply" />
+              <div className="absolute top-4 right-4">
                 <Icon name="Users" size={20} className="text-gold/30" />
               </div>
-              <div className="absolute bottom-4 left-4 text-2xl select-none opacity-15">⭐</div>
               <Icon name="Heart" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Народное голосование</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
@@ -577,8 +575,11 @@ export default function Index() {
       </section>
 
       {/* ── ПРОГРАММА ── */}
-      <section id="program" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section id="program" className="py-24 px-6 relative overflow-hidden">
+        {/* Декор: шампанское справа сверху, пузыри снизу слева */}
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -top-10 -right-12 w-72 opacity-15 pointer-events-none select-none mix-blend-multiply -rotate-12" />
+        <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-8 -left-12 w-56 opacity-15 pointer-events-none select-none mix-blend-multiply" />
+        <div className="max-w-4xl mx-auto relative">
           <div className="text-center mb-16">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">11 июля 2026</span>
             <div className="section-divider mt-4 mb-8" />
@@ -647,8 +648,10 @@ export default function Index() {
       </section>
 
       {/* ── ПАРТНЕРЫ ── */}
-      <section id="partners" className="bg-gold-subtle py-24 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section id="partners" className="bg-gold-subtle py-24 px-6 relative overflow-hidden">
+        {/* Декор: шампанское в правом нижнем */}
+        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-10 -right-10 w-60 opacity-20 pointer-events-none select-none mix-blend-multiply rotate-6" />
+        <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-12">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Генеральные партнеры</span>
             <div className="section-divider mt-4 mb-10" />
