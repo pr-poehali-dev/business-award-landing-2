@@ -268,12 +268,34 @@ export default function Index() {
               </p>
               <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img src={HERO_IMG} alt="Церемония награждения" className="w-full h-full object-cover" />
+            <div className="relative h-[520px] lg:h-[600px]">
+              {/* Фото 1 — левое, смещено вниз */}
+              <div className="absolute left-0 top-8 w-[58%] aspect-[4/5] overflow-hidden shadow-2xl">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7bb14021-0123-424b-8738-d1d3f90afeaf.png"
+                  alt="Церемония вручения премии"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="aspect-[3/4] overflow-hidden mt-8">
-                <img src={HANDSHAKE_IMG} alt="Рукопожатие партнеров" className="w-full h-full object-cover" />
+              {/* Декоративная золотая рамка */}
+              <div className="absolute left-3 top-11 w-[58%] aspect-[4/5] border border-gold/30 pointer-events-none" />
+              {/* Фото 2 — правое, смещено вверх */}
+              <div className="absolute right-0 top-0 w-[52%] aspect-[3/4] overflow-hidden shadow-2xl">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d284704f-1fc8-4893-8fda-533ced53b10f.jpg"
+                  alt="Победитель с наградой"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Декоративный золотой акцент */}
+              <div className="absolute right-3 top-3 w-[52%] aspect-[3/4] border border-gold/20 pointer-events-none" />
+              {/* Нижний акцент с текстом */}
+              <div className="absolute bottom-0 left-0 right-0 flex justify-center">
+                <div className="bg-charcoal/90 backdrop-blur-sm px-6 py-3 flex items-center gap-3">
+                  <div className="w-6 h-px bg-gold" />
+                  <span className="font-body text-xs tracking-[0.25em] text-gold uppercase">Церемония 2025</span>
+                  <div className="w-6 h-px bg-gold" />
+                </div>
               </div>
             </div>
           </div>
