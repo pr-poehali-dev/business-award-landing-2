@@ -306,8 +306,23 @@ export default function Index() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <img src={TROPHIES_IMG} alt="Золотые статуэтки" className="w-full aspect-square object-cover" />
+            <div className="order-2 lg:order-1 relative">
+              <div className="relative overflow-hidden shadow-2xl">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f7def902-e4fc-4646-ba52-5ee1fa16069d.jpg"
+                  alt="Статуэтки премии Я Бренд ДВ"
+                  className="w-full object-cover object-center"
+                  style={{ aspectRatio: '4/3' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 via-transparent to-transparent" />
+              </div>
+              {/* Декоративная рамка */}
+              <div className="absolute -bottom-3 -right-3 w-full h-full border border-gold/25 pointer-events-none" style={{ top: 'auto', left: 'auto', right: '-12px', bottom: '-12px', width: 'calc(100% - 12px)', height: 'calc(100% - 12px)' }} />
+              {/* Подпись */}
+              <div className="mt-4 flex items-center gap-3">
+                <div className="w-6 h-px bg-gold" />
+                <span className="font-body text-xs tracking-[0.25em] text-gold/70 uppercase">Статуэтки премии · 2025</span>
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Аудитория</span>
