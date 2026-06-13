@@ -110,9 +110,12 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => scrollTo("#hero")}
-            className="font-display text-lg font-semibold tracking-widest text-charcoal"
+            className="flex flex-col items-start leading-none"
           >
-            Я&nbsp;<span className="text-gold">Бренд</span>&nbsp;ДВ
+            <span className="font-display text-xl font-semibold tracking-widest text-gold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+              Я Бренд ДВ
+            </span>
+            <span className="block w-full h-px bg-gold mt-1" />
           </button>
 
           <nav className="hidden lg:flex items-center gap-8">
