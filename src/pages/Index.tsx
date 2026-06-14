@@ -450,11 +450,7 @@ export default function Index() {
               <div className="absolute right-3 top-3 w-[52%] aspect-[3/4] border border-gold/20 pointer-events-none" />
               {/* Нижний акцент с текстом */}
               <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-                <div className="bg-charcoal/90 backdrop-blur-sm px-6 py-3 flex items-center gap-3">
-                  <div className="w-6 h-px bg-gold" />
-                  <span className="font-body text-xs tracking-[0.25em] text-gold uppercase">Церемония 2025</span>
-                  <div className="w-6 h-px bg-gold" />
-                </div>
+
               </div>
             </div>
           </div>
@@ -478,10 +474,7 @@ export default function Index() {
               {/* Декоративная рамка */}
               <div className="absolute -bottom-3 -right-3 w-full h-full border border-gold/25 pointer-events-none" style={{ top: 'auto', left: 'auto', right: '-12px', bottom: '-12px', width: 'calc(100% - 12px)', height: 'calc(100% - 12px)' }} />
               {/* Подпись */}
-              <div className="mt-4 flex items-center gap-3">
-                <div className="w-6 h-px bg-gold" />
-                <span className="font-body text-xs tracking-[0.25em] text-gold/70 uppercase">Статуэтки премии · 2025</span>
-              </div>
+
             </div>
             <div className="order-1 lg:order-2">
               <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Аудитория</span>
