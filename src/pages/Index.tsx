@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/18bb0f6d-8a2e-4a00-8ba7-6412e5b7c649.png";
@@ -83,6 +83,97 @@ const navLinks = [
 ];
 
 const tickerText = "✦ Первая ежегодная бизнес-премия Я Бренд ДВ · Находка · 11 июля 2026 · ГЕОКУПОЛ «ЛУ'НА» ";
+
+const NOMINATIONS_LIST = [
+  "Бизнес с душой: социальное влияние",
+  "Прорывной старт: открытие года 2025",
+  "Квантовый скачок: прорыв года 2025",
+  "Креативный код: бизнес вне шаблонов",
+  "Женщины, создающие будущее",
+  "Сила стратегии: мужской подход к делу",
+  "Лидер туристического направления",
+  "Семейный бизнес",
+  "Эксперт года 2025",
+  "Вклад в будущее Находки: партнер года 2025",
+];
+
+function ApplicationForm() {
+  const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", nomination: "", about: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+
+  const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    setForm(prev => ({ ...prev, [field]: e.target.value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setError("");
+    try {
+      const res = await fetch("https://functions.poehali.dev/0c56ca0a-b4f4-4683-80ce-08dbce98f0b3", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error || "Ошибка отправки"); setStatus("error"); return; }
+      setStatus("success");
+    } catch {
+      setError("Ошибка соединения. Попробуйте ещё раз."); setStatus("error");
+    }
+  };
+
+  const inputCls = "w-full border border-charcoal/15 px-4 py-3 font-body text-sm text-charcoal placeholder-charcoal/35 focus:outline-none focus:border-gold transition-colors duration-200 bg-white";
+
+  if (status === "success") return (
+    <div className="border border-gold/30 p-12 text-center">
+      <div className="w-14 h-14 border border-gold flex items-center justify-center mx-auto mb-6">
+        <Icon name="Check" size={24} className="text-gold" />
+      </div>
+      <h3 className="font-display text-2xl font-light text-charcoal mb-3">Заявка отправлена!</h3>
+      <p className="font-body text-sm text-charcoal/60">Мы свяжемся с вами в течение 24 часов</p>
+    </div>
+  );
+
+  return (
+    <form onSubmit={submit} className="border border-gold/20 p-8 md:p-12">
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Имя и фамилия *</label>
+          <input value={form.name} onChange={set("name")} placeholder="Иванова Анна" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Телефон *</label>
+          <input value={form.phone} onChange={set("phone")} placeholder="+7 900 000 00 00" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Email *</label>
+          <input type="email" value={form.email} onChange={set("email")} placeholder="email@example.com" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Компания / Бренд</label>
+          <input value={form.company} onChange={set("company")} placeholder="Название вашего бизнеса" className={inputCls} />
+        </div>
+      </div>
+      <div className="mb-5">
+        <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Номинация</label>
+        <select value={form.nomination} onChange={set("nomination")} className={inputCls}>
+          <option value="">Выберите номинацию</option>
+          {NOMINATIONS_LIST.map(n => <option key={n} value={n}>{n}</option>)}
+        </select>
+      </div>
+      <div className="mb-8">
+        <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">О вашем бизнесе</label>
+        <textarea value={form.about} onChange={set("about")} placeholder="Расскажите коротко о вашем бизнесе и достижениях в 2025 году..." rows={5} className={`${inputCls} resize-none`} />
+      </div>
+      {error && <p className="font-body text-xs text-red-500 mb-4">{error}</p>}
+      <button type="submit" disabled={status === "loading"} className="btn-gold-lg w-full">
+        {status === "loading" ? "Отправка..." : "Подать заявку"}
+      </button>
+      <p className="font-body text-xs text-charcoal/35 text-center mt-4">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+    </form>
+  );
+}
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
@@ -754,7 +845,7 @@ export default function Index() {
 
       {/* ── ФОРМА ЗАЯВКИ ── */}
       <section id="apply" className="py-24 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Подать заявку</span>
             <div className="section-divider mt-4 mb-8" />
@@ -762,21 +853,10 @@ export default function Index() {
               Стать<em className="text-gold"> номинантом</em>
             </h2>
             <p className="font-body text-sm text-charcoal/60 mt-4 max-w-xl mx-auto leading-relaxed">
-              Заполните форму прямо здесь — наша команда свяжется с вами в течение 24 часов
+              Заполните форму — наша команда свяжется с вами в течение 24 часов
             </p>
           </div>
-          <div className="border border-gold/20 overflow-hidden bg-white">
-            <iframe
-              src="https://forms.yandex.ru/u/68a27f5890fa7b16db318143/"
-              frameBorder={0}
-              width="100%"
-              height="700"
-              className="block"
-              title="Форма заявки на номинацию"
-              allowFullScreen
-              style={{ background: "#fff", colorScheme: "light" }}
-            />
-          </div>
+          <ApplicationForm />
         </div>
       </section>
 

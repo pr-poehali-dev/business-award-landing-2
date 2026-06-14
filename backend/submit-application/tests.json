@@ -1,0 +1,31 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Missing required fields",
+      "method": "POST",
+      "path": "/",
+      "body": {"company": "Test"},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Submit application",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест Тестов",
+        "phone": "+7 999 000 00 00",
+        "email": "test@test.ru",
+        "company": "ООО Тест",
+        "nomination": "Прорывной старт",
+        "about": "Тестовая заявка"
+      },
+      "expectedStatus": 200
+    }
+  ]
+}
