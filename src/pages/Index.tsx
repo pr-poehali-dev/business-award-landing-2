@@ -131,7 +131,7 @@ export default function Index() {
             <div className="w-px h-5 bg-gold" />
             <span
               className="font-display text-lg font-semibold tracking-widest text-gold"
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              style={{ fontFamily: "'Raleway', sans-serif" }}
             >
               Я Бренд ДВ
             </span>

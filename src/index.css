@@ -60,23 +60,23 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   h1,
   h2,
   h3 {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Raleway", sans-serif;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: "Cormorant Garamond", serif;
+    font-family: "Raleway", sans-serif;
   }
 
   .font-body {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 
   .text-gold {
