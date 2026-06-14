@@ -258,13 +258,15 @@ export default function Index() {
             >
               Стать партнером
             </button>
-            <button
-              onClick={() => scrollTo("#apply")}
-              style={{ border: "1px solid rgba(212,175,55,0.5)", color: "#D4AF37", background: "transparent" }}
+            <a
+              href="https://pro.selfwork.ru/kassa/Bikersayt"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ border: "1px solid rgba(212,175,55,0.5)", color: "#D4AF37", background: "transparent", display: "inline-block", textAlign: "center" }}
               className="btn-outline-gold"
             >
               Стать гостем
-            </button>
+            </a>
           </div>
         </div>
 
