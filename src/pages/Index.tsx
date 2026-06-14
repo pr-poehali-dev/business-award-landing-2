@@ -88,11 +88,24 @@ const tickerText = "✦ Первая ежегодная бизнес-преми�
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  useEffect(() => {
+    const sections = navLinks.map(l => l.href.replace("#", ""));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    return () => observer.disconnect();
   }, []);
 
   const scrollTo = (href: string) => {
@@ -113,48 +126,79 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
           <button
             onClick={() => scrollTo("#hero")}
-            className="flex flex-col items-start leading-none"
+            className="flex flex-col items-start leading-none shrink-0"
           >
-            <span className="font-display text-xl font-semibold tracking-widest text-gold" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            <span className={`font-display text-xl font-semibold tracking-widest transition-colors duration-300 ${scrolled ? "text-gold" : "text-gold"}`} style={{ fontFamily: "'Cormorant Garamond', serif" }}>
               Я Бренд ДВ
             </span>
             <span className="block w-full h-px bg-gold mt-1" />
           </button>
 
-          <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.label + link.href}
-                onClick={() => scrollTo(link.href)}
-                className={
-                  link.label === "Стать номинантом"
-                    ? "btn-gold px-4 py-2"
-                    : "font-body text-xs font-medium tracking-widest uppercase transition-colors duration-200 hover:text-gold text-charcoal"
-                }
-              >
-                {link.label}
-              </button>
-            ))}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              const isCta = link.label === "Стать номинантом";
+              return (
+                <button
+                  key={link.label + link.href}
+                  onClick={() => scrollTo(link.href)}
+                  className={
+                    isCta
+                      ? "btn-gold px-4 py-2 text-xs"
+                      : `relative font-body text-xs font-medium tracking-widest uppercase transition-colors duration-200 hover:text-gold pb-1 ${
+                          scrolled ? "text-charcoal" : "text-white/90"
+                        } ${isActive ? "text-gold" : ""}`
+                  }
+                >
+                  {link.label}
+                  {!isCta && (
+                    <span
+                      className={`absolute bottom-0 left-0 h-px bg-gold transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </nav>
 
-          <button className="lg:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
+          <button
+            className={`lg:hidden p-2 transition-colors ${scrolled ? "text-charcoal" : "text-white"}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <Icon name={menuOpen ? "X" : "Menu"} size={22} />
           </button>
         </div>
 
-        {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-gold/20 px-6 py-4 flex flex-col gap-4 animate-fade-in">
-            {navLinks.map((link) => (
-              <button
-                key={link.label + link.href}
-                onClick={() => scrollTo(link.href)}
-                className="text-left font-body text-xs font-medium tracking-widest uppercase text-charcoal hover:text-gold transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+        {/* Мобильное меню */}
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-400 ease-in-out ${
+            menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="bg-charcoal/97 backdrop-blur-md border-t border-gold/20 px-6 py-6 flex flex-col gap-1">
+            {navLinks.map((link, i) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              const isCta = link.label === "Стать номинантом";
+              return (
+                <button
+                  key={link.label + link.href}
+                  onClick={() => scrollTo(link.href)}
+                  style={{ transitionDelay: menuOpen ? `${i * 40}ms` : "0ms" }}
+                  className={`text-left px-4 py-3 font-body text-sm font-medium tracking-widest uppercase transition-all duration-300 rounded-sm ${
+                    isCta
+                      ? "text-gold border border-gold/50 mt-3 text-center"
+                      : isActive
+                      ? "text-gold bg-gold/10 pl-6"
+                      : "text-white/80 hover:text-gold hover:pl-6 border-b border-white/5"
+                  }`}
+                >
+                  {isCta ? null : <span className={`inline-block w-3 h-px bg-gold mr-3 transition-all duration-300 ${isActive ? "w-5" : "w-3"}`} />}
+                  {link.label}
+                </button>
+              );
+            })}
           </div>
-        )}
+        </div>
       </header>
 
       {/* ── HERO ── */}
