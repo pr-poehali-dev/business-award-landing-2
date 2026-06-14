@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/4c9ab3ea-8189-4b36-9522-2d3209ecf81f.jpg";
+const HERO_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/18bb0f6d-8a2e-4a00-8ba7-6412e5b7c649.png";
 const HANDSHAKE_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/1b44f2bb-9032-4bfc-a083-de75e1183e72.jpg";
 const TROPHIES_IMG = "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/files/45ca7696-ba65-4a0e-89a8-e56b104b7e3d.jpg";
 
@@ -166,19 +166,19 @@ export default function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/85" />
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24">
-          <div className="inline-flex items-center gap-3 border border-gold/50 px-6 py-2 mb-10">
+          <div className="inline-flex items-center gap-3 border border-gold/50 px-6 py-2 mb-6">
             <div className="w-5 h-px bg-gold" />
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Первая ежегодная</span>
             <div className="w-5 h-px bg-gold" />
           </div>
 
-          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 animate-fade-in">
-            Я&nbsp;<span className="gold-gradient-text italic">Бренд</span>&nbsp;ДВ
-          </h1>
-
-          <p className="font-display text-xl md:text-2xl text-white/80 font-light italic mt-4 mb-10">
-            Бизнес-премия · Находка
+          <p className="font-display text-lg md:text-xl text-white/70 font-light italic mb-4">
+            Бизнес-премия
           </p>
+
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-white leading-none tracking-wide mb-4 animate-fade-in">
+            Я&nbsp;<span className="gold-gradient-text italic">Бренд</span>&nbsp;ДВ&nbsp;<span className="text-white/60 text-3xl md:text-4xl lg:text-5xl font-light">· Находка</span>
+          </h1>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12">
             <div className="flex items-center gap-3 text-white/90">
@@ -193,7 +193,7 @@ export default function Index() {
           </div>
 
           <p className="font-body text-xs text-white/50 tracking-widest uppercase mb-10">
-            Организатор: продюсерский центр «Савкина Центр» при поддержке «Порт Восточный»
+            Организатор: «Савкина Центр» — продюсерский центр продвижения и центр креативных индустрий
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -206,6 +206,13 @@ export default function Index() {
               className="btn-outline-gold"
             >
               Стать партнером
+            </button>
+            <button
+              onClick={() => scrollTo("#apply")}
+              style={{ border: "1px solid rgba(212,175,55,0.5)", color: "#D4AF37", background: "transparent" }}
+              className="btn-outline-gold"
+            >
+              Стать гостем
             </button>
           </div>
         </div>
