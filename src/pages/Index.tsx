@@ -573,10 +573,13 @@ export default function Index() {
       <section className="bg-gold-subtle py-20 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
-            Голосование<br />
-            <em className="text-gold">жюри</em>
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-8 leading-tight">
+            Как определяются победители <em className="text-gold">премии</em>
           </h2>
+          <div className="w-10 h-px bg-gold mx-auto mb-8" />
+          <h3 className="font-display text-2xl font-semibold text-charcoal mb-4">
+            Голосование жюри
+          </h3>
           <p className="font-body text-base text-charcoal/70 leading-relaxed">
             Выбор компетентного жюри, в состав которого входят авторитетные руководители и собственники компаний, опытные эксперты разных сфер.
           </p>
