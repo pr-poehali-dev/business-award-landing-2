@@ -599,12 +599,16 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {juryPlaceholders.map((member, i) => (
-              <div key={i} className="card-premium p-6 text-center">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 mx-auto mb-4 flex items-center justify-center">
-                  <Icon name="User" size={28} className="text-gold/50" />
+              <div key={i} className="card-premium text-center overflow-hidden">
+                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/10 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
+                  <Icon name="User" size={56} className="text-gold/25" />
+                  <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-t-2 border-gold/40" />
+                  <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-b-2 border-gold/40" />
                 </div>
-                <h3 className="font-display text-base font-semibold text-charcoal mb-2 leading-tight">{member.name}</h3>
-                <p className="font-body text-xs text-charcoal/50 leading-relaxed">{member.role}</p>
+                <div className="p-5">
+                  <h3 className="font-display text-xl font-semibold text-charcoal mb-2 leading-tight">{member.name}</h3>
+                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{member.role}</p>
+                </div>
               </div>
             ))}
           </div>
