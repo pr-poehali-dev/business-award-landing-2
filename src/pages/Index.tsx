@@ -512,7 +512,7 @@ export default function Index() {
             {audience.map((tag) => (
               <span
                 key={tag}
-                className="font-body text-xs font-semibold tracking-[0.15em] uppercase px-6 py-3 border-2 border-charcoal/15 text-charcoal bg-white hover:border-gold hover:text-gold hover:bg-white transition-all duration-300 cursor-default shadow-sm"
+                className="font-body text-sm font-semibold tracking-[0.1em] uppercase px-8 py-4 border-2 border-charcoal/15 text-charcoal bg-white hover:border-gold hover:text-gold hover:bg-white transition-all duration-300 cursor-default shadow-sm"
               >
                 {tag}
               </span>
