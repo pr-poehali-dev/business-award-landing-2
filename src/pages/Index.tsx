@@ -75,11 +75,10 @@ const programItems = [
 
 const navLinks = [
   { label: "О премии", href: "#about" },
-  { label: "Программа", href: "#program" },
   { label: "Номинации", href: "#nominations" },
-  { label: "Стать номинантом", href: "#apply" },
-  { label: "Стать партнером", href: "#partners" },
-  { label: "Билеты", href: "#apply" },
+  { label: "Программа", href: "#program" },
+  { label: "Жюри", href: "#jury" },
+  { label: "Партнёры", href: "#partners" },
   { label: "Контакты", href: "#contacts" },
 ];
 
@@ -120,83 +119,91 @@ export default function Index() {
       {/* ── HEADER ── */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+          scrolled ? "bg-white/96 backdrop-blur-sm shadow-sm" : "bg-black/30 backdrop-blur-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16 lg:h-20">
+        <div className="max-w-7xl mx-auto px-6 flex items-stretch justify-between h-14">
+          {/* Логотип */}
           <button
             onClick={() => scrollTo("#hero")}
-            className="flex flex-col items-start leading-none shrink-0"
+            className="flex items-center gap-3 shrink-0 pr-8"
           >
-            <span className={`font-display text-xl font-semibold tracking-widest transition-colors duration-300 ${scrolled ? "text-gold" : "text-gold"}`} style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            <div className="w-px h-5 bg-gold" />
+            <span
+              className="font-display text-lg font-semibold tracking-widest text-gold"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
               Я Бренд ДВ
             </span>
-            <span className="block w-full h-px bg-gold mt-1" />
+            <div className="w-px h-5 bg-gold/30" />
           </button>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          {/* Таб-бар — десктоп */}
+          <nav className="hidden lg:flex items-stretch">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "");
-              const isCta = link.label === "Стать номинантом";
               return (
                 <button
-                  key={link.label + link.href}
+                  key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className={
-                    isCta
-                      ? "btn-gold px-4 py-2 text-xs"
-                      : `relative font-body text-xs font-medium tracking-widest uppercase transition-colors duration-200 hover:text-gold pb-1 ${
-                          scrolled ? "text-charcoal" : "text-white/90"
-                        } ${isActive ? "text-gold" : ""}`
-                  }
+                  className={`relative flex items-center px-5 font-body text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-200 border-b-2 ${
+                    isActive
+                      ? "text-gold border-gold"
+                      : `border-transparent hover:text-gold hover:border-gold/40 ${scrolled ? "text-charcoal/70" : "text-white/75"}`
+                  }`}
                 >
                   {link.label}
-                  {!isCta && (
-                    <span
-                      className={`absolute bottom-0 left-0 h-px bg-gold transition-all duration-300 ${isActive ? "w-full" : "w-0"}`}
-                    />
-                  )}
                 </button>
               );
             })}
           </nav>
 
-          <button
-            className={`lg:hidden p-2 transition-colors ${scrolled ? "text-charcoal" : "text-white"}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <Icon name={menuOpen ? "X" : "Menu"} size={22} />
-          </button>
+          {/* CTA + бургер */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scrollTo("#apply")}
+              className="hidden lg:block btn-gold text-[11px] px-5 py-2"
+            >
+              Стать номинантом
+            </button>
+            <button
+              className={`lg:hidden p-2 transition-colors ${scrolled ? "text-charcoal" : "text-white"}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              <Icon name={menuOpen ? "X" : "Menu"} size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Мобильное меню */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-400 ease-in-out ${
-            menuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            menuOpen ? "max-h-screen" : "max-h-0"
           }`}
         >
-          <div className="bg-charcoal/97 backdrop-blur-md border-t border-gold/20 px-6 py-6 flex flex-col gap-1">
+          <div className="bg-charcoal/97 backdrop-blur-md border-t border-gold/20 px-6 py-4 flex flex-col">
             {navLinks.map((link, i) => {
               const isActive = activeSection === link.href.replace("#", "");
-              const isCta = link.label === "Стать номинантом";
               return (
                 <button
-                  key={link.label + link.href}
+                  key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  style={{ transitionDelay: menuOpen ? `${i * 40}ms` : "0ms" }}
-                  className={`text-left px-4 py-3 font-body text-sm font-medium tracking-widest uppercase transition-all duration-300 rounded-sm ${
-                    isCta
-                      ? "text-gold border border-gold/50 mt-3 text-center"
-                      : isActive
-                      ? "text-gold bg-gold/10 pl-6"
-                      : "text-white/80 hover:text-gold hover:pl-6 border-b border-white/5"
+                  style={{ transitionDelay: menuOpen ? `${i * 35}ms` : "0ms" }}
+                  className={`text-left py-3 font-body text-xs font-medium tracking-[0.2em] uppercase transition-all duration-200 border-b border-white/5 flex items-center gap-3 ${
+                    isActive ? "text-gold" : "text-white/70 hover:text-gold"
                   }`}
                 >
-                  {isCta ? null : <span className={`inline-block w-3 h-px bg-gold mr-3 transition-all duration-300 ${isActive ? "w-5" : "w-3"}`} />}
+                  <span className={`block h-px bg-gold transition-all duration-300 ${isActive ? "w-6" : "w-3 opacity-40"}`} />
                   {link.label}
                 </button>
               );
             })}
+            <button
+              onClick={() => scrollTo("#apply")}
+              className="btn-gold mt-4 text-xs text-center"
+            >
+              Стать номинантом
+            </button>
           </div>
         </div>
       </header>
