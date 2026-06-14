@@ -609,23 +609,33 @@ export default function Index() {
       </section>
 
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
-      <section className="bg-charcoal py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="bg-charcoal py-16 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
-            <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
-              По каким критериям<br />
-              <em className="text-gold">оценивают заявки</em>
+            <div className="section-divider mt-4 mb-6" />
+            <h2 className="font-display text-3xl md:text-4xl font-light text-white leading-tight">
+              Общие критерии для всех <em className="text-gold">номинаций</em>
             </h2>
+            <p className="font-body text-sm text-white/50 mt-3">Жюри может оценивать участников по таким параметрам:</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            {criteria.map((item) => (
-              <div key={item.label} className="text-center group">
-                <div className="w-16 h-16 border border-gold/30 flex items-center justify-center mx-auto mb-4 group-hover:border-gold group-hover:bg-gold/5 transition-all duration-300">
-                  <Icon name={item.icon} size={24} className="text-gold" />
+          <div className="grid md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-10">
+            {[
+              { title: "Сила бренда и позиционирование", desc: "Насколько понятно, чем отличается проект и какую ценность он несет." },
+              { title: "Репутация и доверие", desc: "Как воспринимают компанию клиенты, партнеры и рынок." },
+              { title: "Вклад в Находку", desc: "Есть ли польза для города, жителей, профессиональной среды." },
+              { title: "Социальная активность", desc: "Участие в благотворительных, общественных или значимых инициативах." },
+              { title: "Визуальный стиль бренда", desc: "Насколько цельно и профессионально выглядит бренд." },
+              { title: "Продвижение", desc: "Как и где бренд заявляет о себе, насколько системно ведется работа." },
+              { title: "Коллаборации и партнерства", desc: "Умение выстраивать связи и усиливать бренд через совместные проекты." },
+              { title: "Убедительность заявки", desc: "Насколько полно, конкретно и ярко номинант отвечает на вопросы анкеты." },
+            ].map((item) => (
+              <div key={item.title} className="bg-charcoal px-6 py-5 flex gap-4 items-start group hover:bg-white/5 transition-colors duration-200">
+                <div className="w-1 h-full min-h-[2rem] bg-gold/30 group-hover:bg-gold shrink-0 mt-1 transition-colors duration-200" />
+                <div>
+                  <p className="font-body text-sm font-semibold text-white mb-1">{item.title}</p>
+                  <p className="font-body text-xs text-white/50 leading-relaxed">{item.desc}</p>
                 </div>
-                <p className="font-body text-xs tracking-wider text-white/70 uppercase">{item.label}</p>
               </div>
             ))}
           </div>
