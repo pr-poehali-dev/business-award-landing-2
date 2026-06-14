@@ -609,17 +609,17 @@ export default function Index() {
       </section>
 
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
-      <section className="bg-charcoal py-16 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
+          <div className="text-center mb-12">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
-            <div className="section-divider mt-4 mb-6" />
-            <h2 className="font-display text-3xl md:text-4xl font-light text-white leading-tight">
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal leading-tight">
               Общие критерии для всех <em className="text-gold">номинаций</em>
             </h2>
-            <p className="font-body text-sm text-white/50 mt-3">Жюри может оценивать участников по таким параметрам:</p>
+            <p className="font-body text-base text-charcoal/55 mt-4">Жюри оценивает участников по следующим параметрам:</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-px bg-white/5 border border-white/5 mb-10">
+          <div className="grid md:grid-cols-2 gap-4 mb-12">
             {[
               { title: "Сила бренда и позиционирование", desc: "Насколько понятно, чем отличается проект и какую ценность он несет." },
               { title: "Репутация и доверие", desc: "Как воспринимают компанию клиенты, партнеры и рынок." },
@@ -630,11 +630,11 @@ export default function Index() {
               { title: "Коллаборации и партнерства", desc: "Умение выстраивать связи и усиливать бренд через совместные проекты." },
               { title: "Убедительность заявки", desc: "Насколько полно, конкретно и ярко номинант отвечает на вопросы анкеты." },
             ].map((item) => (
-              <div key={item.title} className="bg-charcoal px-6 py-5 flex gap-4 items-start group hover:bg-white/5 transition-colors duration-200">
-                <div className="w-1 h-full min-h-[2rem] bg-gold/30 group-hover:bg-gold shrink-0 mt-1 transition-colors duration-200" />
+              <div key={item.title} className="flex gap-4 items-start p-6 border border-charcoal/10 hover:border-gold/40 hover:shadow-sm transition-all duration-200 bg-white">
+                <div className="w-1 shrink-0 self-stretch bg-gold/40 rounded-full" />
                 <div>
-                  <p className="font-body text-sm font-semibold text-white mb-1">{item.title}</p>
-                  <p className="font-body text-xs text-white/50 leading-relaxed">{item.desc}</p>
+                  <p className="font-body text-base font-semibold text-charcoal mb-1">{item.title}</p>
+                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
