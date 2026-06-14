@@ -498,18 +498,21 @@ export default function Index() {
       </section>
 
       {/* ── ДЛЯ КОГО ── */}
-      <section className="bg-charcoal py-20 px-6">
+      <section className="py-24 px-6 bg-gold-subtle">
         <div className="max-w-5xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Для кого</span>
-          <div className="section-divider mt-4 mb-12" />
-          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-12 leading-tight">
+          <div className="section-divider mt-4 mb-10" />
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-4 leading-tight">
             Кто участвует в&nbsp;<em className="text-gold">премии</em>
           </h2>
+          <p className="font-body text-sm text-charcoal/55 mb-12 tracking-wide">
+            Премия открыта для предпринимателей, самозанятых и экспертов города Находки
+          </p>
           <div className="flex flex-wrap justify-center gap-3">
             {audience.map((tag) => (
               <span
                 key={tag}
-                className="font-body text-xs tracking-wider uppercase px-5 py-3 border border-gold/30 text-white/80 hover:border-gold hover:text-gold transition-all duration-300 cursor-default"
+                className="font-body text-xs font-semibold tracking-[0.15em] uppercase px-6 py-3 border-2 border-charcoal/15 text-charcoal bg-white hover:border-gold hover:text-gold hover:bg-white transition-all duration-300 cursor-default shadow-sm"
               >
                 {tag}
               </span>
