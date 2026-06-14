@@ -385,7 +385,7 @@ export default function Index() {
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
         <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
         <div className="section-divider mt-4 mb-10" />
-        <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight">
+        <h2 className="font-display text-5xl md:text-7xl font-light text-charcoal mb-8 leading-tight">
           Признание лучших<br />
           <em className="text-gold">предпринимателей</em> региона
         </h2>
@@ -402,8 +402,7 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Цели и атмосфера</span>
-              <div className="w-10 h-px bg-gold mt-4 mb-8" />
+              <div className="w-10 h-px bg-gold mb-8" />
               <div className="mb-8">
                 <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight inline">
                   Цель&nbsp;
@@ -477,8 +476,7 @@ export default function Index() {
 
             </div>
             <div className="order-1 lg:order-2">
-              <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Аудитория</span>
-              <div className="w-10 h-px bg-gold mt-4 mb-8" />
+              <div className="w-10 h-px bg-gold mb-8" />
               <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
                 Номинанты&nbsp;<em className="text-gold">2025</em>
               </h2>
@@ -500,8 +498,7 @@ export default function Index() {
       {/* ── ДЛЯ КОГО ── */}
       <section className="py-24 px-6 bg-gold-subtle">
         <div className="max-w-5xl mx-auto text-center">
-          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Для кого</span>
-          <div className="section-divider mt-4 mb-10" />
+          <div className="section-divider mb-10" />
           <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-4 leading-tight">
             Кто участвует в&nbsp;<em className="text-gold">премии</em>
           </h2>
@@ -590,12 +587,11 @@ export default function Index() {
       <section className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Жюри</span>
-            <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
-              Они определяют<br />
-              <em className="text-gold">победителей</em>
+            <h2 className="font-display text-5xl md:text-7xl font-light text-charcoal leading-tight">
+              <em className="text-gold">Жюри</em>
             </h2>
+            <div className="section-divider mt-4 mb-6" />
+            <p className="font-body text-sm text-charcoal/50 tracking-widest uppercase">Они определяют победителей</p>
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {juryPlaceholders.map((member, i) => (
@@ -619,8 +615,7 @@ export default function Index() {
       <section className="bg-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Критерии</span>
-            <div className="section-divider mt-4 mb-8" />
+            <div className="section-divider mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal leading-tight">
               Общие критерии для всех <em className="text-gold">номинаций</em>
             </h2>
@@ -694,8 +689,7 @@ export default function Index() {
       <section className="bg-gold-subtle py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Галерея</span>
-            <div className="section-divider mt-4 mb-8" />
+            <div className="section-divider mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
               Наши&nbsp;<em className="text-gold">номинанты</em>
             </h2>
