@@ -772,23 +772,46 @@ export default function Index() {
       </div>
 
       {/* ── ОРГАНИЗАТОРЫ ── */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Организаторы</span>
-          <div className="section-divider mt-4 mb-12" />
-          <div className="flex flex-col md:flex-row items-center justify-center gap-10">
-            {[
-              { name: "Савкина Центр", sub: "Продюсерский центр", featured: false },
-              { name: "Я Бренд ДВ", sub: "Организатор премии", featured: true },
-              { name: "Источник силы", sub: "Бизнес-клуб", featured: false },
-            ].map((org) => (
-              <div key={org.name} className={`flex flex-col items-center gap-3 ${org.featured ? "scale-110" : ""}`}>
-                <div className={`w-28 h-28 border flex items-center justify-center ${org.featured ? "border-gold bg-gold/5" : "border-charcoal/15"}`}>
-                  <span className="font-display text-sm font-semibold text-charcoal/40 tracking-wider text-center px-2">{org.name}</span>
-                </div>
-                <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">{org.sub}</p>
+          <div className="section-divider mt-4 mb-14" />
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16">
+            {/* Савкина Центр */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-56 h-40 bg-white border border-gold/20 flex items-center justify-center p-4 hover:border-gold/50 transition-colors duration-300">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/9b00d35b-6306-45f7-97e3-3cbb7daffc77.png"
+                  alt="Савкина Центр"
+                  className="max-w-full max-h-full object-contain"
+                />
               </div>
-            ))}
+              <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">Продюсерский центр</p>
+            </div>
+
+            {/* Я Бренд ДВ */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-56 h-40 bg-white border-2 border-gold/40 flex items-center justify-center p-4 hover:border-gold transition-colors duration-300">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/0eec8eb1-7d12-4c68-92df-d21bdd5e0345.png"
+                  alt="Я Бренд ДВ"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">Организатор премии</p>
+            </div>
+
+            {/* Источник силы */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-56 h-40 bg-white border border-gold/20 flex items-center justify-center p-4 hover:border-gold/50 transition-colors duration-300">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6c832301-4915-4c7b-8f6b-2a23aa18f6d9.png"
+                  alt="Источник силы"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">Бизнес-клуб</p>
+            </div>
           </div>
         </div>
       </section>
