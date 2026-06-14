@@ -781,7 +781,7 @@ export default function Index() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-56 h-40 bg-white border border-gold/20 flex items-center justify-center p-4 hover:border-gold/50 transition-colors duration-300">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/9b00d35b-6306-45f7-97e3-3cbb7daffc77.png"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg"
                   alt="Савкина Центр"
                   className="max-w-full max-h-full object-contain"
                 />
@@ -793,7 +793,7 @@ export default function Index() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-56 h-40 bg-white border-2 border-gold/40 flex items-center justify-center p-4 hover:border-gold transition-colors duration-300">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/0eec8eb1-7d12-4c68-92df-d21bdd5e0345.png"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/768f7451-7617-471c-b85d-2f859107ac51.jpg"
                   alt="Я Бренд ДВ"
                   className="max-w-full max-h-full object-contain"
                 />
@@ -805,7 +805,7 @@ export default function Index() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-56 h-40 bg-white border border-gold/20 flex items-center justify-center p-4 hover:border-gold/50 transition-colors duration-300">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6c832301-4915-4c7b-8f6b-2a23aa18f6d9.png"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f9724aae-1a6f-4203-b966-9a871a15d392.jpg"
                   alt="Источник силы"
                   className="max-w-full max-h-full object-contain"
                 />
