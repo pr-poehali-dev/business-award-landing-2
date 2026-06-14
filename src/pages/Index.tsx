@@ -431,7 +431,7 @@ export default function Index() {
               {/* Фото 1 — левое, смещено вниз */}
               <div className="absolute left-0 top-8 w-[58%] aspect-[4/5] overflow-hidden shadow-2xl">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7bb14021-0123-424b-8738-d1d3f90afeaf.png"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d000bac3-938c-4827-9ce3-1765abead9e7.png"
                   alt="Церемония вручения премии"
                   className="w-full h-full object-cover"
                 />
