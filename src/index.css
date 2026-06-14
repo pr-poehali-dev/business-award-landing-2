@@ -225,4 +225,46 @@
     color: white;
     transform: translateY(-1px);
   }
+
+  .btn-gold-lg {
+    background-color: var(--gold);
+    color: white;
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.1rem 2.8rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 16px rgba(201, 168, 76, 0.25);
+  }
+
+  .btn-gold-lg:hover {
+    background-color: var(--gold-dark);
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-gold-lg {
+    background-color: transparent;
+    color: var(--gold);
+    font-family: "Raleway", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 1.1rem 2.8rem;
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-gold-lg:hover {
+    background-color: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(201, 168, 76, 0.35);
+  }
 }

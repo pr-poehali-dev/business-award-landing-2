@@ -541,7 +541,7 @@ export default function Index() {
             ))}
           </div>
           <div className="text-center">
-            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+            <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
           </div>
         </div>
       </section>
@@ -614,7 +614,7 @@ export default function Index() {
             </div>
           </div>
           <div className="text-center mt-10">
-            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+            <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
           </div>
         </div>
       </section>
@@ -734,7 +734,7 @@ export default function Index() {
             ))}
           </div>
           <div className="text-center">
-            <button className="btn-gold">Стать партнером</button>
+            <button className="btn-outline-gold-lg">Стать партнером</button>
           </div>
         </div>
       </section>
