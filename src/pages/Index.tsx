@@ -403,8 +403,8 @@ export default function Index() {
                 Мероприятие соберет представителей власти, администрации города, предпринимателей, экспертов, владельцев компаний и представителей делового сообщества Находки, заинтересованных в развитии бизнеса, обмене опытом, новых знакомствах и укреплении профессионального статуса.
               </p>
               <div className="flex gap-4 flex-wrap">
-                <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
-                <button onClick={() => scrollTo("#partners")} className="btn-outline-gold">Стать партнером</button>
+                <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
+                <button onClick={() => scrollTo("#partners")} className="btn-outline-gold-lg">Стать партнером</button>
               </div>
             </div>
           </div>
@@ -475,7 +475,7 @@ export default function Index() {
             ))}
           </div>
           <div className="text-center">
-            <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
+            <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
           </div>
         </div>
       </section>
