@@ -495,8 +495,11 @@ export default function Index() {
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Специальные</span>
             <div className="section-divider mt-4 mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
-              Особые<em className="text-gold"> награды</em>
+              Номинации для <em className="text-gold">всех участников</em>
             </h2>
+            <p className="font-body text-base text-charcoal/60 leading-relaxed max-w-2xl mx-auto mt-6">
+              Эти номинации доступны каждому участнику премии независимо от сферы бизнеса и масштаба проекта. Здесь у каждого есть возможность заявить о себе, получить признание и побороться за отдельную награду.
+            </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
@@ -506,7 +509,7 @@ export default function Index() {
               <Icon name="Trophy" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Гран-при премии</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
-                Высшая награда вечера. Присуждается абсолютному лидеру среди всех номинантов по решению жюри.
+                Главная награда премии.
               </p>
             </div>
             <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
@@ -514,9 +517,9 @@ export default function Index() {
                 <Icon name="Users" size={20} className="text-gold/30" />
               </div>
               <Icon name="Heart" size={40} className="text-gold mx-auto mb-4" />
-              <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Народное голосование</h3>
+              <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Номинация народного голосования</h3>
               <p className="font-body text-sm text-charcoal/60 leading-relaxed">
-                Победителя выбирает широкая аудитория — клиенты, партнёры и жители Находки отдают голоса за любимые бренды.
+                Награда для участника, которого выберут сами люди.
               </p>
             </div>
           </div>
