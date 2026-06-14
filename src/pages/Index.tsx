@@ -765,7 +765,7 @@ export default function Index() {
               Заполните форму прямо здесь — наша команда свяжется с вами в течение 24 часов
             </p>
           </div>
-          <div className="border border-gold/20 overflow-hidden">
+          <div className="border border-gold/20 overflow-hidden bg-white">
             <iframe
               src="https://forms.yandex.ru/u/68a27f5890fa7b16db318143/"
               frameBorder={0}
@@ -774,6 +774,7 @@ export default function Index() {
               className="block"
               title="Форма заявки на номинацию"
               allowFullScreen
+              style={{ background: "#fff", colorScheme: "light" }}
             />
           </div>
         </div>
