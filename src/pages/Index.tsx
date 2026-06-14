@@ -427,11 +427,11 @@ export default function Index() {
         <div className="max-w-3xl mx-auto">
           <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
           <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-6 leading-tight">
-            Как выбираются<br />
-            <em className="text-gold">победители</em>
+            Голосование<br />
+            <em className="text-gold">жюри</em>
           </h2>
           <p className="font-body text-base text-charcoal/70 leading-relaxed">
-            Победителей определяет авторитетное экспертное жюри — признанные профессионалы, предприниматели и общественные деятели региона. Каждая заявка оценивается по восьми ключевым критериям, гарантируя объективность и прозрачность выбора.
+            Выбор компетентного жюри, в состав которого входят авторитетные руководители и собственники компаний, опытные эксперты разных сфер.
           </p>
         </div>
       </section>
