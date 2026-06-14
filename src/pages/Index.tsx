@@ -735,17 +735,15 @@ export default function Index() {
               Программа<br />
               <em className="text-gold">вечера</em>
             </h2>
+            <p className="font-body text-xs text-charcoal/40 tracking-widest uppercase mt-6 italic">* Точное время уточняется</p>
           </div>
           <div className="relative">
-            <div className="absolute left-[72px] top-0 bottom-0 w-px bg-gold/20 hidden md:block" />
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-gold/20" />
             <div className="flex flex-col">
               {programItems.map((item, i) => (
-                <div key={i} className="flex gap-6 md:gap-10 items-start py-8 border-b border-charcoal/5 last:border-0 group">
-                  <div className="shrink-0 w-16 text-right">
-                    <span className="font-display text-2xl font-light text-gold">{item.time}</span>
-                  </div>
-                  <div className="relative md:pl-8">
-                    <div className="absolute left-0 top-2 w-3 h-3 rounded-full border-2 border-gold bg-white hidden md:block group-hover:bg-gold transition-all duration-300" />
+                <div key={i} className="flex gap-6 md:gap-10 items-start py-8 border-b border-charcoal/5 last:border-0 group pl-8">
+                  <div className="absolute left-0 top-auto w-3 h-3 rounded-full border-2 border-gold bg-white group-hover:bg-gold transition-all duration-300 -ml-[5px] mt-10" />
+                  <div>
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-xl select-none leading-none">{item.emoji}</span>
                       <h3 className="font-display text-2xl font-semibold text-charcoal">{item.title}</h3>
