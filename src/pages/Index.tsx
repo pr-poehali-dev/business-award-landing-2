@@ -633,8 +633,8 @@ export default function Index() {
               <div key={item.title} className="flex gap-4 items-start p-6 border border-charcoal/10 hover:border-gold/40 hover:shadow-sm transition-all duration-200 bg-white">
                 <div className="w-1 shrink-0 self-stretch bg-gold/40 rounded-full" />
                 <div>
-                  <p className="font-body text-base font-semibold text-charcoal mb-1">{item.title}</p>
-                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{item.desc}</p>
+                  <p className="font-body text-lg font-semibold text-charcoal mb-2">{item.title}</p>
+                  <p className="font-body text-base text-charcoal/55 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
