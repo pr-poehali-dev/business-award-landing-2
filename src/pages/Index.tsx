@@ -46,11 +46,16 @@ const audience = [
 ];
 
 const juryPlaceholders = [
-  { name: "Иванова Анна Сергеевна", role: "Председатель ТПП г. Находка, эксперт регионального развития" },
-  { name: "Петров Михаил Владимирович", role: "Серийный предприниматель, основатель 5 компаний" },
-  { name: "Соколова Елена Игоревна", role: "Директор Агентства развития Приморского края" },
-  { name: "Кузнецов Андрей Борисович", role: "Вице-президент ТПП Приморья" },
-  { name: "Морозова Татьяна Алексеевна", role: "Руководитель центра поддержки предпринимательства" },
+  {
+    name: "Наталья Карпова",
+    role: "Руководитель направления поддержки креативного бизнеса ЦКИ Приморья, председатель Комитета по развитию креативной экономики ОПОРЫ РОССИИ, имиджмейкер, бизнес-консультант, продюсер",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f4e833ce-1727-4f5f-b6e5-683d0fc3e4c1.jpg",
+  },
+  {
+    name: "Александр Скляр",
+    role: "Предприниматель со стажем более 30 лет. Инвестор. Бизнес-наставник. Основатель клуба предпринимателей «Бизнес-завтрак»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eac24cf3-6bc5-451c-9a3e-f6d46890a2cf.jpg",
+  },
 ];
 
 const nominantsPlaceholders = [
@@ -794,9 +799,12 @@ export default function Index() {
           <div className="overflow-x-auto pb-4 -mx-6 px-6">
             <div className="flex gap-5 w-max">
               {juryPlaceholders.map((member, i) => (
-                <div key={i} className="w-36 shrink-0 bg-white card-premium text-center overflow-hidden">
-                  <div className="w-full aspect-square bg-gradient-to-br from-gold/15 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
-                    <Icon name="User" size={32} className="text-gold/35" />
+                <div key={i} className="w-40 shrink-0 bg-white card-premium text-center overflow-hidden">
+                  <div className="w-full aspect-square border-b border-gold/20 relative overflow-hidden">
+                    {member.photo
+                      ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
+                      : <div className="w-full h-full bg-gradient-to-br from-gold/15 to-charcoal/5 flex items-center justify-center"><Icon name="User" size={32} className="text-gold/35" /></div>
+                    }
                     <div className="absolute bottom-2 left-2 w-4 h-4 border-l border-t border-gold/40" />
                     <div className="absolute top-2 right-2 w-4 h-4 border-r border-b border-gold/40" />
                   </div>
