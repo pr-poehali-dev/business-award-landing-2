@@ -65,11 +65,10 @@ const nominantsPlaceholders = [
 ];
 
 const programItems = [
-  { time: "17:30", emoji: "🫧", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка" },
+  { time: "17:30", emoji: "🫧", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка", sub: ["Регистрация гостей", "Фуршет", "Живая музыка", "Нетворкинг-сессия — деловые знакомства, банкет, фотозона"] },
   { time: "18:00", emoji: "🎙️", title: "Торжественное открытие", desc: "Приветственное слово организаторов и партнеров" },
   { time: "19:00", emoji: "🏆", title: "Церемония награждения", desc: "Вручение наград во всех номинациях" },
   { time: "21:00", emoji: "🎭", title: "Шоу-программа", desc: "Выступления артистов, розыгрыши призов" },
-  { time: "22:00", emoji: "🥂", title: "Нетворкинг-сессия", desc: "Деловые знакомства, банкет, фотозона" },
   { time: "24:00", emoji: "✨", title: "Завершение вечера", desc: "Финальные аккорды незабываемого праздника" },
 ];
 
@@ -959,6 +958,16 @@ export default function Index() {
                       <h3 className="font-display text-xl font-semibold text-charcoal group-hover:text-gold transition-colors duration-300">{item.title}</h3>
                     </div>
                     <p className="font-body text-sm text-charcoal/55">{item.desc}</p>
+                    {'sub' in item && item.sub && (
+                      <ul className="mt-3 flex flex-col gap-1.5">
+                        {(item.sub as string[]).map((s, j) => (
+                          <li key={j} className="flex items-start gap-2">
+                            <span className="w-1 h-1 rounded-full bg-gold shrink-0 mt-2" />
+                            <span className="font-body text-xs text-charcoal/45 leading-relaxed">{s}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               ))}
