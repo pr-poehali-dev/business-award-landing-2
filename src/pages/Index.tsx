@@ -630,7 +630,7 @@ export default function Index() {
                     ))}
                   </ul>
                 </div>
-                <button onClick={() => scrollTo("#apply")} className="btn-gold-lg w-full">Купить билет</button>
+                <a href="https://pro.selfwork.ru/kassa/Bikersayt" target="_blank" rel="noopener noreferrer" className="btn-gold-lg w-full block text-center">Купить билет</a>
               </div>
             </div>
 
@@ -676,6 +676,7 @@ export default function Index() {
                 </div>
                 <p className="font-body text-xs text-charcoal/40 text-center mb-5 italic">При участии в нескольких номинациях стоимость рассчитывается отдельно</p>
                 <button onClick={() => scrollTo("#nominations")} className="btn-gold-lg w-full">Выбрать номинацию</button>
+
               </div>
             </div>
 
@@ -720,14 +721,19 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-2 gap-4 mb-12">
             {nominations.map((nom, i) => (
-              <div key={nom.num} className={`card-premium p-7 flex gap-5 shimmer reveal reveal-delay-${Math.min(i % 3 + 1, 6)}`}>
+              <div
+                key={nom.num}
+                onClick={() => scrollTo("#apply")}
+                className={`card-premium p-7 flex gap-5 shimmer reveal reveal-delay-${Math.min(i % 3 + 1, 6)} cursor-pointer group`}
+              >
                 <span className="font-display text-5xl font-light text-gold/25 shrink-0 leading-none mt-1">{nom.num}</span>
-                <div>
+                <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
                     <Icon name={nom.icon} size={16} className="text-gold shrink-0" />
-                    <h3 className="font-display text-lg font-semibold text-charcoal leading-tight">{nom.title}</h3>
+                    <h3 className="font-display text-lg font-semibold text-charcoal leading-tight group-hover:text-gold transition-colors duration-200">{nom.title}</h3>
                   </div>
                   <p className="font-body text-sm text-charcoal/55 leading-relaxed">{nom.desc}</p>
+                  <span className="inline-block mt-3 font-body text-xs text-gold/70 tracking-widest uppercase group-hover:text-gold transition-colors duration-200">Подать заявку →</span>
                 </div>
               </div>
             ))}
