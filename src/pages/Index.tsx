@@ -393,12 +393,13 @@ export default function Index() {
         {/* Декор: пузыри по углам */}
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-6 -left-10 w-52 opacity-25 pointer-events-none select-none mix-blend-multiply" />
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
-        <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">О премии</span>
-        <div className="section-divider mt-4 mb-10" />
-        <h2 className="font-display text-5xl md:text-7xl font-light text-charcoal mb-8 leading-tight">
-          Признание лучших<br />
-          <em className="text-gold">предпринимателей</em> региона
+        <h2 className="font-display text-6xl md:text-8xl font-bold text-charcoal mb-4 leading-none tracking-tight uppercase">
+          О ПРЕМИИ
         </h2>
+        <p className="font-display text-xl md:text-2xl font-light text-charcoal/60 mb-10">
+          Признание лучших предпринимателей региона
+        </p>
+        <div className="section-divider mb-10" />
         <p className="font-body text-base text-charcoal/70 leading-relaxed max-w-3xl mx-auto mb-12">
           Первая ежегодная бизнес-премия города Находка «Я — БРЕНД ДВ» призвана отметить лучших представителей предпринимательского сообщества, поддержать развитие бизнеса в городе, показать сильные и вдохновляющие примеры, а также сформировать новое деловое сообщество лидеров, экспертов и партнеров.
         </p>
