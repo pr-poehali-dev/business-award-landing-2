@@ -787,7 +787,7 @@ export default function Index() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-56 h-40 bg-white border-2 border-gold/40 flex items-center justify-center p-4 hover:border-gold transition-colors duration-300">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/768f7451-7617-471c-b85d-2f859107ac51.jpg"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg"
                   alt="Я Бренд ДВ"
                   className="max-w-full max-h-full object-contain"
                 />
@@ -799,7 +799,7 @@ export default function Index() {
             <div className="flex flex-col items-center gap-4">
               <div className="w-56 h-40 bg-white border border-gold/20 flex items-center justify-center p-4 hover:border-gold/50 transition-colors duration-300">
                 <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f9724aae-1a6f-4203-b966-9a871a15d392.jpg"
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png"
                   alt="Источник силы"
                   className="max-w-full max-h-full object-contain"
                 />
