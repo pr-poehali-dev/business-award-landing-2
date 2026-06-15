@@ -402,7 +402,7 @@ export default function Index() {
         <p className="font-body text-base text-charcoal/70 leading-relaxed max-w-3xl mx-auto mb-12">
           Первая ежегодная бизнес-премия города Находка «Я — БРЕНД ДВ» призвана отметить лучших представителей предпринимательского сообщества, поддержать развитие бизнеса в городе, показать сильные и вдохновляющие примеры, а также сформировать новое деловое сообщество лидеров, экспертов и партнеров.
         </p>
-        <button className="btn-outline-gold">Положение премии</button>
+        <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/0f0fceed-6047-481f-8060-c9839be76276.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline-gold inline-block">Положение премии</a>
       </section>
 
       {/* ── ЦЕЛИ И АТМОСФЕРА ── */}
