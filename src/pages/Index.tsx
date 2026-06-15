@@ -862,51 +862,24 @@ export default function Index() {
 
       {/* ── ПАРТНЕРЫ ── */}
       <section id="partners" className="bg-gold-subtle py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Генеральные партнеры</span>
-            <div className="section-divider mt-4 mb-10" />
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {["Генеральный партнер I", "Генеральный партнер II", "Генеральный партнер III"].map((name, i) => (
-              <div key={i} className="bg-white border border-gold/20 p-10 text-center card-premium">
-                <div className="w-24 h-16 bg-charcoal/5 mx-auto mb-6 flex items-center justify-center">
-                  <span className="font-body text-xs text-charcoal/30 tracking-wider">Логотип</span>
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Партнёры</span>
+          <div className="section-divider mt-4 mb-16" />
+          <div className="flex flex-row items-stretch justify-center gap-6 mb-16">
+            {[
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg", alt: "Савкина Центр", label: "Продюсерский центр", featured: false },
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg", alt: "Я Бренд ДВ", label: "Организатор премии", featured: true },
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png", alt: "Источник силы", label: "Бизнес-клуб", featured: false },
+            ].map(({ src, alt, label, featured }) => (
+              <div key={alt} className="flex flex-col items-center gap-4 flex-1 max-w-[280px]">
+                <div className={`w-full aspect-[4/3] bg-white flex items-center justify-center p-5 transition-colors duration-300 ${featured ? "border-2 border-gold/50 hover:border-gold" : "border border-gold/20 hover:border-gold/50"}`}>
+                  <img src={src} alt={alt} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-charcoal mb-2">{name}</h3>
-                <p className="font-body text-xs text-charcoal/50 leading-relaxed">
-                  Описание партнёра и вклада в развитие премии и делового сообщества Находки
-                </p>
+                <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">{label}</p>
               </div>
             ))}
           </div>
-
-          <div className="text-center mb-10">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Инфопартнеры</span>
-            <div className="section-divider mt-4 mb-10" />
-          </div>
-          <div className="flex flex-wrap justify-center gap-10 mb-20">
-            {["Инфопартнер I", "Инфопартнер II"].map((name, i) => (
-              <div key={i} className="w-36 h-20 bg-white border border-gold/20 flex items-center justify-center">
-                <span className="font-body text-xs text-charcoal/30 tracking-wider text-center px-2">{name}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mb-10">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Золотые партнеры</span>
-            <div className="section-divider mt-4 mb-10" />
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 mb-12">
-            {Array(8).fill(null).map((_, i) => (
-              <div key={i} className="w-28 h-16 bg-white border border-gold/20 flex items-center justify-center">
-                <span className="font-body text-xs text-charcoal/20 tracking-wider">Логотип</span>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <button className="btn-outline-gold-lg">Стать партнером</button>
-          </div>
+          <a href="tel:+79243382021" className="btn-outline-gold-lg inline-block">Стать партнером</a>
         </div>
       </section>
 
