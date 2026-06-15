@@ -602,16 +602,16 @@ export default function Index() {
             <div className="reveal reveal-left flex flex-col">
               <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Билет для гостя бизнес-премии</h3>
               {/* Тикет — тёмная шапка */}
-              <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] text-white text-center px-10 py-12 shadow-2xl">
+              <div className="relative text-white text-center px-10 py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
+                {/* Золотые блики */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none" />
+                <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gold/5 blur-3xl pointer-events-none rounded-full" />
+                <div className="absolute bottom-0 right-1/4 w-1/3 h-16 bg-gold/8 blur-2xl pointer-events-none rounded-full" />
                 {/* Зубцы сверху */}
                 <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                {/* Золотое свечение за ценой */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-48 h-24 rounded-full bg-gold/10 blur-2xl" />
-                </div>
-                <p className="gold-gradient-text font-display text-7xl font-bold mb-3 relative">7 900 ₽</p>
+                <p className="font-display text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>7 900 ₽</p>
                 <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость билета<br />для одного гостя</p>
                 {/* Зубцы снизу */}
                 <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
@@ -638,14 +638,15 @@ export default function Index() {
             <div className="reveal reveal-right flex flex-col">
               <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Что входит в стоимость участия</h3>
               {/* Тикет — тёмная шапка */}
-              <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] text-white text-center px-10 py-12 shadow-2xl">
+              <div className="relative text-white text-center px-10 py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
+                {/* Золотые блики */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none" />
+                <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gold/5 blur-3xl pointer-events-none rounded-full" />
+                <div className="absolute bottom-0 right-1/4 w-1/3 h-16 bg-gold/8 blur-2xl pointer-events-none rounded-full" />
                 <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-48 h-24 rounded-full bg-gold/10 blur-2xl" />
-                </div>
-                <p className="gold-gradient-text font-display text-7xl font-bold mb-3 relative">9 900 ₽</p>
+                <p className="font-display text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>9 900 ₽</p>
                 <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость участия<br />в одной номинации</p>
                 <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
