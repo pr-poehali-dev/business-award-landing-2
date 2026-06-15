@@ -585,6 +585,10 @@ export default function Index() {
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
       <section className="relative py-24 px-6 text-center overflow-hidden bg-gold-subtle">
+        {/* Фоновое изображение */}
+        <div className="absolute inset-0 pointer-events-none">
+          <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/5715491f-505c-4ce7-9380-cadf5c4e38fc.png" alt="" className="w-full h-full object-cover opacity-60" />
+        </div>
         {/* Концентрические кольца */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="award-ring w-[500px] h-[500px] rounded-full border border-gold/15" />
