@@ -408,8 +408,32 @@ export default function Index() {
 
       {/* ── ЦЕЛИ И АТМОСФЕРА ── */}
       <section className="bg-gold-subtle py-24 px-6 relative overflow-hidden">
-        {/* Декор: бокалы шампанского */}
-        <img src={DECO_CHAMPAGNE} alt="" aria-hidden="true" className="absolute -bottom-8 -right-8 w-64 opacity-30 pointer-events-none select-none mix-blend-multiply rotate-12" />
+        {/* Декоративный узор — плавающие ромбы */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none overflow-hidden">
+          {[
+            { size: 18, left: "8%",  delay: "0s",   dur: "7s"  },
+            { size: 10, left: "18%", delay: "1.2s", dur: "9s"  },
+            { size: 22, left: "30%", delay: "0.4s", dur: "6s"  },
+            { size: 8,  left: "42%", delay: "2s",   dur: "8s"  },
+            { size: 14, left: "55%", delay: "0.8s", dur: "10s" },
+            { size: 20, left: "66%", delay: "1.6s", dur: "7s"  },
+            { size: 9,  left: "77%", delay: "0.2s", dur: "9s"  },
+            { size: 16, left: "88%", delay: "1s",   dur: "6s"  },
+          ].map((d, i) => (
+            <div
+              key={i}
+              className="absolute bottom-4"
+              style={{ left: d.left, animationDelay: d.delay }}
+            >
+              <div
+                className="border border-gold/30 rotate-45 float-slow opacity-60"
+                style={{ width: d.size, height: d.size, animationDuration: d.dur, animationDelay: d.delay }}
+              />
+            </div>
+          ))}
+          {/* Горизонтальная золотая линия */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+        </div>
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
