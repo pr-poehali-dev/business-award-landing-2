@@ -1054,6 +1054,41 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── СВЯЗАТЬСЯ С НАМИ ── */}
+      <section className="py-16 px-6 bg-[#fafaf8] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+        <div className="max-w-2xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Мы на связи</span>
+          <div className="section-divider mt-4 mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl font-light text-charcoal mb-10">
+            Связаться <em className="text-gold">с нами</em>
+          </h2>
+          <div className="flex flex-col gap-4">
+            {[
+              { name: "Анна", phone: "8 914 073-05-33", tel: "+79140730533",    messengers: ["Telegram", "Max"] },
+              { name: "Ирина", phone: "8 914 708-61-11", tel: "+79147086111",   messengers: ["Telegram", "WhatsApp", "Max"] },
+              { name: "Анна", phone: "8 924 338-20-21", tel: "+79243382021",    messengers: ["Telegram", "WhatsApp", "Max"] },
+            ].map((c, i) => (
+              <div key={i} className="flex flex-col sm:flex-row items-center sm:items-center gap-3 bg-white border border-gold/20 px-6 py-4 hover:border-gold/50 transition-all duration-300">
+                <div className="flex items-center gap-3 flex-1 justify-center sm:justify-start">
+                  <span className="text-gold text-lg">📞</span>
+                  <span className="font-display text-base font-semibold text-charcoal">{c.name}</span>
+                  <span className="text-charcoal/30">—</span>
+                  <a href={`tel:${c.tel}`} className="font-body text-sm text-charcoal hover:text-gold transition-colors">{c.phone}</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-charcoal/30 hidden sm:inline">—</span>
+                  {c.messengers.map(m => (
+                    <span key={m} className="font-body text-xs text-charcoal/50 border border-gold/25 px-2 py-0.5 hover:border-gold hover:text-gold transition-all duration-200 cursor-default">{m}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── FOOTER / КОНТАКТЫ ── */}
       <footer id="contacts" className="bg-charcoal text-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
