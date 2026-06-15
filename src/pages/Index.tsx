@@ -546,7 +546,7 @@ export default function Index() {
       </div>
 
       {/* ── 10 НОМИНАЦИЙ ── */}
-      <section id="nominations" className="py-24 px-6 bg-charcoal relative overflow-hidden">
+      <section id="nominations" className="py-24 px-6 bg-white relative overflow-hidden">
         {/* Декоративные золотые пятна */}
         <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-gold/5 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-gold/5 blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2" />
@@ -556,23 +556,23 @@ export default function Index() {
         <div className="absolute bottom-24 right-1/3 sparkle-3 pointer-events-none"><Icon name="Star" size={10} className="text-gold/25" /></div>
         <div className="max-w-6xl mx-auto relative">
           <div className="text-center mb-16 reveal">
-            <span className="font-body text-xs tracking-[0.3em] text-gold/70 uppercase">10 номинаций</span>
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">10 номинаций</span>
             <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
               В каких категориях<br />
               <em className="text-gold">побеждают лучшие</em>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mb-12">
             {nominations.map((nom, i) => (
-              <div key={nom.num} className={`card-dark p-7 flex gap-5 shimmer reveal reveal-delay-${Math.min(i % 3 + 1, 6)}`}>
-                <span className="font-display text-5xl font-light text-gold/20 shrink-0 leading-none mt-1">{nom.num}</span>
+              <div key={nom.num} className={`card-premium p-7 flex gap-5 shimmer reveal reveal-delay-${Math.min(i % 3 + 1, 6)}`}>
+                <span className="font-display text-5xl font-light text-gold/25 shrink-0 leading-none mt-1">{nom.num}</span>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Icon name={nom.icon} size={16} className="text-gold shrink-0" />
-                    <h3 className="font-display text-lg font-semibold text-white leading-tight">{nom.title}</h3>
+                    <h3 className="font-display text-lg font-semibold text-charcoal leading-tight">{nom.title}</h3>
                   </div>
-                  <p className="font-body text-sm text-white/50 leading-relaxed">{nom.desc}</p>
+                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{nom.desc}</p>
                 </div>
               </div>
             ))}
@@ -584,30 +584,30 @@ export default function Index() {
       </section>
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
-      <section className="relative py-24 px-6 text-center overflow-hidden bg-gradient-to-b from-charcoal to-[#0e0e0e]">
+      <section className="relative py-24 px-6 text-center overflow-hidden bg-gold-subtle">
         {/* Концентрические кольца */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="award-ring w-[500px] h-[500px] rounded-full border border-gold/10" />
-          <div className="absolute award-ring-2 w-[340px] h-[340px] rounded-full border border-gold/15" />
-          <div className="absolute w-[180px] h-[180px] rounded-full border border-gold/20" />
+          <div className="award-ring w-[500px] h-[500px] rounded-full border border-gold/15" />
+          <div className="absolute award-ring-2 w-[340px] h-[340px] rounded-full border border-gold/20" />
+          <div className="absolute w-[180px] h-[180px] rounded-full border border-gold/25" />
         </div>
         {/* Искры */}
-        <div className="absolute top-12 left-1/4 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/40" /></div>
-        <div className="absolute top-20 right-1/4 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/30" /></div>
-        <div className="absolute bottom-16 left-1/3 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/25" /></div>
-        <div className="absolute bottom-20 right-1/3 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={10} className="text-gold/20" /></div>
+        <div className="absolute top-12 left-1/4 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/50" /></div>
+        <div className="absolute top-20 right-1/4 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/40" /></div>
+        <div className="absolute bottom-16 left-1/3 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/35" /></div>
+        <div className="absolute bottom-20 right-1/3 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={10} className="text-gold/30" /></div>
         <div className="max-w-3xl mx-auto relative">
-          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-gold/40 mb-8 pulse-gold float-slow">
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-gold/50 mb-8 pulse-gold float-slow bg-white/60">
             <Icon name="Award" size={44} className="text-gold" />
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-8 leading-tight reveal">
+          <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal mb-8 leading-tight reveal">
             Как определяются<br /><em className="text-gold">победители премии</em>
           </h2>
           <div className="w-16 h-px bg-gold/50 mx-auto mb-8" />
-          <h3 className="font-display text-2xl font-semibold text-white mb-4 reveal">
+          <h3 className="font-display text-2xl font-semibold text-charcoal mb-4 reveal">
             Голосование жюри
           </h3>
-          <p className="font-body text-base text-white/60 leading-relaxed reveal">
+          <p className="font-body text-base text-charcoal/65 leading-relaxed reveal">
             Выбор компетентного жюри, в состав которого входят авторитетные руководители и собственники компаний, опытные эксперты разных сфер.
           </p>
         </div>
@@ -645,20 +645,20 @@ export default function Index() {
       </section>
 
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
-      <section className="bg-charcoal py-20 px-6 relative overflow-hidden">
+      <section className="bg-white py-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold/5 spin-slow" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold/8" style={{animationDirection:'reverse'}} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold/8 spin-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold/10" />
         </div>
-        <div className="absolute top-10 right-20 sparkle-2 pointer-events-none"><Icon name="Star" size={14} className="text-gold/30" /></div>
-        <div className="absolute bottom-16 left-20 sparkle-3 pointer-events-none"><Icon name="Sparkles" size={12} className="text-gold/25" /></div>
+        <div className="absolute top-10 right-20 sparkle-2 pointer-events-none"><Icon name="Star" size={14} className="text-gold/40" /></div>
+        <div className="absolute bottom-16 left-20 sparkle-3 pointer-events-none"><Icon name="Sparkles" size={12} className="text-gold/30" /></div>
         <div className="max-w-4xl mx-auto relative">
           <div className="text-center mb-12 reveal">
             <div className="section-divider mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal leading-tight">
               Общие критерии для всех <em className="text-gold">номинаций</em>
             </h2>
-            <p className="font-body text-base text-white/40 mt-4">Жюри оценивает участников по следующим параметрам:</p>
+            <p className="font-body text-base text-charcoal/50 mt-4">Жюри оценивает участников по следующим параметрам:</p>
           </div>
           <div className="grid md:grid-cols-2 gap-3 mb-12">
             {[
@@ -671,11 +671,11 @@ export default function Index() {
               { title: "Коллаборации и партнерства", desc: "Умение выстраивать связи и усиливать бренд через совместные проекты." },
               { title: "Убедительность заявки", desc: "Насколько полно, конкретно и ярко номинант отвечает на вопросы анкеты." },
             ].map((item, i) => (
-              <div key={item.title} className={`flex gap-4 items-start p-6 border border-gold/10 hover:border-gold/40 hover:bg-gold/5 transition-all duration-300 reveal reveal-delay-${Math.min(i % 4 + 1, 5)}`}>
+              <div key={item.title} className={`flex gap-4 items-start p-6 border border-charcoal/8 hover:border-gold/50 hover:bg-gold-subtle transition-all duration-300 reveal reveal-delay-${Math.min(i % 4 + 1, 5)}`}>
                 <div className="w-px shrink-0 self-stretch bg-gradient-to-b from-gold to-gold/10" />
                 <div>
-                  <p className="font-body text-base font-semibold text-white mb-1">{item.title}</p>
-                  <p className="font-body text-sm text-white/45 leading-relaxed">{item.desc}</p>
+                  <p className="font-body text-base font-semibold text-charcoal mb-1">{item.title}</p>
+                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -759,34 +759,34 @@ export default function Index() {
       </section>
 
       {/* ── ПРОГРАММА ── */}
-      <section id="program" className="py-24 px-6 bg-charcoal relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-        <div className="absolute right-10 top-16 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={18} className="text-gold/25" /></div>
-        <div className="absolute left-10 bottom-20 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/20" /></div>
-        <div className="absolute right-1/4 bottom-1/3 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/15" /></div>
+      <section id="program" className="py-24 px-6 bg-[#fafaf8] relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+        <div className="absolute right-10 top-16 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={18} className="text-gold/35" /></div>
+        <div className="absolute left-10 bottom-20 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/30" /></div>
+        <div className="absolute right-1/4 bottom-1/3 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/25" /></div>
         <div className="max-w-4xl mx-auto relative">
           <div className="text-center mb-16 reveal">
-            <span className="font-body text-xs tracking-[0.3em] text-gold/70 uppercase">11 июля 2026</span>
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">11 июля 2026</span>
             <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
               Программа<br />
               <em className="text-gold">вечера</em>
             </h2>
-            <p className="font-body text-xs text-white/30 tracking-widest uppercase mt-6 italic">* Точное время уточняется</p>
+            <p className="font-body text-xs text-charcoal/40 tracking-widest uppercase mt-6 italic">* Точное время уточняется</p>
           </div>
           <div className="relative">
-            <div className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/60 via-gold/30 to-transparent" />
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/50 via-gold/25 to-transparent" />
             <div className="flex flex-col">
               {programItems.map((item, i) => (
-                <div key={i} className={`flex gap-8 items-start py-8 border-b border-white/5 last:border-0 group pl-10 relative reveal reveal-delay-${Math.min(i + 1, 6)}`}>
-                  <div className="absolute left-[5px] w-3 h-3 rounded-full border-2 border-gold bg-charcoal group-hover:bg-gold group-hover:shadow-[0_0_12px_rgba(201,168,76,0.6)] transition-all duration-300 top-10" />
+                <div key={i} className={`flex gap-8 items-start py-8 border-b border-charcoal/6 last:border-0 group pl-10 relative reveal reveal-delay-${Math.min(i + 1, 6)}`}>
+                  <div className="absolute left-[5px] w-3 h-3 rounded-full border-2 border-gold bg-[#fafaf8] group-hover:bg-gold group-hover:shadow-[0_0_12px_rgba(201,168,76,0.4)] transition-all duration-300 top-10" />
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-2xl select-none leading-none">{item.emoji}</span>
-                      <h3 className="font-display text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">{item.title}</h3>
+                      <h3 className="font-display text-xl font-semibold text-charcoal group-hover:text-gold transition-colors duration-300">{item.title}</h3>
                     </div>
-                    <p className="font-body text-sm text-white/50">{item.desc}</p>
+                    <p className="font-body text-sm text-charcoal/55">{item.desc}</p>
                   </div>
                 </div>
               ))}
