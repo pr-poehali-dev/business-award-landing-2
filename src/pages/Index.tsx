@@ -393,11 +393,11 @@ export default function Index() {
         {/* Декор: пузыри по углам */}
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -top-6 -left-10 w-52 opacity-25 pointer-events-none select-none mix-blend-multiply" />
         <img src={DECO_BUBBLES} alt="" aria-hidden="true" className="absolute -bottom-6 -right-10 w-40 opacity-15 pointer-events-none select-none mix-blend-multiply rotate-180" />
-        <h2 className="font-display text-6xl md:text-8xl font-bold text-charcoal mb-4 leading-none tracking-tight uppercase">
+        <h2 className="font-display text-5xl md:text-6xl font-bold leading-none tracking-widest uppercase mb-5 gold-gradient-text">
           О ПРЕМИИ
         </h2>
-        <p className="font-display text-xl md:text-2xl font-light text-charcoal/60 mb-10">
-          Признание лучших предпринимателей региона
+        <p className="font-display text-2xl md:text-3xl font-light text-charcoal mb-10 leading-snug">
+          Признание лучших <em className="text-gold font-semibold not-italic">предпринимателей</em> региона
         </p>
         <div className="section-divider mb-10" />
         <p className="font-body text-base text-charcoal/70 leading-relaxed max-w-3xl mx-auto mb-12">
