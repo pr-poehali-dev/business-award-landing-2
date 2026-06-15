@@ -187,6 +187,16 @@ export default function Index() {
   }, []);
 
   useEffect(() => {
+    const revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.12 }
+    );
+    revealEls.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const sections = navLinks.map(l => l.href.replace("#", ""));
     const observer = new IntersectionObserver(
       (entries) => {
@@ -536,57 +546,79 @@ export default function Index() {
       </div>
 
       {/* ── 10 НОМИНАЦИЙ ── */}
-      <section id="nominations" className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">10 номинаций</span>
+      <section id="nominations" className="py-24 px-6 bg-charcoal relative overflow-hidden">
+        {/* Декоративные золотые пятна */}
+        <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-gold/5 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-gold/5 blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2" />
+        {/* Искры */}
+        <div className="absolute top-16 right-24 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={18} className="text-gold/30" /></div>
+        <div className="absolute top-40 left-16 sparkle-2 pointer-events-none"><Icon name="Star" size={12} className="text-gold/20" /></div>
+        <div className="absolute bottom-24 right-1/3 sparkle-3 pointer-events-none"><Icon name="Star" size={10} className="text-gold/25" /></div>
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-center mb-16 reveal">
+            <span className="font-body text-xs tracking-[0.3em] text-gold/70 uppercase">10 номинаций</span>
             <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
               В каких категориях<br />
               <em className="text-gold">побеждают лучшие</em>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {nominations.map((nom) => (
-              <div key={nom.num} className="card-premium p-8 flex gap-6">
-                <span className="font-display text-4xl font-light text-gold/30 shrink-0 leading-none mt-1">{nom.num}</span>
+          <div className="grid md:grid-cols-2 gap-4 mb-12">
+            {nominations.map((nom, i) => (
+              <div key={nom.num} className={`card-dark p-7 flex gap-5 shimmer reveal reveal-delay-${Math.min(i % 3 + 1, 6)}`}>
+                <span className="font-display text-5xl font-light text-gold/20 shrink-0 leading-none mt-1">{nom.num}</span>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Icon name={nom.icon} size={18} className="text-gold shrink-0" />
-                    <h3 className="font-display text-xl font-semibold text-charcoal leading-tight">{nom.title}</h3>
+                    <Icon name={nom.icon} size={16} className="text-gold shrink-0" />
+                    <h3 className="font-display text-lg font-semibold text-white leading-tight">{nom.title}</h3>
                   </div>
-                  <p className="font-body text-sm text-charcoal/60 leading-relaxed">{nom.desc}</p>
+                  <p className="font-body text-sm text-white/50 leading-relaxed">{nom.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center">
+          <div className="text-center reveal">
             <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
           </div>
         </div>
       </section>
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
-      <section className="bg-gold-subtle py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <Icon name="Award" size={40} className="text-gold mx-auto mb-6" />
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal mb-8 leading-tight">
-            Как определяются победители <em className="text-gold">премии</em>
+      <section className="relative py-24 px-6 text-center overflow-hidden bg-gradient-to-b from-charcoal to-[#0e0e0e]">
+        {/* Концентрические кольца */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="award-ring w-[500px] h-[500px] rounded-full border border-gold/10" />
+          <div className="absolute award-ring-2 w-[340px] h-[340px] rounded-full border border-gold/15" />
+          <div className="absolute w-[180px] h-[180px] rounded-full border border-gold/20" />
+        </div>
+        {/* Искры */}
+        <div className="absolute top-12 left-1/4 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/40" /></div>
+        <div className="absolute top-20 right-1/4 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/30" /></div>
+        <div className="absolute bottom-16 left-1/3 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/25" /></div>
+        <div className="absolute bottom-20 right-1/3 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={10} className="text-gold/20" /></div>
+        <div className="max-w-3xl mx-auto relative">
+          <div className="inline-flex items-center justify-center w-24 h-24 rounded-full border-2 border-gold/40 mb-8 pulse-gold float-slow">
+            <Icon name="Award" size={44} className="text-gold" />
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-light text-white mb-8 leading-tight reveal">
+            Как определяются<br /><em className="text-gold">победители премии</em>
           </h2>
-          <div className="w-10 h-px bg-gold mx-auto mb-8" />
-          <h3 className="font-display text-2xl font-semibold text-charcoal mb-4">
+          <div className="w-16 h-px bg-gold/50 mx-auto mb-8" />
+          <h3 className="font-display text-2xl font-semibold text-white mb-4 reveal">
             Голосование жюри
           </h3>
-          <p className="font-body text-base text-charcoal/70 leading-relaxed">
+          <p className="font-body text-base text-white/60 leading-relaxed reveal">
             Выбор компетентного жюри, в состав которого входят авторитетные руководители и собственники компаний, опытные эксперты разных сфер.
           </p>
         </div>
       </section>
 
       {/* ── ЖЮРИ ── */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+      <section className="py-24 px-6 bg-[#fafaf8] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-gold/5 blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-gold/5 blur-3xl pointer-events-none -translate-x-1/3 translate-y-1/3" />
+        <div className="max-w-6xl mx-auto relative">
+          <div className="text-center mb-16 reveal">
             <h2 className="font-display text-5xl md:text-7xl font-light text-charcoal leading-tight">
               <em className="text-gold">Жюри</em>
             </h2>
@@ -595,11 +627,12 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {juryPlaceholders.map((member, i) => (
-              <div key={i} className="card-premium text-center overflow-hidden">
-                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/10 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
-                  <Icon name="User" size={56} className="text-gold/25" />
+              <div key={i} className={`card-premium text-center overflow-hidden reveal reveal-delay-${Math.min(i + 1, 6)}`}>
+                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/15 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative shimmer">
+                  <Icon name="User" size={56} className="text-gold/30 float-slow" />
                   <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-t-2 border-gold/40" />
                   <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-b-2 border-gold/40" />
+                  <div className="absolute top-3 left-3 sparkle-1"><Icon name="Sparkles" size={10} className="text-gold/30" /></div>
                 </div>
                 <div className="p-5">
                   <h3 className="font-display text-xl font-semibold text-charcoal mb-2 leading-tight">{member.name}</h3>
@@ -612,16 +645,22 @@ export default function Index() {
       </section>
 
       {/* ── КРИТЕРИИ ОЦЕНКИ ── */}
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
+      <section className="bg-charcoal py-20 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold/5 spin-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold/8" style={{animationDirection:'reverse'}} />
+        </div>
+        <div className="absolute top-10 right-20 sparkle-2 pointer-events-none"><Icon name="Star" size={14} className="text-gold/30" /></div>
+        <div className="absolute bottom-16 left-20 sparkle-3 pointer-events-none"><Icon name="Sparkles" size={12} className="text-gold/25" /></div>
+        <div className="max-w-4xl mx-auto relative">
+          <div className="text-center mb-12 reveal">
             <div className="section-divider mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-charcoal leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-white leading-tight">
               Общие критерии для всех <em className="text-gold">номинаций</em>
             </h2>
-            <p className="font-body text-base text-charcoal/55 mt-4">Жюри оценивает участников по следующим параметрам:</p>
+            <p className="font-body text-base text-white/40 mt-4">Жюри оценивает участников по следующим параметрам:</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mb-12">
+          <div className="grid md:grid-cols-2 gap-3 mb-12">
             {[
               { title: "Сила бренда и позиционирование", desc: "Насколько понятно, чем отличается проект и какую ценность он несет." },
               { title: "Репутация и доверие", desc: "Как воспринимают компанию клиенты, партнеры и рынок." },
@@ -631,26 +670,27 @@ export default function Index() {
               { title: "Продвижение", desc: "Как и где бренд заявляет о себе, насколько системно ведется работа." },
               { title: "Коллаборации и партнерства", desc: "Умение выстраивать связи и усиливать бренд через совместные проекты." },
               { title: "Убедительность заявки", desc: "Насколько полно, конкретно и ярко номинант отвечает на вопросы анкеты." },
-            ].map((item) => (
-              <div key={item.title} className="flex gap-4 items-start p-6 border border-charcoal/10 hover:border-gold/40 hover:shadow-sm transition-all duration-200 bg-white">
-                <div className="w-1 shrink-0 self-stretch bg-gold/40 rounded-full" />
+            ].map((item, i) => (
+              <div key={item.title} className={`flex gap-4 items-start p-6 border border-gold/10 hover:border-gold/40 hover:bg-gold/5 transition-all duration-300 reveal reveal-delay-${Math.min(i % 4 + 1, 5)}`}>
+                <div className="w-px shrink-0 self-stretch bg-gradient-to-b from-gold to-gold/10" />
                 <div>
-                  <p className="font-body text-lg font-semibold text-charcoal mb-2">{item.title}</p>
-                  <p className="font-body text-base text-charcoal/55 leading-relaxed">{item.desc}</p>
+                  <p className="font-body text-base font-semibold text-white mb-1">{item.title}</p>
+                  <p className="font-body text-sm text-white/45 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
-          <div className="text-center">
+          <div className="text-center reveal">
             <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
           </div>
         </div>
       </section>
 
       {/* ── ОБЩИЕ НОМИНАЦИИ ── */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-[#fafaf8] relative overflow-hidden">
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={16} className="text-gold/30" /></div>
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Специальные</span>
             <div className="section-divider mt-4 mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
@@ -661,34 +701,33 @@ export default function Index() {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/5 to-transparent">
-              <div className="absolute top-4 right-4">
-                <Icon name="Crown" size={20} className="text-gold/30" />
+            <div className="relative overflow-hidden border border-gold p-10 text-center bg-gradient-to-br from-gold/8 to-gold/2 shimmer reveal reveal-left number-card">
+              <div className="absolute top-4 right-4 sparkle-1"><Icon name="Crown" size={20} className="text-gold/50" /></div>
+              <div className="absolute bottom-4 left-4 sparkle-3"><Icon name="Star" size={12} className="text-gold/30" /></div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-gold/40 mb-5 float-slow">
+                <Icon name="Trophy" size={32} className="text-gold" />
               </div>
-              <Icon name="Trophy" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Гран-при премии</h3>
-              <p className="font-body text-sm text-charcoal/60 leading-relaxed">
-                Главная награда премии.
-              </p>
+              <p className="font-body text-sm text-charcoal/60 leading-relaxed">Главная награда премии.</p>
             </div>
-            <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300">
-              <div className="absolute top-4 right-4">
-                <Icon name="Users" size={20} className="text-gold/30" />
+            <div className="relative overflow-hidden border border-gold/40 p-10 text-center hover:border-gold transition-all duration-300 bg-white reveal reveal-right number-card">
+              <div className="absolute top-4 right-4 sparkle-2"><Icon name="Users" size={20} className="text-gold/30" /></div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full border border-gold/30 mb-5 float-slow-2">
+                <Icon name="Heart" size={32} className="text-gold" />
               </div>
-              <Icon name="Heart" size={40} className="text-gold mx-auto mb-4" />
               <h3 className="font-display text-3xl font-semibold text-charcoal mb-3">Номинация народного голосования</h3>
-              <p className="font-body text-sm text-charcoal/60 leading-relaxed">
-                Награда для участника, которого выберут сами люди.
-              </p>
+              <p className="font-body text-sm text-charcoal/60 leading-relaxed">Награда для участника, которого выберут сами люди.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── ГАЛЕРЕЯ НОМИНАНТОВ ── */}
-      <section className="bg-gold-subtle py-20 px-6">
+      <section className="bg-gold-subtle py-20 px-6 relative overflow-hidden">
+        <div className="absolute top-6 right-10 sparkle-2 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/40" /></div>
+        <div className="absolute bottom-8 left-16 sparkle-1 pointer-events-none"><Icon name="Star" size={10} className="text-gold/30" /></div>
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 reveal">
             <div className="section-divider mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
               Наши&nbsp;<em className="text-gold">номинанты</em>
@@ -720,35 +759,40 @@ export default function Index() {
       </section>
 
       {/* ── ПРОГРАММА ── */}
-      <section id="program" className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">11 июля 2026</span>
+      <section id="program" className="py-24 px-6 bg-charcoal relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute right-10 top-16 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={18} className="text-gold/25" /></div>
+        <div className="absolute left-10 bottom-20 sparkle-3 pointer-events-none"><Icon name="Star" size={12} className="text-gold/20" /></div>
+        <div className="absolute right-1/4 bottom-1/3 sparkle-2 pointer-events-none"><Icon name="Star" size={10} className="text-gold/15" /></div>
+        <div className="max-w-4xl mx-auto relative">
+          <div className="text-center mb-16 reveal">
+            <span className="font-body text-xs tracking-[0.3em] text-gold/70 uppercase">11 июля 2026</span>
             <div className="section-divider mt-4 mb-8" />
-            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-light text-white leading-tight">
               Программа<br />
               <em className="text-gold">вечера</em>
             </h2>
-            <p className="font-body text-xs text-charcoal/40 tracking-widest uppercase mt-6 italic">* Точное время уточняется</p>
+            <p className="font-body text-xs text-white/30 tracking-widest uppercase mt-6 italic">* Точное время уточняется</p>
           </div>
           <div className="relative">
-            <div className="absolute left-2 top-0 bottom-0 w-px bg-gold/20" />
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/60 via-gold/30 to-transparent" />
             <div className="flex flex-col">
               {programItems.map((item, i) => (
-                <div key={i} className="flex gap-6 md:gap-10 items-start py-8 border-b border-charcoal/5 last:border-0 group pl-8">
-                  <div className="absolute left-0 top-auto w-3 h-3 rounded-full border-2 border-gold bg-white group-hover:bg-gold transition-all duration-300 -ml-[5px] mt-10" />
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xl select-none leading-none">{item.emoji}</span>
-                      <h3 className="font-display text-2xl font-semibold text-charcoal">{item.title}</h3>
+                <div key={i} className={`flex gap-8 items-start py-8 border-b border-white/5 last:border-0 group pl-10 relative reveal reveal-delay-${Math.min(i + 1, 6)}`}>
+                  <div className="absolute left-[5px] w-3 h-3 rounded-full border-2 border-gold bg-charcoal group-hover:bg-gold group-hover:shadow-[0_0_12px_rgba(201,168,76,0.6)] transition-all duration-300 top-10" />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-2xl select-none leading-none">{item.emoji}</span>
+                      <h3 className="font-display text-xl font-semibold text-white group-hover:text-gold transition-colors duration-300">{item.title}</h3>
                     </div>
-                    <p className="font-body text-sm text-charcoal/60">{item.desc}</p>
+                    <p className="font-body text-sm text-white/50">{item.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-10 reveal">
             <button className="btn-outline-gold">Подробнее о программе</button>
           </div>
         </div>

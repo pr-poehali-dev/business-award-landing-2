@@ -267,4 +267,192 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 28px rgba(201, 168, 76, 0.35);
   }
+
+  /* ── SHIMMER ── */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 168, 76, 0.15),
+      transparent
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 200%;
+    }
+  }
+
+  /* ── FLOAT (парение) ── */
+  .float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+  .float-slow-2 {
+    animation: floatSlow 8s ease-in-out infinite reverse;
+  }
+  @keyframes floatSlow {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-14px) rotate(3deg);
+    }
+  }
+
+  /* ── PULSE GOLD ── */
+  .pulse-gold {
+    animation: pulseGold 2.5s ease-in-out infinite;
+  }
+  @keyframes pulseGold {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+    }
+    50% {
+      box-shadow: 0 0 0 12px rgba(201, 168, 76, 0.15);
+    }
+  }
+
+  /* ── GLOW ROTATE (кольцо вращения) ── */
+  .spin-slow {
+    animation: spinSlow 20s linear infinite;
+  }
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-delay-1 {
+    transition-delay: 0.1s;
+  }
+  .reveal-delay-2 {
+    transition-delay: 0.2s;
+  }
+  .reveal-delay-3 {
+    transition-delay: 0.3s;
+  }
+  .reveal-delay-4 {
+    transition-delay: 0.4s;
+  }
+  .reveal-delay-5 {
+    transition-delay: 0.5s;
+  }
+  .reveal-delay-6 {
+    transition-delay: 0.6s;
+  }
+
+  /* ── SPARKLE ── */
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(180deg);
+    }
+  }
+  .sparkle-1 {
+    animation: sparkle 3s ease-in-out infinite;
+  }
+  .sparkle-2 {
+    animation: sparkle 3s ease-in-out 1s infinite;
+  }
+  .sparkle-3 {
+    animation: sparkle 3s ease-in-out 2s infinite;
+  }
+
+  /* ── COUNTER ── */
+  .number-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .number-card:hover {
+    transform: scale(1.05) translateY(-4px);
+  }
+
+  /* ── DARK CARD (номинации на тёмном фоне) ── */
+  .card-dark {
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+  }
+  .card-dark:hover {
+    border-color: rgba(201, 168, 76, 0.5);
+    background: rgba(201, 168, 76, 0.05);
+    box-shadow: 0 8px 40px rgba(201, 168, 76, 0.12);
+    transform: translateY(-4px);
+  }
+
+  /* ── AWARD RING ── */
+  @keyframes awardPulse {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+  .award-ring {
+    animation: awardPulse 3s ease-in-out infinite;
+  }
+  .award-ring-2 {
+    animation: awardPulse 3s ease-in-out 1.5s infinite;
+  }
 }
