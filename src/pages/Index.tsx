@@ -937,14 +937,14 @@ export default function Index() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Phone" size={14} className="text-gold shrink-0" />
-                  <a href="tel:+7" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
-                    +7 (___) ___-__-__ · Савкина Центр
+                  <a href="tel:+79140730533" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
+                    +7 914 073 05 33 · Анна
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Icon name="Mail" size={14} className="text-gold shrink-0" />
-                  <a href="mailto:info@ybrand-dv.ru" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
-                    info@ybrand-dv.ru
+                  <Icon name="Phone" size={14} className="text-gold shrink-0" />
+                  <a href="tel:+79147086111" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
+                    +7 914 708 61 11
                   </a>
                 </div>
               </div>
