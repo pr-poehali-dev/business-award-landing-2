@@ -553,6 +553,100 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── СТОИМОСТЬ ── */}
+      <section className="py-24 px-6 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+        <div className="absolute top-10 right-16 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/30" /></div>
+        <div className="absolute bottom-12 left-16 sparkle-3 pointer-events-none"><Icon name="Star" size={10} className="text-gold/25" /></div>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 reveal">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Участие</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Стоимость <em className="text-gold">участия</em>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+
+            {/* ── БИЛЕТ ГОСТЯ ── */}
+            <div className="reveal reveal-left flex flex-col">
+              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-6">Билет для гостя бизнес-премии</h3>
+              {/* Тикет — тёмная часть */}
+              <div className="relative bg-charcoal text-white text-center px-10 py-10 rounded-t-lg">
+                {/* Зубцы сверху */}
+                <div className="absolute -top-3 left-0 right-0 flex justify-center gap-1">
+                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-white" />)}
+                </div>
+                <p className="gold-gradient-text font-display text-6xl font-bold mb-2">7 900 ₽</p>
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-white/50">стоимость билета<br />для одного гостя</p>
+                {/* Зубцы снизу */}
+                <div className="absolute -bottom-3 left-0 right-0 flex justify-center gap-1">
+                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-[#f9f3e3]" />)}
+                </div>
+              </div>
+              {/* Тикет — светлая часть */}
+              <div className="bg-gold-subtle border border-gold/20 border-t-0 px-10 py-8 rounded-b-lg flex-1 flex flex-col">
+                <div className="border border-gold/30 p-6 mb-8 flex-1">
+                  <ul className="space-y-3">
+                    {["Место за столом", "Фуршет, полная банкетная часть", "Шоу-программа", "Нетворкинг", "Розыгрыш призов"].map(item => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" />
+                        <span className="font-body text-sm text-charcoal leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <button onClick={() => scrollTo("#apply")} className="btn-gold-lg w-full">Купить билет</button>
+              </div>
+            </div>
+
+            {/* ── УЧАСТИЕ В НОМИНАЦИИ ── */}
+            <div className="reveal reveal-right flex flex-col">
+              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-6">Что входит в стоимость участия</h3>
+              {/* Тикет — тёмная часть */}
+              <div className="relative bg-charcoal text-white text-center px-10 py-10 rounded-t-lg">
+                <div className="absolute -top-3 left-0 right-0 flex justify-center gap-1">
+                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-white" />)}
+                </div>
+                <p className="gold-gradient-text font-display text-6xl font-bold mb-2">9 900 ₽</p>
+                <p className="font-body text-xs tracking-[0.2em] uppercase text-white/50">стоимость участия<br />в одной номинации</p>
+                <div className="absolute -bottom-3 left-0 right-0 flex justify-center gap-1">
+                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-[#f9f3e3]" />)}
+                </div>
+              </div>
+              {/* Тикет — светлая часть */}
+              <div className="bg-gold-subtle border border-gold/20 border-t-0 px-10 py-8 rounded-b-lg flex-1 flex flex-col">
+                <div className="border border-gold/30 p-6 mb-6 flex-1">
+                  <ul className="space-y-3">
+                    {[
+                      "Участие в премии",
+                      "Рассмотрение заявки жюри",
+                      "Статус официального номинанта премии",
+                      "Место за столом, фуршет, полная банкетная часть",
+                      "Шоу-программа",
+                      "Объявление номинанта и его бизнеса/статуса со сцены",
+                      "Освещение на всех социальных площадках",
+                      "Размещение на сайте премии",
+                      "Розыгрыш призов",
+                      "Фото- и видеоотчёт",
+                    ].map(item => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" />
+                        <span className="font-body text-sm text-charcoal leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p className="font-body text-xs text-charcoal/40 text-center mb-4 italic">При участии в нескольких номинациях стоимость рассчитывается отдельно</p>
+                <button onClick={() => scrollTo("#nominations")} className="btn-gold-lg w-full">Выбрать номинацию</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ── TICKER 2 (партнёры-заглушки) ── */}
       <div className="bg-white py-5 overflow-hidden border-y border-gold/20">
         <div className="ticker-wrap">
