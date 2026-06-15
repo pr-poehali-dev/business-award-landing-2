@@ -1103,14 +1103,8 @@ export default function Index() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Phone" size={14} className="text-gold shrink-0" />
-                  <a href="tel:+79140730533" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
-                    +7 914 073 05 33 · Анна
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Icon name="Phone" size={14} className="text-gold shrink-0" />
                   <a href="tel:+79147086111" className="font-body text-xs text-white/60 hover:text-gold transition-colors">
-                    +7 914 708 61 11
+                    +7 914 708 61 11 · Ирина
                   </a>
                 </div>
               </div>
