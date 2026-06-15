@@ -554,11 +554,40 @@ export default function Index() {
       </section>
 
       {/* ── СТОИМОСТЬ ── */}
-      <section className="py-24 px-6 bg-white relative overflow-hidden">
+      <section className="py-24 px-6 bg-[#fafaf8] relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-        <div className="absolute top-10 right-16 sparkle-1 pointer-events-none"><Icon name="Sparkles" size={14} className="text-gold/30" /></div>
-        <div className="absolute bottom-12 left-16 sparkle-3 pointer-events-none"><Icon name="Star" size={10} className="text-gold/25" /></div>
-        <div className="max-w-5xl mx-auto">
+
+        {/* Пузырьки фоновые */}
+        {[
+          { size: 80,  top: "10%",  left: "3%",   op: 0.12, dur: "8s",  del: "0s"   },
+          { size: 44,  top: "25%",  left: "7%",   op: 0.18, dur: "11s", del: "1s"   },
+          { size: 28,  top: "60%",  left: "1%",   op: 0.10, dur: "9s",  del: "2s"   },
+          { size: 60,  top: "75%",  left: "5%",   op: 0.14, dur: "12s", del: "0.5s" },
+          { size: 20,  top: "45%",  left: "11%",  op: 0.08, dur: "7s",  del: "1.5s" },
+          { size: 90,  top: "8%",   right: "3%",  op: 0.12, dur: "10s", del: "0.3s" },
+          { size: 36,  top: "30%",  right: "6%",  op: 0.16, dur: "8s",  del: "2s"   },
+          { size: 55,  top: "65%",  right: "2%",  op: 0.13, dur: "13s", del: "1s"   },
+          { size: 22,  top: "50%",  right: "9%",  op: 0.09, dur: "9s",  del: "0.7s" },
+          { size: 14,  top: "85%",  right: "12%", op: 0.10, dur: "7s",  del: "1.8s" },
+          { size: 18,  top: "20%",  left: "48%",  op: 0.08, dur: "10s", del: "0.4s" },
+          { size: 32,  top: "80%",  left: "44%",  op: 0.10, dur: "11s", del: "1.2s" },
+        ].map((b, i) => (
+          <div
+            key={i}
+            className="absolute pointer-events-none rounded-full float-slow"
+            style={{
+              width: b.size, height: b.size,
+              top: b.top, left: 'left' in b ? b.left : undefined, right: 'right' in b ? b.right : undefined,
+              opacity: b.op,
+              background: `radial-gradient(circle at 35% 35%, rgba(232,212,139,0.9), rgba(201,168,76,0.3) 50%, transparent)`,
+              border: '1px solid rgba(201,168,76,0.4)',
+              animationDuration: b.dur,
+              animationDelay: b.del,
+            }}
+          />
+        ))}
+
+        <div className="max-w-5xl mx-auto relative">
           <div className="text-center mb-16 reveal">
             <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Участие</span>
             <div className="section-divider mt-4 mb-8" />
@@ -567,31 +596,35 @@ export default function Index() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-10">
 
             {/* ── БИЛЕТ ГОСТЯ ── */}
             <div className="reveal reveal-left flex flex-col">
-              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-6">Билет для гостя бизнес-премии</h3>
-              {/* Тикет — тёмная часть */}
-              <div className="relative bg-charcoal text-white text-center px-10 py-10 rounded-t-lg">
+              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Билет для гостя бизнес-премии</h3>
+              {/* Тикет — тёмная шапка */}
+              <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] text-white text-center px-10 py-12 shadow-2xl">
                 {/* Зубцы сверху */}
-                <div className="absolute -top-3 left-0 right-0 flex justify-center gap-1">
-                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-white" />)}
+                <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
+                  {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                <p className="gold-gradient-text font-display text-6xl font-bold mb-2">7 900 ₽</p>
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-white/50">стоимость билета<br />для одного гостя</p>
+                {/* Золотое свечение за ценой */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-48 h-24 rounded-full bg-gold/10 blur-2xl" />
+                </div>
+                <p className="gold-gradient-text font-display text-7xl font-bold mb-3 relative">7 900 ₽</p>
+                <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость билета<br />для одного гостя</p>
                 {/* Зубцы снизу */}
-                <div className="absolute -bottom-3 left-0 right-0 flex justify-center gap-1">
-                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-[#f9f3e3]" />)}
+                <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
+                  {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
               </div>
               {/* Тикет — светлая часть */}
-              <div className="bg-gold-subtle border border-gold/20 border-t-0 px-10 py-8 rounded-b-lg flex-1 flex flex-col">
+              <div className="bg-white border border-gold/25 border-t-0 px-8 py-8 flex-1 flex flex-col shadow-lg">
                 <div className="border border-gold/30 p-6 mb-8 flex-1">
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {["Место за столом", "Фуршет, полная банкетная часть", "Шоу-программа", "Нетворкинг", "Розыгрыш призов"].map(item => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" />
+                      <li key={item} className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
                         <span className="font-body text-sm text-charcoal leading-relaxed">{item}</span>
                       </li>
                     ))}
@@ -603,21 +636,24 @@ export default function Index() {
 
             {/* ── УЧАСТИЕ В НОМИНАЦИИ ── */}
             <div className="reveal reveal-right flex flex-col">
-              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-6">Что входит в стоимость участия</h3>
-              {/* Тикет — тёмная часть */}
-              <div className="relative bg-charcoal text-white text-center px-10 py-10 rounded-t-lg">
-                <div className="absolute -top-3 left-0 right-0 flex justify-center gap-1">
-                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-white" />)}
+              <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Что входит в стоимость участия</h3>
+              {/* Тикет — тёмная шапка */}
+              <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] text-white text-center px-10 py-12 shadow-2xl">
+                <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
+                  {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                <p className="gold-gradient-text font-display text-6xl font-bold mb-2">9 900 ₽</p>
-                <p className="font-body text-xs tracking-[0.2em] uppercase text-white/50">стоимость участия<br />в одной номинации</p>
-                <div className="absolute -bottom-3 left-0 right-0 flex justify-center gap-1">
-                  {Array(18).fill(null).map((_, i) => <div key={i} className="w-3 h-3 rounded-full bg-[#f9f3e3]" />)}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-48 h-24 rounded-full bg-gold/10 blur-2xl" />
+                </div>
+                <p className="gold-gradient-text font-display text-7xl font-bold mb-3 relative">9 900 ₽</p>
+                <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость участия<br />в одной номинации</p>
+                <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
+                  {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
               </div>
               {/* Тикет — светлая часть */}
-              <div className="bg-gold-subtle border border-gold/20 border-t-0 px-10 py-8 rounded-b-lg flex-1 flex flex-col">
-                <div className="border border-gold/30 p-6 mb-6 flex-1">
+              <div className="bg-white border border-gold/25 border-t-0 px-8 py-8 flex-1 flex flex-col shadow-lg">
+                <div className="border border-gold/30 p-6 mb-4 flex-1">
                   <ul className="space-y-3">
                     {[
                       "Участие в премии",
@@ -631,14 +667,14 @@ export default function Index() {
                       "Розыгрыш призов",
                       "Фото- и видеоотчёт",
                     ].map(item => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="w-2 h-2 rounded-full bg-gold shrink-0 mt-2" />
+                      <li key={item} className="flex items-center gap-3">
+                        <span className="w-2 h-2 rounded-full bg-gold shrink-0" />
                         <span className="font-body text-sm text-charcoal leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <p className="font-body text-xs text-charcoal/40 text-center mb-4 italic">При участии в нескольких номинациях стоимость рассчитывается отдельно</p>
+                <p className="font-body text-xs text-charcoal/40 text-center mb-5 italic">При участии в нескольких номинациях стоимость рассчитывается отдельно</p>
                 <button onClick={() => scrollTo("#nominations")} className="btn-gold-lg w-full">Выбрать номинацию</button>
               </div>
             </div>
