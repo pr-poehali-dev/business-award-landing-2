@@ -791,21 +791,23 @@ export default function Index() {
             <div className="section-divider mt-4 mb-6" />
             <p className="font-body text-sm text-charcoal/50 tracking-widest uppercase">Они определяют победителей</p>
           </div>
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {juryPlaceholders.map((member, i) => (
-              <div key={i} className={`card-premium text-center overflow-hidden reveal reveal-delay-${Math.min(i + 1, 6)}`}>
-                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/15 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative shimmer">
-                  <Icon name="User" size={56} className="text-gold/30 float-slow" />
-                  <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-t-2 border-gold/40" />
-                  <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-b-2 border-gold/40" />
-                  <div className="absolute top-3 left-3 sparkle-1"><Icon name="Sparkles" size={10} className="text-gold/30" /></div>
+          {/* Жюри — маленькие карточки в ряд (горизонтальный скролл) */}
+          <div className="overflow-x-auto pb-4 -mx-6 px-6">
+            <div className="flex gap-5 w-max">
+              {juryPlaceholders.map((member, i) => (
+                <div key={i} className="w-36 shrink-0 bg-white card-premium text-center overflow-hidden">
+                  <div className="w-full aspect-square bg-gradient-to-br from-gold/15 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
+                    <Icon name="User" size={32} className="text-gold/35" />
+                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l border-t border-gold/40" />
+                    <div className="absolute top-2 right-2 w-4 h-4 border-r border-b border-gold/40" />
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-display text-sm font-semibold text-charcoal mb-1 leading-tight">{member.name}</h3>
+                    <p className="font-body text-[11px] text-charcoal/50 leading-relaxed">{member.role}</p>
+                  </div>
                 </div>
-                <div className="p-5">
-                  <h3 className="font-display text-xl font-semibold text-charcoal mb-2 leading-tight">{member.name}</h3>
-                  <p className="font-body text-sm text-charcoal/55 leading-relaxed">{member.role}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -902,19 +904,23 @@ export default function Index() {
           <div className="overflow-x-auto pb-4 -mx-6 px-6">
             <div className="flex gap-6 w-max">
               {nominantsPlaceholders.map((n, i) => (
-                <div key={i} className="w-48 shrink-0 bg-white card-premium p-6 text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20 mx-auto mb-4 flex items-center justify-center">
-                    <Icon name="User" size={28} className="text-gold/40" />
+                <div key={i} className="w-56 shrink-0 bg-white card-premium text-center overflow-hidden">
+                  <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/20 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative shimmer">
+                    <Icon name="User" size={52} className="text-gold/30 float-slow" />
+                    <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-t-2 border-gold/40" />
+                    <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-b-2 border-gold/40" />
                   </div>
-                  <h3 className="font-display text-base font-semibold text-charcoal mb-1">{n.name}</h3>
-                  <p className="font-body text-xs text-charcoal/50">{n.role}</p>
+                  <div className="p-5">
+                    <h3 className="font-display text-lg font-semibold text-charcoal mb-1 leading-tight">{n.name}</h3>
+                    <p className="font-body text-sm text-charcoal/50">{n.role}</p>
+                  </div>
                 </div>
               ))}
-              <div className="w-48 shrink-0 border border-dashed border-gold/40 p-6 text-center flex flex-col items-center justify-center gap-3 bg-white/50">
+              <div className="w-56 shrink-0 border border-dashed border-gold/40 text-center flex flex-col items-center justify-center gap-3 bg-white/50 aspect-auto py-10 px-6">
                 <div className="w-20 h-20 rounded-full border-2 border-dashed border-gold/30 flex items-center justify-center">
                   <Icon name="Plus" size={28} className="text-gold/40" />
                 </div>
-                <p className="font-body text-xs text-charcoal/40 leading-relaxed">Здесь<br />может быть<br />ваш бренд</p>
+                <p className="font-body text-sm text-charcoal/40 leading-relaxed">Здесь может<br />быть ваш бренд</p>
               </div>
             </div>
           </div>
