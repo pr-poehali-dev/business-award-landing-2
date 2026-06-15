@@ -499,7 +499,7 @@ export default function Index() {
               </p>
               <div className="flex gap-4 flex-wrap">
                 <button onClick={() => scrollTo("#apply")} className="btn-gold-lg">Стать номинантом</button>
-                <button onClick={() => scrollTo("#partners")} className="btn-outline-gold-lg">Стать партнером</button>
+                <a href="tel:+79243382021" className="btn-outline-gold-lg inline-block">Стать партнером</a>
               </div>
             </div>
           </div>
