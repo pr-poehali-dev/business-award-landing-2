@@ -465,31 +465,26 @@ export default function Index() {
               </p>
               <button onClick={() => scrollTo("#apply")} className="btn-gold">Стать номинантом</button>
             </div>
-            <div className="relative h-[520px] lg:h-[600px]">
+            {/* Мобиль: стек фото, десктоп: перекрытие */}
+            <div className="flex flex-col gap-4 lg:hidden">
+              <div className="w-full aspect-[4/3] overflow-hidden shadow-xl border border-gold/20">
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d000bac3-938c-4827-9ce3-1765abead9e7.png" alt="Церемония вручения премии" className="w-full h-full object-cover" />
+              </div>
+              <div className="w-full aspect-[4/3] overflow-hidden shadow-xl border border-gold/20">
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d284704f-1fc8-4893-8fda-533ced53b10f.jpg" alt="Победитель с наградой" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div className="relative h-[520px] lg:h-[600px] hidden lg:block">
               {/* Фото 1 — левое, смещено вниз */}
               <div className="absolute left-0 top-8 w-[58%] aspect-[4/5] overflow-hidden shadow-2xl">
-                <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d000bac3-938c-4827-9ce3-1765abead9e7.png"
-                  alt="Церемония вручения премии"
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d000bac3-938c-4827-9ce3-1765abead9e7.png" alt="Церемония вручения премии" className="w-full h-full object-cover" />
               </div>
-              {/* Декоративная золотая рамка */}
               <div className="absolute left-3 top-11 w-[58%] aspect-[4/5] border border-gold/30 pointer-events-none" />
               {/* Фото 2 — правое, смещено вверх */}
               <div className="absolute right-0 top-0 w-[52%] aspect-[3/4] overflow-hidden shadow-2xl">
-                <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d284704f-1fc8-4893-8fda-533ced53b10f.jpg"
-                  alt="Победитель с наградой"
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/d284704f-1fc8-4893-8fda-533ced53b10f.jpg" alt="Победитель с наградой" className="w-full h-full object-cover" />
               </div>
-              {/* Декоративный золотой акцент */}
               <div className="absolute right-3 top-3 w-[52%] aspect-[3/4] border border-gold/20 pointer-events-none" />
-              {/* Нижний акцент с текстом */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-center">
-
-              </div>
             </div>
           </div>
         </div>
@@ -606,7 +601,7 @@ export default function Index() {
             <div className="reveal reveal-left flex flex-col">
               <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Билет для гостя бизнес-премии</h3>
               {/* Тикет — тёмная шапка */}
-              <div className="relative text-white text-center px-10 py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
+              <div className="relative text-white text-center px-5 py-8 sm:px-10 sm:py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
                 {/* Золотые блики */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none" />
                 <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gold/5 blur-3xl pointer-events-none rounded-full" />
@@ -615,7 +610,7 @@ export default function Index() {
                 <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                <p className="font-display text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>7 900 ₽</p>
+                <p className="font-display text-5xl sm:text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>7 900 ₽</p>
                 <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость билета<br />для одного гостя</p>
                 {/* Зубцы снизу */}
                 <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
@@ -623,7 +618,7 @@ export default function Index() {
                 </div>
               </div>
               {/* Тикет — светлая часть */}
-              <div className="bg-white border border-gold/25 border-t-0 px-8 py-8 flex-1 flex flex-col shadow-lg">
+              <div className="bg-white border border-gold/25 border-t-0 px-5 py-6 sm:px-8 sm:py-8 flex-1 flex flex-col shadow-lg">
                 <div className="border border-gold/30 p-6 mb-8 flex-1">
                   <ul className="space-y-4">
                     {["Место за столом", "Фуршет, полная банкетная часть", "Шоу-программа", "Нетворкинг", "Розыгрыш призов"].map(item => (
@@ -642,7 +637,7 @@ export default function Index() {
             <div className="reveal reveal-right flex flex-col">
               <h3 className="font-display text-xl font-semibold text-charcoal text-center mb-8">Что входит в стоимость участия</h3>
               {/* Тикет — тёмная шапка */}
-              <div className="relative text-white text-center px-10 py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
+              <div className="relative text-white text-center px-5 py-8 sm:px-10 sm:py-12 shadow-2xl overflow-hidden" style={{background: "linear-gradient(135deg, #0e0e0e 0%, #1c1a14 40%, #2a2210 70%, #1a1a1a 100%)"}}>
                 {/* Золотые блики */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent pointer-events-none" />
                 <div className="absolute top-0 left-1/4 w-1/2 h-32 bg-gold/5 blur-3xl pointer-events-none rounded-full" />
@@ -650,14 +645,14 @@ export default function Index() {
                 <div className="absolute -top-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
-                <p className="font-display text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>9 900 ₽</p>
+                <p className="font-display text-5xl sm:text-7xl font-bold mb-3 relative" style={{color: "#C9A84C", textShadow: "0 0 30px rgba(201,168,76,0.5), 0 2px 8px rgba(0,0,0,0.8)"}}>9 900 ₽</p>
                 <p className="font-body text-[11px] tracking-[0.25em] uppercase text-white/40">стоимость участия<br />в одной номинации</p>
                 <div className="absolute -bottom-[10px] left-0 right-0 flex justify-between px-2 pointer-events-none">
                   {Array(20).fill(null).map((_, i) => <div key={i} className="w-5 h-5 rounded-full bg-[#fafaf8]" />)}
                 </div>
               </div>
               {/* Тикет — светлая часть */}
-              <div className="bg-white border border-gold/25 border-t-0 px-8 py-8 flex-1 flex flex-col shadow-lg">
+              <div className="bg-white border border-gold/25 border-t-0 px-5 py-6 sm:px-8 sm:py-8 flex-1 flex flex-col shadow-lg">
                 <div className="border border-gold/30 p-6 mb-4 flex-1">
                   <ul className="space-y-3">
                     {[
@@ -795,11 +790,10 @@ export default function Index() {
             <div className="section-divider mt-4 mb-6" />
             <p className="font-body text-sm text-charcoal/50 tracking-widest uppercase">Они определяют победителей</p>
           </div>
-          {/* Жюри — маленькие карточки в ряд (горизонтальный скролл) */}
-          <div className="overflow-x-auto pb-4 -mx-6 px-6">
-            <div className="flex gap-5 w-max">
+          {/* Жюри — маленькие карточки в ряд */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-5">
               {juryPlaceholders.map((member, i) => (
-                <div key={i} className="w-40 shrink-0 bg-white card-premium text-center overflow-hidden">
+                <div key={i} className="sm:w-40 bg-white card-premium text-center overflow-hidden">
                   <div className="w-full aspect-square border-b border-gold/20 relative overflow-hidden">
                     {member.photo
                       ? <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-top" />
@@ -814,7 +808,6 @@ export default function Index() {
                   </div>
                 </div>
               ))}
-            </div>
           </div>
         </div>
       </section>
@@ -908,7 +901,21 @@ export default function Index() {
               Наши&nbsp;<em className="text-gold">номинанты</em>
             </h2>
           </div>
-          <div className="overflow-x-auto pb-4 -mx-6 px-6">
+          {/* Мобиль: грид 2 кол., планшет+: горизонтальный скролл */}
+          <div className="grid grid-cols-2 gap-4 sm:hidden">
+            {nominantsPlaceholders.map((n, i) => (
+              <div key={i} className="bg-white card-premium text-center overflow-hidden">
+                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/20 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
+                  <Icon name="User" size={36} className="text-gold/30" />
+                </div>
+                <div className="p-3">
+                  <h3 className="font-display text-sm font-semibold text-charcoal mb-0.5 leading-tight">{n.name}</h3>
+                  <p className="font-body text-xs text-charcoal/50">{n.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden sm:block overflow-x-auto pb-4 -mx-6 px-6">
             <div className="flex gap-6 w-max">
               {nominantsPlaceholders.map((n, i) => (
                 <div key={i} className="w-56 shrink-0 bg-white card-premium text-center overflow-hidden">
@@ -923,7 +930,7 @@ export default function Index() {
                   </div>
                 </div>
               ))}
-              <div className="w-56 shrink-0 border border-dashed border-gold/40 text-center flex flex-col items-center justify-center gap-3 bg-white/50 aspect-auto py-10 px-6">
+              <div className="w-56 shrink-0 border border-dashed border-gold/40 text-center flex flex-col items-center justify-center gap-3 bg-white/50 py-10 px-6">
                 <div className="w-20 h-20 rounded-full border-2 border-dashed border-gold/30 flex items-center justify-center">
                   <Icon name="Plus" size={28} className="text-gold/40" />
                 </div>
@@ -993,13 +1000,13 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Организаторы</span>
           <div className="section-divider mt-4 mb-16" />
-          <div className="flex flex-row items-stretch justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center gap-6">
             {[
               { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg", alt: "Савкина Центр", label: "Продюсерский центр", featured: false, href: "https://савкинацентр.рф" },
               { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg", alt: "Я Бренд ДВ", label: "Организатор премии", featured: true, href: "https://савкинацентр.рф/page96391706.html" },
               { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png", alt: "Источник силы", label: "Бизнес-клуб", featured: false, href: "https://савкинацентр.рф/page96392766.html" },
             ].map(({ src, alt, label, featured, href }) => (
-              <div key={alt} className="flex flex-col items-center gap-4 flex-1 max-w-[280px]">
+              <div key={alt} className="flex flex-col items-center gap-4 w-full sm:flex-1 max-w-[280px]">
                 <a href={href} target="_blank" rel="noopener noreferrer" className={`w-full aspect-[4/3] bg-white flex items-center justify-center p-5 transition-colors duration-300 ${featured ? "border-2 border-gold/50 hover:border-gold" : "border border-gold/20 hover:border-gold/50"}`}>
                   <img src={src} alt={alt} className="w-full h-full object-contain" />
                 </a>
