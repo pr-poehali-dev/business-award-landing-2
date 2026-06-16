@@ -675,17 +675,17 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ── TICKER 2 (партнёры-заглушки) ── */}
-      <div className="bg-white py-5 overflow-hidden border-y border-gold/20">
+      {/* ── TICKER 2 (информационный партнёр) ── */}
+      <div className="bg-white py-4 overflow-hidden border-y border-gold/20">
         <div className="ticker-wrap">
-          <div className="ticker-content" style={{ animationDuration: "50s" }}>
-            {Array(6).fill(null).map((_, i) => (
-              <div key={i} className="flex items-center gap-16 px-10">
-                {["Я Бренд ДВ", "Савкина Центр", "Бизнес-клуб"].map((name) => (
-                  <span key={name} className="font-display text-lg font-semibold text-charcoal/25 tracking-widest whitespace-nowrap">
-                    {name}
-                  </span>
-                ))}
+          <div className="ticker-content" style={{ animationDuration: "40s" }}>
+            {Array(8).fill(null).map((_, i) => (
+              <div key={i} className="flex items-center px-10">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/09854927-c695-45c9-8c3c-496d1dabf694.jpg"
+                  alt="Приморская волна 87,6 FM"
+                  className="h-10 w-auto object-contain"
+                />
               </div>
             ))}
           </div>
