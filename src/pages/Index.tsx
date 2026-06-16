@@ -681,8 +681,8 @@ export default function Index() {
           {Array(10).fill(null).map((_, i) => (
             <img
               key={i}
-              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/09854927-c695-45c9-8c3c-496d1dabf694.jpg"
-              alt="Приморская волна 87,6 FM"
+              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/099ab988-f7e6-44bc-86f2-347009c86dab.svg"
+              alt="Логотип"
               className="h-12 w-auto object-contain mx-12 shrink-0"
             />
           ))}
