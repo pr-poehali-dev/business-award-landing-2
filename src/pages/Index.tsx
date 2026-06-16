@@ -681,7 +681,7 @@ export default function Index() {
           <div className="ticker-content" style={{ animationDuration: "50s" }}>
             {Array(6).fill(null).map((_, i) => (
               <div key={i} className="flex items-center gap-16 px-10">
-                {["Порт Восточный", "Савкина Центр", "Источник Силы", "Партнер ДВ", "Медиа Восток", "Бизнес Клуб"].map((name) => (
+                {["Я Бренд ДВ", "Савкина Центр", "Бизнес-клуб"].map((name) => (
                   <span key={name} className="font-display text-lg font-semibold text-charcoal/25 tracking-widest whitespace-nowrap">
                     {name}
                   </span>
