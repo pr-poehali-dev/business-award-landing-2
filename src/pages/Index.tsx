@@ -1032,6 +1032,34 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── ИНФОРМАЦИОННЫЕ ПАРТНЁРЫ ── */}
+      <section className="bg-white py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Информационные партнёры</span>
+          <div className="section-divider mt-4 mb-12" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
+            <div className="flex flex-col sm:flex-row items-center gap-8 w-full sm:w-auto">
+              <div className="w-full sm:w-64 shrink-0">
+                <img
+                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/09854927-c695-45c9-8c3c-496d1dabf694.jpg"
+                  alt="Приморская волна 87,6 FM"
+                  className="w-full h-auto object-contain rounded"
+                />
+              </div>
+              <div className="text-left max-w-sm">
+                <h3 className="font-display text-xl font-semibold text-charcoal mb-3">Приморская волна</h3>
+                <p className="font-body text-sm text-charcoal/60 leading-relaxed mb-2">
+                  Микс из классики отечественной поп-музыки и зарубежной эстрады. С Приморской волной хорошо и приятно везде, где бы вы ни находились: дома, на работе, в дороге, на даче, за рулём или просто на отдыхе!
+                </p>
+                <p className="font-body text-sm text-charcoal/60 leading-relaxed">
+                  Слушайте в Находке на частоте <span className="text-gold font-semibold">87,6 FM</span>, а также в умных колонках от Яндекса, ВКонтакте и Сбера.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TICKER 4 ── */}
       <div className="bg-charcoal py-4 overflow-hidden border-y border-gold/20">
         <div className="ticker-wrap">
