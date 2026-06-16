@@ -56,6 +56,11 @@ const juryPlaceholders = [
     role: "Предприниматель со стажем более 30 лет. Инвестор. Бизнес-наставник. Основатель клуба предпринимателей «Бизнес-завтрак»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eac24cf3-6bc5-451c-9a3e-f6d46890a2cf.jpg",
   },
+  {
+    name: "Нургалиева Марина Борисовна",
+    role: "Директор МБУК «Музейно-выставочный центр г. Находка», руководитель Центра социальных инноваций «ИН-Центр», почётный работник культуры Приморского края",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/17a9c2b1-c198-45b1-b445-277ae96ab183.jpg",
+  },
 ];
 
 const nominantsPlaceholders = Array(8).fill({ name: "Участник премии", role: "" });
