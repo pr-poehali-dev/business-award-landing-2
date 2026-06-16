@@ -676,19 +676,16 @@ export default function Index() {
       </section>
 
       {/* ── TICKER 2 (информационный партнёр) ── */}
-      <div className="bg-white py-4 overflow-hidden border-y border-gold/20">
-        <div className="ticker-wrap">
-          <div className="ticker-content" style={{ animationDuration: "40s" }}>
-            {Array(8).fill(null).map((_, i) => (
-              <div key={i} className="flex items-center px-10">
-                <img
-                  src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/09854927-c695-45c9-8c3c-496d1dabf694.jpg"
-                  alt="Приморская волна 87,6 FM"
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+      <div className="bg-white py-3 overflow-hidden border-y border-gold/20">
+        <div className="flex" style={{ animation: "ticker 40s linear infinite", width: "max-content" }}>
+          {Array(10).fill(null).map((_, i) => (
+            <img
+              key={i}
+              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/09854927-c695-45c9-8c3c-496d1dabf694.jpg"
+              alt="Приморская волна 87,6 FM"
+              className="h-12 w-auto object-contain mx-12 shrink-0"
+            />
+          ))}
         </div>
       </div>
 
