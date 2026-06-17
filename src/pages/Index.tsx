@@ -122,6 +122,9 @@ function ApplicationForm() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", nomination: "", about: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const [consent1, setConsent1] = useState(false);
+  const [consent2, setConsent2] = useState(false);
+  const [consent3, setConsent3] = useState(false);
 
   const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm(prev => ({ ...prev, [field]: e.target.value }));
@@ -188,10 +191,54 @@ function ApplicationForm() {
         <textarea value={form.about} onChange={set("about")} placeholder="Расскажите коротко о вашем бизнесе и достижениях в 2025 году..." rows={5} className={`${inputCls} resize-none`} />
       </div>
       {error && <p className="font-body text-xs text-red-500 mb-4">{error}</p>}
-      <button type="submit" disabled={status === "loading"} className="btn-gold-lg w-full">
+
+      <div className="flex flex-col gap-4 mb-6">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div
+            onClick={() => setConsent1(!consent1)}
+            className={`mt-0.5 w-5 h-5 shrink-0 border-2 flex items-center justify-center transition-colors duration-200 ${consent1 ? "border-gold bg-gold" : "border-charcoal/25 group-hover:border-gold/60"}`}
+          >
+            {consent1 && <Icon name="Check" size={12} className="text-white" />}
+          </div>
+          <span className="font-body text-xs text-charcoal/60 leading-relaxed">
+            Нажимая кнопку, я принимаю условия{" "}
+            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">Публичной оферты</span>
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div
+            onClick={() => setConsent2(!consent2)}
+            className={`mt-0.5 w-5 h-5 shrink-0 border-2 flex items-center justify-center transition-colors duration-200 ${consent2 ? "border-gold bg-gold" : "border-charcoal/25 group-hover:border-gold/60"}`}
+          >
+            {consent2 && <Icon name="Check" size={12} className="text-white" />}
+          </div>
+          <span className="font-body text-xs text-charcoal/60 leading-relaxed">
+            Нажимая кнопку, я даю{" "}
+            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">согласие</span>
+            {" "}на обработку моих персональных данных в соответствии с{" "}
+            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">Положением об обработке и защите персональных данных</span>
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div
+            onClick={() => setConsent3(!consent3)}
+            className={`mt-0.5 w-5 h-5 shrink-0 border-2 flex items-center justify-center transition-colors duration-200 ${consent3 ? "border-gold bg-gold" : "border-charcoal/25 group-hover:border-gold/60"}`}
+          >
+            {consent3 && <Icon name="Check" size={12} className="text-white" />}
+          </div>
+          <span className="font-body text-xs text-charcoal/60 leading-relaxed">
+            Нажимая кнопку, я даю{" "}
+            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">согласие</span>
+            {" "}на получение рекламной и информационной рассылки
+          </span>
+        </label>
+      </div>
+
+      <button type="submit" disabled={status === "loading" || !consent1 || !consent2} className="btn-gold-lg w-full disabled:opacity-40 disabled:cursor-not-allowed">
         {status === "loading" ? "Отправка..." : "Подать заявку"}
       </button>
-      <p className="font-body text-xs text-charcoal/35 text-center mt-4">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
     </form>
   );
 }
