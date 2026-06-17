@@ -202,7 +202,7 @@ function ApplicationForm() {
           </div>
           <span className="font-body text-xs text-charcoal/60 leading-relaxed">
             Нажимая кнопку, я принимаю условия{" "}
-            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">Публичной оферты</span>
+            <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/cec69c81-7b81-44ee-87f5-564875d13d50.pdf" target="_blank" rel="noopener noreferrer" className="text-gold border-b border-gold/40 hover:border-gold transition-colors">Публичной оферты</a>
           </span>
         </label>
 
@@ -215,9 +215,9 @@ function ApplicationForm() {
           </div>
           <span className="font-body text-xs text-charcoal/60 leading-relaxed">
             Нажимая кнопку, я даю{" "}
-            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">согласие</span>
+            <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/e449b9aa-f386-4372-9df4-7df5af7157f1.pdf" target="_blank" rel="noopener noreferrer" className="text-gold border-b border-gold/40 hover:border-gold transition-colors">согласие</a>
             {" "}на обработку моих персональных данных в соответствии с{" "}
-            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">Положением об обработке и защите персональных данных</span>
+            <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f6199100-bb79-4c6f-a8be-5ab99204cff6.pdf" target="_blank" rel="noopener noreferrer" className="text-gold border-b border-gold/40 hover:border-gold transition-colors">Политикой конфиденциальности</a>
           </span>
         </label>
 
@@ -230,7 +230,7 @@ function ApplicationForm() {
           </div>
           <span className="font-body text-xs text-charcoal/60 leading-relaxed">
             Нажимая кнопку, я даю{" "}
-            <span className="text-gold border-b border-gold/40 cursor-pointer hover:border-gold transition-colors">согласие</span>
+            <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/e0a87339-ae07-40b7-a392-5799a00de9ee.pdf" target="_blank" rel="noopener noreferrer" className="text-gold border-b border-gold/40 hover:border-gold transition-colors">согласие</a>
             {" "}на получение рекламной и информационной рассылки
           </span>
         </label>
