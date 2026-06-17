@@ -1089,20 +1089,13 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Партнёры</span>
           <div className="section-divider mt-4 mb-16" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-            {[
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg", alt: "Савкина Центр", label: "Продюсерский центр", featured: false, href: "https://савкинацентр.рф" },
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg", alt: "Я Бренд ДВ", label: "Организатор премии", featured: true, href: "https://савкинацентр.рф/page96391706.html" },
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png", alt: "Источник силы", label: "Бизнес-клуб", featured: false, href: "https://савкинацентр.рф/page96392766.html" },
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eb3f94dc-e742-49f5-8693-f1442c219b96.png", alt: "Синхрон", label: "Автоматизация бизнеса", featured: false, href: null },
-            ].map(({ src, alt, label, featured, href }) => (
-              <div key={alt} className="flex flex-col items-center gap-3">
-                <a href={href ?? undefined} target={href ? "_blank" : undefined} rel="noopener noreferrer" className={`w-full aspect-square bg-white flex items-center justify-center p-4 transition-colors duration-300 ${href ? "cursor-pointer" : "cursor-default"} ${featured ? "border-2 border-gold/50 hover:border-gold" : "border border-gold/20 hover:border-gold/50"}`}>
-                  <img src={src} alt={alt} className="w-full h-full object-contain" />
-                </a>
-                <p className="font-body text-[10px] text-charcoal/50 tracking-widest uppercase text-center">{label}</p>
+          <div className="flex justify-center mb-16">
+            <div className="flex flex-col items-center gap-3 w-48">
+              <div className="w-full aspect-square bg-white border border-gold/20 flex items-center justify-center p-4">
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eb3f94dc-e742-49f5-8693-f1442c219b96.png" alt="Синхрон" className="w-full h-full object-contain" />
               </div>
-            ))}
+              <p className="font-body text-[10px] text-charcoal/50 tracking-widest uppercase text-center">Автоматизация бизнеса</p>
+            </div>
           </div>
           <a href="tel:+79243382021" className="btn-outline-gold-lg inline-block">Стать партнером</a>
         </div>
