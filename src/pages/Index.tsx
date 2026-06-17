@@ -1067,17 +1067,20 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Организаторы</span>
           <div className="section-divider mt-4 mb-16" />
-          <div className="flex flex-col sm:flex-row items-center sm:items-stretch justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-stretch justify-center gap-6">
             {[
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg", alt: "Савкина Центр", label: "Продюсерский центр", featured: false, href: "https://савкинацентр.рф" },
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg", alt: "Я Бренд ДВ", label: "Организатор премии", featured: true, href: "https://савкинацентр.рф/page96391706.html" },
-              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png", alt: "Источник силы", label: "Бизнес-клуб", featured: false, href: "https://савкинацентр.рф/page96392766.html" },
-            ].map(({ src, alt, label, featured, href }) => (
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/dbfa7573-636d-4b22-a202-0cc95d840e88.jpg", alt: "Савкина Центр", label: "Савкина Центр", desc: "Продюсерский центр и центр продвижения креативных индустрий", featured: false, href: "https://савкинацентр.рф" },
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6fcfb3d3-f1e1-4789-b7c1-4f6b825b5cb2.jpg", alt: "Я Бренд ДВ", label: "Я Бренд ДВ", desc: "Проект записи подкастов экспертов и предпринимателей", featured: true, href: "https://савкинацентр.рф/page96391706.html" },
+              { src: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/64a3c196-80ab-4092-b2a0-d2f9dba55585.png", alt: "Источник силы", label: "Источник Силы", desc: "Бизнес-клуб для женщин-предпринимателей", featured: false, href: "https://савкинацентр.рф/page96392766.html" },
+            ].map(({ src, alt, label, desc, featured, href }) => (
               <div key={alt} className="flex flex-col items-center gap-4 w-full sm:flex-1 max-w-[280px]">
                 <a href={href} target="_blank" rel="noopener noreferrer" className={`w-full aspect-[4/3] bg-white flex items-center justify-center p-5 transition-colors duration-300 ${featured ? "border-2 border-gold/50 hover:border-gold" : "border border-gold/20 hover:border-gold/50"}`}>
                   <img src={src} alt={alt} className="w-full h-full object-contain" />
                 </a>
-                <p className="font-body text-xs text-charcoal/50 tracking-widest uppercase">{label}</p>
+                <div className="text-center">
+                  <p className="font-body text-xs font-semibold text-charcoal tracking-widest uppercase mb-1">{label}</p>
+                  <p className="font-body text-xs text-charcoal/45 leading-relaxed">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
