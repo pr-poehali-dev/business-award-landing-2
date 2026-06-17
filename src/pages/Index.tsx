@@ -919,8 +919,11 @@ export default function Index() {
           <div className="grid grid-cols-2 gap-4 sm:hidden">
             {nominantsPlaceholders.map((n, i) => (
               <div key={i} className="bg-white card-premium text-center overflow-hidden">
-                <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/20 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative">
-                  <Icon name="User" size={36} className="text-gold/30" />
+                <div className="w-full aspect-[3/4] border-b border-gold/20 relative overflow-hidden">
+                  {n.photo
+                    ? <img src={n.photo} alt={n.name} className="w-full h-full object-cover object-top" />
+                    : <div className="w-full h-full bg-gradient-to-br from-gold/20 to-charcoal/5 flex items-center justify-center"><Icon name="User" size={36} className="text-gold/30" /></div>
+                  }
                 </div>
                 <div className="p-3">
                   <h3 className="font-display text-sm font-semibold text-charcoal mb-0.5 leading-tight">{n.name}</h3>
@@ -933,8 +936,11 @@ export default function Index() {
             <div className="flex gap-6 w-max">
               {nominantsPlaceholders.map((n, i) => (
                 <div key={i} className="w-56 shrink-0 bg-white card-premium text-center overflow-hidden">
-                  <div className="w-full aspect-[3/4] bg-gradient-to-br from-gold/20 to-charcoal/5 border-b border-gold/20 flex items-center justify-center relative shimmer">
-                    <Icon name="User" size={52} className="text-gold/30 float-slow" />
+                  <div className="w-full aspect-[3/4] border-b border-gold/20 relative overflow-hidden">
+                    {n.photo
+                      ? <img src={n.photo} alt={n.name} className="w-full h-full object-cover object-top" />
+                      : <div className="w-full h-full bg-gradient-to-br from-gold/20 to-charcoal/5 flex items-center justify-center shimmer"><Icon name="User" size={52} className="text-gold/30 float-slow" /></div>
+                    }
                     <div className="absolute bottom-3 left-3 w-6 h-6 border-l-2 border-t-2 border-gold/40" />
                     <div className="absolute top-3 right-3 w-6 h-6 border-r-2 border-b-2 border-gold/40" />
                   </div>
