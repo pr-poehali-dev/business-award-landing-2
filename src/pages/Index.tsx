@@ -68,7 +68,23 @@ const juryPlaceholders = [
   },
 ];
 
-const nominantsPlaceholders = Array(8).fill({ name: "Участник премии", role: "" });
+const nominantsPlaceholders = [
+  {
+    name: "Алёна Дмитриева",
+    role: "Эксперт по личному бренду и продвижению через видеоконтент. Основатель АС.Дмитриева «Фабрика контента»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/873db33a-7d81-4686-adff-8ff0dbfce63a.jpg",
+  },
+  {
+    name: "Лидия Болсуновская",
+    role: "Тренер по работе с мозгом",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/621cb958-d8fa-4e6a-9c66-1aa3ac01addc.jpg",
+  },
+  {
+    name: "Ольга Захарченко",
+    role: "Руководитель студии балета и растяжки LEVITA",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/47b21fc3-1872-44ac-95ff-94bbb4c3d698.jpg",
+  },
+];
 
 const programItems = [
   { time: "17:30", emoji: "🫧", title: "Зона приветствия", desc: "Регистрация гостей, фуршет, живая музыка, нетворкинг-сессия" },
