@@ -1161,6 +1161,34 @@ export default function Index() {
             </p>
           </div>
           <ApplicationForm />
+
+          {/* ── СОЦСЕТИ ── */}
+          <div className="mt-10 border border-gold/20 p-8 text-center">
+            <p className="font-body text-xs tracking-[0.3em] text-gold uppercase mb-6">Следите за премией</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://t.me/biznespremya"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 border border-gold/40 px-8 py-4 hover:border-gold hover:bg-gold-subtle transition-all duration-300 group"
+              >
+                <Icon name="Send" size={18} className="text-gold" />
+                <span className="font-body text-sm font-medium text-charcoal group-hover:text-gold transition-colors tracking-wide">Telegram-канал</span>
+              </a>
+              <a
+                href="https://www.instagram.com/biznes_premiya_ibrend_dv?igsh=eTdrMGdxemNocnZi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 border border-gold/40 px-8 py-4 hover:border-gold hover:bg-gold-subtle transition-all duration-300 group"
+              >
+                <Icon name="Instagram" size={18} className="text-gold" />
+                <span className="font-body text-sm font-medium text-charcoal group-hover:text-gold transition-colors tracking-wide">Instagram*</span>
+              </a>
+            </div>
+            <p className="font-body text-[10px] text-charcoal/35 mt-5 leading-relaxed max-w-sm mx-auto">
+              * Instagram запрещён на территории РФ. Компания Meta признана экстремистской организацией.
+            </p>
+          </div>
         </div>
       </section>
 
