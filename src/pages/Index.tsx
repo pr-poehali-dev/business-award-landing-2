@@ -1087,6 +1087,23 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── ГЕНЕРАЛЬНЫЙ ПАРТНЁР ── */}
+      <section className="py-20 px-6 bg-gold-subtle">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Генеральный партнёр</span>
+          <div className="section-divider mt-4 mb-14" />
+          <div className="flex flex-col sm:flex-row items-center gap-10 max-w-2xl mx-auto text-left">
+            <div className="shrink-0 w-44 h-44 bg-white border border-gold/20 flex items-center justify-center p-4">
+              <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/e9bff95c-b0e4-4da2-b6a4-3b6e3141d9ab.png" alt="KONKRETDOM" className="w-full h-full object-contain" />
+            </div>
+            <div>
+              <p className="font-display text-xl font-semibold text-charcoal tracking-widest uppercase mb-3">KONKRETDOM</p>
+              <p className="font-body text-sm text-charcoal/60 leading-relaxed">Ремонт квартир и домов под ключ в Находке с опытом более 10 лет и 300+ реализованных проектов. Полный цикл работ: от замеров и сметы до сдачи готового объекта. Поэтапная оплата по договору, проверенные партнёры и контроль качества на каждом этапе.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── ПАРТНЕРЫ ── */}
       <section id="partners" className="bg-gold-subtle py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
