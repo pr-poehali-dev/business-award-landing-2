@@ -1021,6 +1021,64 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ── ЭТАПЫ УЧАСТИЯ ── */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Как принять участие</span>
+            <div className="section-divider mt-4 mb-6" />
+            <h2 className="font-display text-2xl sm:text-3xl font-light text-charcoal tracking-wide uppercase">Этапы участия в номинации</h2>
+          </div>
+
+          <div className="relative">
+            <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gold/20 hidden sm:block" />
+            <div className="flex flex-col gap-8">
+              {[
+                { n: "01", title: "Заявка на премию", note: null },
+                { n: "02", title: "Оплата номинации", note: null },
+                { n: "03", title: "Заполнение анкеты номинанта", note: "Дедлайн: до 30.06.2026, 23:59 (местное время)\n* Анкету направит организатор после оплаты" },
+                { n: "04", title: "Оценка конкурсной комиссией", note: null },
+                { n: "05", title: "Торжественное награждение", note: null },
+              ].map(({ n, title, note }) => (
+                <div key={n} className="flex gap-6 items-start sm:pl-2">
+                  <div className="shrink-0 w-9 h-9 border border-gold/50 flex items-center justify-center bg-white z-10">
+                    <span className="font-display text-[10px] text-gold tracking-widest">{n}</span>
+                  </div>
+                  <div className="pt-1">
+                    <p className="font-body text-base font-medium text-charcoal">Этап {parseInt(n)}. {title}</p>
+                    {note && (
+                      <p className="font-body text-xs text-charcoal/50 mt-1 leading-relaxed whitespace-pre-line">{note}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="font-body text-xs text-charcoal/45 text-center mt-12 leading-relaxed">
+            Победители определяются по критериям оценки проекта из Положения
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <a
+              href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/4f358175-013b-474c-b515-632038591249.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 border border-gold/40 px-8 py-4 font-body text-sm font-medium text-charcoal hover:border-gold hover:bg-gold-subtle transition-all duration-300 tracking-wide"
+            >
+              <Icon name="FileText" size={16} className="text-gold" />
+              Положение
+            </a>
+            <button
+              onClick={() => scrollTo("#apply")}
+              className="btn-gold-lg"
+            >
+              Подать заявку
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* ── ПРОГРАММА ── */}
       <section id="program" className="py-24 px-6 bg-[#fafaf8] relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
