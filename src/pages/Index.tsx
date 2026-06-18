@@ -84,6 +84,16 @@ const nominantsPlaceholders = [
     role: "Руководитель студии балета и растяжки LEVITA",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/47b21fc3-1872-44ac-95ff-94bbb4c3d698.jpg",
   },
+  {
+    name: "Дмитрий Матвеюк",
+    role: "Основатель сети химчисток и прачечных «Пятен нет» в Приморском крае",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/5da9e80d-20ab-4242-b894-d90c4edf742a.jpg",
+  },
+  {
+    name: "Андрей Сорокин",
+    role: "Финансовый консультант",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/25ab85cd-5605-447c-bb58-1165a499bd2b.jpg",
+  },
 ];
 
 const programItems = [
