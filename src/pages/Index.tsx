@@ -1190,7 +1190,7 @@ export default function Index() {
             <p className="font-body text-xs tracking-[0.3em] text-gold uppercase mb-6">Следите за премией</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://t.me/biznespremya"
+                href="https://t.me/biznespremia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 border border-gold/40 px-8 py-4 hover:border-gold hover:bg-gold-subtle transition-all duration-300 group"
