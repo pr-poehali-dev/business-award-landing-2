@@ -1373,6 +1373,9 @@ export default function Index() {
               Организатор: продюсерский центр «Савкина Центр»
             </p>
           </div>
+          <div className="text-center mt-6">
+            <p className="font-body text-[10px] text-white/15 tracking-wide">Сайт создан компанией Синхрон</p>
+          </div>
         </div>
       </footer>
 
