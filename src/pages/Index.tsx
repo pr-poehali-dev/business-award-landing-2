@@ -148,6 +148,89 @@ const NOMINATIONS_LIST = [
   "Вклад в будущее Находки: партнер года 2025",
 ];
 
+function GuestForm() {
+  const [form, setForm] = useState({ name: "", phone: "", email: "", tickets: "1" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [error, setError] = useState("");
+  const [consent, setConsent] = useState(false);
+
+  const set = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+    setForm(prev => ({ ...prev, [field]: e.target.value }));
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setError("");
+    try {
+      const res = await fetch("https://functions.poehali.dev/02f1290d-490b-4880-9d61-5db05f58db9e", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) { setError(data.error || "Ошибка отправки"); setStatus("error"); return; }
+      setStatus("success");
+    } catch {
+      setError("Ошибка соединения. Попробуйте ещё раз."); setStatus("error");
+    }
+  };
+
+  const inputCls = "w-full border border-charcoal/15 px-4 py-3 font-body text-sm text-charcoal placeholder-charcoal/35 focus:outline-none focus:border-gold transition-colors duration-200 bg-white";
+
+  if (status === "success") return (
+    <div className="border border-gold/30 p-12 text-center">
+      <div className="w-14 h-14 border border-gold flex items-center justify-center mx-auto mb-6">
+        <Icon name="Check" size={24} className="text-gold" />
+      </div>
+      <h3 className="font-display text-2xl font-light text-charcoal mb-3">Заявка отправлена!</h3>
+      <p className="font-body text-sm text-charcoal/60">Мы свяжемся с вами для подтверждения и оплаты</p>
+    </div>
+  );
+
+  return (
+    <form onSubmit={submit} className="border border-gold/20 p-8 md:p-12">
+      <div className="grid md:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Имя и фамилия *</label>
+          <input value={form.name} onChange={set("name")} placeholder="Иванова Анна" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Телефон *</label>
+          <input value={form.phone} onChange={set("phone")} placeholder="+7 900 000 00 00" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Email *</label>
+          <input type="email" value={form.email} onChange={set("email")} placeholder="email@example.com" className={inputCls} required />
+        </div>
+        <div>
+          <label className="font-body text-xs tracking-widest uppercase text-charcoal/50 mb-2 block">Сколько билетов хотите приобрести? *</label>
+          <select value={form.tickets} onChange={set("tickets")} className={inputCls} required>
+            {["1","2","3","4","5"].map(n => <option key={n} value={n}>{n} {n === "1" ? "билет" : n === "2" || n === "3" || n === "4" ? "билета" : "билетов"}</option>)}
+          </select>
+        </div>
+      </div>
+      {error && <p className="font-body text-xs text-red-500 mb-4">{error}</p>}
+      <div className="flex flex-col gap-4 mb-6">
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <div
+            onClick={() => setConsent(!consent)}
+            className={`mt-0.5 w-5 h-5 shrink-0 border-2 flex items-center justify-center transition-colors duration-200 ${consent ? "border-gold bg-gold" : "border-charcoal/25 group-hover:border-gold/60"}`}
+          >
+            {consent && <Icon name="Check" size={12} className="text-white" />}
+          </div>
+          <span className="font-body text-xs text-charcoal/60 leading-relaxed">
+            Нажимая кнопку, я даю согласие на обработку моих персональных данных в соответствии с{" "}
+            <a href="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/f6199100-bb79-4c6f-a8be-5ab99204cff6.pdf" target="_blank" rel="noopener noreferrer" className="text-gold border-b border-gold/40 hover:border-gold transition-colors">Политикой конфиденциальности</a>
+          </span>
+        </label>
+      </div>
+      <button type="submit" disabled={status === "loading" || !consent} className="btn-gold-lg w-full disabled:opacity-40 disabled:cursor-not-allowed">
+        {status === "loading" ? "Отправка..." : "Подать заявку"}
+      </button>
+    </form>
+  );
+}
+
 function ApplicationForm() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", company: "", nomination: "", about: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -1290,6 +1373,23 @@ export default function Index() {
               * Instagram запрещён на территории РФ. Компания Meta признана экстремистской организацией.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── СТАТЬ ГОСТЕМ ── */}
+      <section id="guest" className="py-24 px-6 bg-[#fafaf8]">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Билеты на мероприятие</span>
+            <div className="section-divider mt-4 mb-8" />
+            <h2 className="font-display text-4xl md:text-5xl font-light text-charcoal leading-tight">
+              Стать<em className="text-gold"> гостем</em>
+            </h2>
+            <p className="font-body text-sm text-charcoal/60 mt-4 max-w-xl mx-auto leading-relaxed">
+              Оставьте заявку — мы свяжемся с вами для подтверждения и оплаты
+            </p>
+          </div>
+          <GuestForm />
         </div>
       </section>
 
