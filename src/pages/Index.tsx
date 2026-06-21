@@ -94,6 +94,26 @@ const nominantsPlaceholders = [
     role: "Финансовый консультант",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/25ab85cd-5605-447c-bb58-1165a499bd2b.jpg",
   },
+  {
+    name: "Павел Кашкин",
+    role: "Сооснователь и генеральный директор компании «Omi — сантехника для дома»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7958eae9-82f9-42fa-8615-727709c148a4.jpg",
+  },
+  {
+    name: "Ирина Ляне",
+    role: "Дипломированный мастер перманентного макияжа и SMP-трихопигментации",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/b2c96330-c11f-4d28-98a9-64d122fcebcc.jpg",
+  },
+  {
+    name: "Марина Шмакова",
+    role: "Визажист, стилист, фотограф и креатор",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c1a0c06e-2f4f-49e6-8207-a6689206dc82.jpg",
+  },
+  {
+    name: "Татьяна Ильиных",
+    role: "Фотограф. Дипломированный специалист",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c82b677c-f724-415e-9bdf-26e77f7278d9.jpg",
+  },
 ];
 
 const programItems = [
