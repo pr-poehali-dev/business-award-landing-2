@@ -1300,7 +1300,10 @@ export default function Index() {
               <div className="w-56 h-56 bg-white border border-gold/20 flex items-center justify-center p-4">
                 <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eb3f94dc-e742-49f5-8693-f1442c219b96.png" alt="Синхрон" className="w-full h-full object-contain" />
               </div>
-              <p className="font-body text-[10px] text-charcoal/50 tracking-widest uppercase text-center">Автоматизация бизнеса</p>
+              <p className="font-body text-sm font-semibold text-charcoal tracking-wider text-center mb-1">Синхрон</p>
+              <p className="font-body text-xs text-charcoal/60 leading-relaxed text-center">
+                Компания Синхрон занимается внедрением инструментов автоматизации бизнеса, CRM, ИИ-агентов, упаковкой бизнеса, выводящей из операционки. Все визуальные ресурсы премии были упакованы Синхроном.
+              </p>
             </div>
             <div className="flex flex-col items-center gap-3 w-56">
               <div className="w-56 h-56 bg-white border border-gold/20 flex items-center justify-center p-4">
