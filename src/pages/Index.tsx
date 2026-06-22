@@ -114,6 +114,21 @@ const nominantsPlaceholders = [
     role: "Фотограф. Дипломированный специалист",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c1a0c06e-2f4f-49e6-8207-a6689206dc82.jpg",
   },
+  {
+    name: "Надежда Надейкина",
+    role: "Руководитель эффективного восстановления и укрепления здоровья детей ОВЗ «ШагАй»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/1fd61a90-9ab2-4fda-b83f-23630fdd95c3.jpeg",
+  },
+  {
+    name: "Ольга Габидулина",
+    role: "Директор ресторана «Меркурий», PR-директор гостиницы «Меркурий»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/2d184e46-5854-4e49-b05e-f4edbf051517.jpeg",
+  },
+  {
+    name: "Руслан и Инна Имаевы",
+    role: "Основатели семейного бизнеса — бюро недвижимости «Альдера»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/317ae5f8-b91e-41c3-876b-d6ca2f04d89c.jpeg",
+  },
 ];
 
 const programItems = [
