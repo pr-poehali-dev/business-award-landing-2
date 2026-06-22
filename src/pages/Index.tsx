@@ -107,12 +107,12 @@ const nominantsPlaceholders = [
   {
     name: "Марина Шмакова",
     role: "Визажист, стилист, фотограф и креатор",
-    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c1a0c06e-2f4f-49e6-8207-a6689206dc82.jpg",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c82b677c-f724-415e-9bdf-26e77f7278d9.jpg",
   },
   {
     name: "Татьяна Ильиных",
     role: "Фотограф. Дипломированный специалист",
-    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c82b677c-f724-415e-9bdf-26e77f7278d9.jpg",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/c1a0c06e-2f4f-49e6-8207-a6689206dc82.jpg",
   },
 ];
 
