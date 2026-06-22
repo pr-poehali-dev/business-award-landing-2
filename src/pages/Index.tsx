@@ -1295,7 +1295,15 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="font-body text-xs tracking-[0.3em] text-gold uppercase">Партнёры</span>
           <div className="section-divider mt-4 mb-16" />
-          <div className="flex justify-center mb-16">
+          <div className="flex flex-wrap justify-center gap-10 mb-16">
+            <div className="flex flex-col items-center gap-4 w-64">
+              <div className="w-full aspect-square bg-white border border-gold/20 flex items-center justify-center p-4">
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/30bcde2f-65a0-47d4-b68b-46cfca39a57f.jpeg" alt="Doctor Frey" className="w-full h-full object-contain" />
+              </div>
+              <p className="font-body text-xs text-charcoal/60 leading-relaxed text-center">
+                Инновационные решения для вашей красоты! Премиальная косметика с натуральными компонентами — гармония эффективности и безопасности. Передовые технологии, экологичность и забота о каждом клиенте.
+              </p>
+            </div>
             <div className="flex flex-col items-center gap-3 w-48">
               <div className="w-full aspect-square bg-white border border-gold/20 flex items-center justify-center p-4">
                 <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/eb3f94dc-e742-49f5-8693-f1442c219b96.png" alt="Синхрон" className="w-full h-full object-contain" />
