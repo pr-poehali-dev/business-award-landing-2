@@ -129,6 +129,21 @@ const nominantsPlaceholders = [
     role: "Основатели семейного бизнеса — бюро недвижимости «Альдера»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/317ae5f8-b91e-41c3-876b-d6ca2f04d89c.jpeg",
   },
+  {
+    name: "Юлия Суставова",
+    role: "Ведущий специалист Первого Визового центра г. Находка",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/06e6b9df-ca3c-4310-bf89-40d57ced2680.jpg",
+  },
+  {
+    name: "Наталья Дондюк",
+    role: "Основатель библиотеки материалов «СреДа», идейный вдохновитель",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/33a1983d-9895-4440-899a-4d6d2bd25a1a.jpg",
+  },
+  {
+    name: "Ольга Ковальчук",
+    role: "Директор рекламного агентства «Вирго-груп»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/13990a72-4851-42bb-9461-247e4de1c2ed.jpg",
+  },
 ];
 
 const programItems = [
