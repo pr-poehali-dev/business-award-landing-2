@@ -149,6 +149,16 @@ const nominantsPlaceholders = [
     role: "Директор рекламного агентства «Вирго-груп»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/13990a72-4851-42bb-9461-247e4de1c2ed.jpg",
   },
+  {
+    name: "Галина Божко",
+    role: "Владелица салона «Божко. Мебель и интерьер», дизайнер, индивидуальный предприниматель",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/89e79b98-96c7-4c3b-a555-4fbde3b37ce7.jpg",
+  },
+  {
+    name: "Наталья Луговская",
+    role: "Основатель и специалист по работе с телом. Студия массажа и восстановления тела «Sтать»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/0424a74e-bafa-4f93-890e-1af1918ba5c0.jpg",
+  },
 ];
 
 const programItems = [
