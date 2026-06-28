@@ -1337,6 +1337,15 @@ export default function Index() {
             </div>
             <div className="flex flex-col items-center gap-3 w-56">
               <div className="w-56 h-56 bg-white border border-gold/20 flex items-center justify-center p-4">
+                <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/b2b4e6d1-3b87-43bd-a1ed-ba9989acf101.png" alt="Семья Партнёров" className="w-full h-full object-contain" />
+              </div>
+              <p className="font-body text-sm font-semibold text-charcoal tracking-wider text-center mb-1">Семья Партнёров</p>
+              <p className="font-body text-xs text-charcoal/60 leading-relaxed text-center">
+                Сервис недвижимости полного цикла: от первой консультации до финальной уборки после сделки. Клиенту не нужно ни о чём беспокоиться — всё решают за него, но строго по его запросу.
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-3 w-56">
+              <div className="w-56 h-56 bg-white border border-gold/20 flex items-center justify-center p-4">
                 <img src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/30bcde2f-65a0-47d4-b68b-46cfca39a57f.jpeg" alt="Doctor Frey" className="w-full h-full object-contain" />
               </div>
               <p className="font-body text-sm font-semibold text-charcoal tracking-wider text-center mb-1">DOCTOR FREY</p>
