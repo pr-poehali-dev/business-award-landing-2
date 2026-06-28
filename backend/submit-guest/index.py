@@ -1,5 +1,6 @@
 import json
 import os
+import psycopg2
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -27,6 +28,18 @@ def handler(event: dict, context) -> dict:
             'headers': headers,
             'body': json.dumps({'error': 'Заполните все обязательные поля'})
         }
+
+    conn = psycopg2.connect(os.environ['DATABASE_URL'])
+    cur = conn.cursor()
+    cur.execute(
+        """INSERT INTO t_p17302868_business_award_landi.guest_applications
+           (name, phone, email, tickets)
+           VALUES (%s, %s, %s, %s)""",
+        (name, phone, email, tickets)
+    )
+    conn.commit()
+    cur.close()
+    conn.close()
 
     smtp_user = 'savkina.tsentr@mail.ru'
     smtp_password = os.environ['MAIL']
