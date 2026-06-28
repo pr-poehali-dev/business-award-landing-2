@@ -179,6 +179,16 @@ const nominantsPlaceholders = [
     role: "Основатель ветеринарной клиники «Совушка»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7935d18c-9dee-4e83-869c-02950b010010.jpg",
   },
+  {
+    name: "Ирина Барсукова",
+    role: "Специалист в эстетической косметологии, создатель авторских программ ухода за кожей и собственного бренда профессиональной косметики с гиалуроновой кислотой",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/8d465063-42d9-4df6-9872-94c397d631cb.jpg",
+  },
+  {
+    name: "Ксения Бойко",
+    role: "Мастер по дереву, декоратор, создатель арт-объектов",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/a36a72f0-045e-4d09-b1c2-cc3619a916a8.jpg",
+  },
 ];
 
 const programItems = [
