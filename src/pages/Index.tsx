@@ -159,6 +159,26 @@ const nominantsPlaceholders = [
     role: "Основатель и специалист по работе с телом. Студия массажа и восстановления тела «Sтать»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/0424a74e-bafa-4f93-890e-1af1918ba5c0.jpg",
   },
+  {
+    name: "Мария Змачинская",
+    role: "Генеральный директор ветеринарной клиники «Котопёс», терапевт, хирург",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/fd64de05-390b-4696-ab3a-3173e2ae0c2b.jpg",
+  },
+  {
+    name: "Анна Хрячкова",
+    role: "Основатель сети школ иностранных языков PandaFamily, китаист, эксперт по поступлению в университеты Китая",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/a653eb53-8cfa-486f-b4f1-c91cf5e04eec.jpg",
+  },
+  {
+    name: "Татьяна Белова",
+    role: "Профориентолог. Партнёр международной школы выбора профессии «Пункт Б»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/9994e9d1-6d03-4290-aa7c-8378ceb78dd4.jpg",
+  },
+  {
+    name: "Ольга Сова",
+    role: "Основатель ветеринарной клиники «Совушка»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7935d18c-9dee-4e83-869c-02950b010010.jpg",
+  },
 ];
 
 const programItems = [
