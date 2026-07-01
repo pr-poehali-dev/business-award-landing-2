@@ -476,6 +476,72 @@ function ApplicationForm() {
   );
 }
 
+function CountdownSection() {
+  const DEADLINE = new Date("2025-07-05T23:59:59");
+
+  const calc = () => {
+    const diff = DEADLINE.getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, done: true };
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+    return { days, hours, minutes, seconds, done: false };
+  };
+
+  const [time, setTime] = useState(calc);
+
+  useEffect(() => {
+    const id = setInterval(() => setTime(calc()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const pad = (n: number) => String(n).padStart(2, "0");
+
+  const units = [
+    { value: time.days, label: "дней" },
+    { value: time.hours, label: "часов" },
+    { value: time.minutes, label: "минут" },
+    { value: time.seconds, label: "секунд" },
+  ];
+
+  return (
+    <section className="py-20 px-6 bg-charcoal text-center">
+      <div className="max-w-3xl mx-auto">
+        <p className="font-body text-sm tracking-widest uppercase text-gold/70 mb-4">Успей подать заявку</p>
+        <h2 className="font-display text-3xl md:text-4xl font-light text-white mb-10 leading-tight">
+          {time.done ? "Приём заявок завершён" : "Заявки принимаются ещё..."}
+        </h2>
+        {!time.done && (
+          <div className="flex items-center justify-center gap-4 md:gap-8">
+            {units.map(({ value, label }, i) => (
+              <div key={label} className="flex items-center gap-4 md:gap-8">
+                <div className="flex flex-col items-center">
+                  <span className="font-display text-5xl md:text-7xl font-light text-gold tabular-nums leading-none">
+                    {pad(value)}
+                  </span>
+                  <span className="font-body text-xs tracking-widest uppercase text-white/40 mt-2">{label}</span>
+                </div>
+                {i < units.length - 1 && (
+                  <span className="font-display text-3xl md:text-5xl text-gold/40 mb-4">:</span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="mt-10">
+          <button
+            onClick={() => document.querySelector("#apply")?.scrollIntoView({ behavior: "smooth" })}
+            className="btn-gold-lg"
+          >
+            Подать заявку сейчас
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -1037,6 +1103,9 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {/* ── СЧЁТЧИК ОБРАТНОГО ОТСЧЁТА ── */}
+      <CountdownSection />
 
       {/* ── ВЫБОР ПОБЕДИТЕЛЕЙ ── */}
       <section className="relative py-24 px-6 text-center overflow-hidden bg-gold-subtle">
