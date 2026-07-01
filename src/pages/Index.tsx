@@ -189,6 +189,31 @@ const nominantsPlaceholders = [
     role: "Мастер по дереву, декоратор, создатель арт-объектов",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/a36a72f0-045e-4d09-b1c2-cc3619a916a8.jpg",
   },
+  {
+    name: "Екатерина Тагильцева",
+    role: "Универсальный мастер: наращивание ресниц, сахарная депиляция, перманентный макияж губ и бровей",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/95d6973c-ef55-4feb-ac9f-09db9e6612d9.jpg",
+  },
+  {
+    name: "Юлия Петенко и Юлия Баранова",
+    role: "Основатели агентства недвижимости «Город у моря», эксперты по недвижимости",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/ce0ae486-5dea-4843-9f15-d907d5ee4dcc.jpg",
+  },
+  {
+    name: "Наталия Невейкина",
+    role: "Директор клинингового сервиса «Кислород»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/368b2bdb-1020-4d20-98db-ac87d2d7e3a9.jpg",
+  },
+  {
+    name: "Юлия Наумычева",
+    role: "Основатель цветочной студии «Богиня Роз»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/920f08a3-2e28-4f61-bac8-135c3c383f48.jpg",
+  },
+  {
+    name: "Алёна Синельникова, Александра Кокосова и Алла Бескровная",
+    role: "Основатели агентства недвижимости «Продом»",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/cff257f7-3d25-43ef-b2e6-49a69ccb1b67.jpg",
+  },
 ];
 
 const programItems = [
