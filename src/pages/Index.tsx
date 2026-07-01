@@ -214,6 +214,26 @@ const nominantsPlaceholders = [
     role: "Основатели агентства недвижимости «Продом»",
     photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/cff257f7-3d25-43ef-b2e6-49a69ccb1b67.jpg",
   },
+  {
+    name: "Юлия Рахматулина",
+    role: "Директор турагентства «Грация Тревел», эксперт в туризме с опытом более 15 лет",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/7b926138-2b13-4454-bff0-4849febd9189.jpg",
+  },
+  {
+    name: "Светлана Картёшкина",
+    role: "HR и бизнес-тренер, эксперт по выстраиванию бизнес-процессов, фасилитатор, архитектор обучающих программ, дипломированный специалист по эмоциональному интеллекту",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/2c395203-be21-4611-bb8f-fbfc5a731d22.jpg",
+  },
+  {
+    name: "Алина Артемьева",
+    role: "Основатель бутика MY prime",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/908b6c97-ad6b-4433-8a0b-6444994abb17.jpg",
+  },
+  {
+    name: "Наталья Кривощёкова",
+    role: "Основатель студии О'блик",
+    photo: "https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/8822480c-b910-4922-a48e-18798d52a38a.jpg",
+  },
 ];
 
 const programItems = [
