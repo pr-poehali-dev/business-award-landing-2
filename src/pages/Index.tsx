@@ -1050,19 +1050,13 @@ export default function Index() {
       {/* ── TICKER 2 (информационный партнёр) ── */}
       <div className="bg-white py-3 overflow-hidden border-y border-gold/20">
         <div className="flex" style={{ animation: "ticker 40s linear infinite", width: "max-content" }}>
-          {Array(8).fill(null).map((_, i) => (
-            <div key={i} className="flex items-center shrink-0">
-              <img
-                src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/099ab988-f7e6-44bc-86f2-347009c86dab.svg"
-                alt="Логотип партнёра"
-                className="h-12 w-auto object-contain mx-12 shrink-0"
-              />
-              <img
-                src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6e609ba3-5671-4c4f-8bf9-c912547a4226.jpg"
-                alt="PRO TRAVEL"
-                className="h-12 w-auto object-contain mx-12 shrink-0"
-              />
-            </div>
+          {Array(10).fill(null).map((_, i) => (
+            <img
+              key={i}
+              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/099ab988-f7e6-44bc-86f2-347009c86dab.svg"
+              alt="Логотип партнёра"
+              className="h-12 w-auto object-contain mx-12 shrink-0"
+            />
           ))}
         </div>
       </div>
@@ -1531,6 +1525,13 @@ export default function Index() {
                   Слушайте в Находке на частоте <span className="text-gold font-semibold">87,6 FM</span>, а также в умных колонках от Яндекса, ВКонтакте и Сбера.
                 </p>
               </div>
+            </div>
+            <div className="w-full sm:w-48 shrink-0 flex items-center justify-center">
+              <img
+                src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6e609ba3-5671-4c4f-8bf9-c912547a4226.jpg"
+                alt="PRO TRAVEL"
+                className="w-40 h-auto object-contain rounded"
+              />
             </div>
           </div>
         </div>
