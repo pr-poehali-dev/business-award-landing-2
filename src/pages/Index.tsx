@@ -477,7 +477,7 @@ function ApplicationForm() {
 }
 
 function CountdownSection() {
-  const DEADLINE = new Date("2025-07-05T23:59:59");
+  const DEADLINE = new Date("2026-07-05T23:59:59");
 
   const calc = () => {
     const diff = DEADLINE.getTime() - Date.now();
