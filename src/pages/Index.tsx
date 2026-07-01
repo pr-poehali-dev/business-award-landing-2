@@ -1050,13 +1050,19 @@ export default function Index() {
       {/* ── TICKER 2 (информационный партнёр) ── */}
       <div className="bg-white py-3 overflow-hidden border-y border-gold/20">
         <div className="flex" style={{ animation: "ticker 40s linear infinite", width: "max-content" }}>
-          {Array(10).fill(null).map((_, i) => (
-            <img
-              key={i}
-              src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/099ab988-f7e6-44bc-86f2-347009c86dab.svg"
-              alt="Логотип"
-              className="h-12 w-auto object-contain mx-12 shrink-0"
-            />
+          {Array(8).fill(null).map((_, i) => (
+            <div key={i} className="flex items-center shrink-0">
+              <img
+                src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/099ab988-f7e6-44bc-86f2-347009c86dab.svg"
+                alt="Логотип партнёра"
+                className="h-12 w-auto object-contain mx-12 shrink-0"
+              />
+              <img
+                src="https://cdn.poehali.dev/projects/12e9a854-3fd5-400b-9c06-170c6e1dff34/bucket/6e609ba3-5671-4c4f-8bf9-c912547a4226.jpg"
+                alt="PRO TRAVEL"
+                className="h-12 w-auto object-contain mx-12 shrink-0"
+              />
+            </div>
           ))}
         </div>
       </div>
